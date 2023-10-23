@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['data_9',['data',['../structColumn.html#a3e00cd3717fcc452b9d79b873272b6a4',1,'Column']]],
+  ['dataframe_10',['DataFrame',['../structDataFrame.html',1,'']]],
+  ['datatype_11',['DataType',['../lecture__csv_8c.html#ad8ed01ff3ff33333d8e19db4d2818bb6',1,'DataType():&#160;lecture_csv.c'],['../lecture__csv_8h.html#ad8ed01ff3ff33333d8e19db4d2818bb6',1,'DataType():&#160;lecture_csv.h']]],
+  ['delimiter_12',['delimiter',['../structDataFrame.html#a373de6175ea36f3bb7e52579c40d381d',1,'DataFrame']]],
+  ['double_13',['DOUBLE',['../lecture__csv_8h.html#ad8ed01ff3ff33333d8e19db4d2818bb6a33465d1d419b1074fb259ef444609e92',1,'lecture_csv.h']]]
+];
