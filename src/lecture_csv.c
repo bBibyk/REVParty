@@ -267,6 +267,35 @@ typedef struct
 } DataFrame;
 
 /**
+ * @struct Item
+ * @brief Structure de données d'un item de series.
+ *
+ */
+typedef struct
+{
+    char *label;
+    enum DataType type;
+    union
+    {
+        int *int_value;
+        double *double_value;
+        time_t *timestamp_value;
+        char **string_value;
+    } value;
+} Item;
+
+/**
+ * @struct Series
+ * @brief Structure de données d'une series (une ligne d'un DataFrame)
+ *
+ */
+typedef struct
+{
+    int nb_items;
+    Item *items;
+} Series;
+
+/**
  * @fn static int getColumnIndex(DataFrame *df, char *column_name)
  * @brief Fonction de récupération de l'index d'une colonne
  * @param[in] df DataFrame
@@ -306,6 +335,19 @@ static void strToTimestamp(char *data, time_t *timestamp)
     tm.tm_min = atoi(minute);
     tm.tm_sec = atoi(second);
     *timestamp = mktime(&tm);
+}
+
+/**
+ * @fn static char *timestampToStr(time_t timestamp)
+ * @brief Fonction de conversion d'un timestamp en chaîne de caractères
+ * @param[in] time_t Timestamp
+ * @return char*
+ */
+static char *timestampToStr(time_t timestamp)
+{
+    char *str = malloc(sizeof(char) * 20);
+    strftime(str, 20, "%d/%m/%Y %H:%M:%S", localtime(&timestamp));
+    return str;
 }
 
 /**
@@ -465,9 +507,6 @@ static void allocDataMem(DataFrame *df, char **data)
 /**
  * @fn static void fillRow(DataFrame *df, char **data, int i)
  * @brief Fonction de remplissage d'une ligne d'un DataFrame
- * @author Essengue Matis
- * @date 23 octobre 2023
- *
  * @param[in, out] df DataFrame
  * @param[in] data char**
  * @param[in] i int
@@ -508,9 +547,6 @@ static void fillRow(DataFrame *df, char **data, int i)
 /**
  * @fn DataFrame *createDataFrameFromCsv(char *path)
  * @brief Fonction de création d'un DataFrame à partir d'un fichier CSV
- * @author Essengue Matis
- * @date 23 octobre 2023
- *
  * @param[in] path char*
  * @return DataFrame*
  */
@@ -553,9 +589,6 @@ DataFrame *createDataFrameFromCsv(char *path)
 /**
  * @fn void printDf(DataFrame *df)
  * @brief Fonction d'affichage d'un DataFrame dans la console
- * @author Essengue Matis
- * @date 23 octobre 2023
- *
  * @param[in] df DataFrame*
  *
  * @details Cette fonction permet d'afficher un DataFrame dans la console.
@@ -594,7 +627,7 @@ void printDf(DataFrame *df)
                 break;
             case TIMESTAMP:
                 timestamp_data = (time_t *)df->columns[col].data;
-                printf("%ld\t", timestamp_data[row]);
+                printf("%s\t", timestampToStr(timestamp_data[row]));
                 break;
             case STRING:
                 string_data = (char **)df->columns[col].data;
@@ -613,9 +646,6 @@ void printDf(DataFrame *df)
 /**
  * @fn int findColumn(DataFrame *df, char *column_name)
  * @brief Fonction de recherche d'une colonne dans un DataFrame à partir de son nom
- * @author Essengue Matis
- * @date 23 octobre 2023
- *
  * @param[in] df DataFrame*
  * @param[in] column_name char*
  * @return int
@@ -634,26 +664,24 @@ int findColumn(DataFrame *df, char *column_name)
 }
 
 /**
- * @fn bool isIn(DataFrame *df, char *column_name, char *value)
+ * @fn int isIn(DataFrame *df, char *column_name, char *value)
  * @brief Fonction de recherche d'une valeur dans une colonne d'un DataFrame à partir de son nom et de sa valeur (int, double ou string uniquement)
- * @author Essengue Matis
- * @date 23 octobre 2023
- *
  * @param[in] df DataFrame*
  * @param[in] column_name char*
  * @param[in] value char*
- * @return bool
+ * @return int
  *
  * @details Cette fonction permet de verifier si une valeur est présente dans une colonne d'un DataFrame.
+ *          Si elle est présente, la fonction retourne l'indice de la ligne, -1 sinon.
  * @note Si la colonne n'existe pas, la fonction retourne false.
  */
-bool isIn(DataFrame *df, char *column_name, char *value)
+int isIn(DataFrame *df, char *column_name, char *value)
 {
     int column_idx = findColumn(df, column_name);
     if (column_idx == -1)
     {
         fprintf(stderr, "La colonne %s n'existe pas\n", column_name);
-        return false;
+        return -1;
     }
 
     int *int_data;
@@ -668,30 +696,269 @@ bool isIn(DataFrame *df, char *column_name, char *value)
         case INT:
             int_data = (int *)df->columns[column_idx].data;
             if (int_data[i] == atoi(value))
-                return true;
+                return i;
             break;
         case DOUBLE:
             double_data = (double *)df->columns[column_idx].data;
             if (double_data[i] == atof(value))
-                return true;
+                return i;
             break;
         case TIMESTAMP:
             timestamp_data = (time_t *)df->columns[column_idx].data;
-            if (timestamp_data[i] == atol(value))
-                return true;
+            time_t test_value;
+            strToTimestamp(value, &test_value);
+            if (timestamp_data[i] == test_value)
+                return i;
             break;
         case STRING:
             string_data = (char **)df->columns[column_idx].data;
             if (strcmp(string_data[i], value) == 0)
-                return true;
+                return i;
+            break;
+        }
+    }
+
+    return -1;
+}
+
+/**
+ * @fn void getColumnsNames(DataFrame *df, char *columns_names[df->num_columns])
+ * @brief Fonction de récupération des noms des colonnes d'un DataFrame
+ * @param[in] df src
+ * @param[out] columns_names dest
+ */
+void getColumnsNames(DataFrame *df, char *columns_names[df->num_columns])
+{
+    for (int i = 0; i < df->num_columns; i++)
+        columns_names[i] = df->columns[i].name;
+}
+
+/**
+ * @fn Column dfSelect(DataFrame *df, char *column_name)
+ * @brief Fonction qui retourne une colonne d'un DataFrame à partir de son nom
+ * @param[in] df src
+ * @param[in] column_name nom de la colonne à récupérer
+ * @return Column
+ */
+Column dfSelect(DataFrame *df, char *column_name)
+{
+    int idx_column = findColumn(df, column_name);
+
+    if (idx_column == -1)
+    {
+        fprintf(stderr, "La colonne %s n'existe pas\n", column_name);
+        exit(1);
+    }
+
+    return df->columns[idx_column];
+}
+
+/**
+ * @fn Series getRow(DataFrame *df, char *column_name, char *value)
+ * @brief Fonction qui retourne une ligne d'un DataFrame à partir d'une des valeurs de la ligne
+ * @param[in] df src
+ * @param[in] column_name nom de la colonne à récupérer
+ * @param[in] value valeur de la colonne pour localiser la ligne
+ * @return Series
+ */
+Series getRow(DataFrame *df, char *column_name, char *value)
+{
+    int idx_row = isIn(df, column_name, value);
+
+    if (idx_row == -1)
+    {
+        fprintf(stderr, "La valeur %s n'existe pas dans la colonne %s\n", value, column_name);
+        exit(1);
+    }
+
+    Series row;
+    row.nb_items = df->num_columns;
+
+    Item *items = (Item *)malloc(sizeof(Item) * row.nb_items);
+    for (int i = 0; i < row.nb_items; i++)
+    {
+        Item item;
+        Column column = dfSelect(df, df->columns[i].name);
+        item.label = column.name;
+        item.type = column.ctype;
+        switch (item.type)
+        {
+        case INT:
+            item.value.int_value = ((int *)column.data) + idx_row;
+            break;
+        case DOUBLE:
+            item.value.double_value = ((double *)column.data) + idx_row;
+            break;
+        case TIMESTAMP:
+            item.value.timestamp_value = ((time_t *)column.data) + idx_row;
+            break;
+        case STRING:
+            item.value.string_value = ((char **)column.data) + idx_row;
+            break;
+        }
+        items[i] = item;
+    }
+    row.items = items;
+
+    return row;
+}
+
+/**
+ * @fn void printSeries(Series series)
+ * @brief Fonction d'affichage d'une Series
+ * @param[in] series
+ */
+void printSeries(Series series)
+{
+    printf("Serie de %d items\n", series.nb_items);
+    for (int i = 0; i < series.nb_items; i++)
+    {
+        Item item = series.items[i];
+        printf("'%s' : ", item.label);
+        switch (item.type)
+        {
+        case INT:
+            printf("%d\n", *item.value.int_value);
+            break;
+        case DOUBLE:
+            printf("%lf\n", *item.value.double_value);
+            break;
+        case TIMESTAMP:
+            printf("%s\n", timestampToStr(*item.value.timestamp_value));
+            break;
+        case STRING:
+            printf("%s\n", *item.value.string_value);
             break;
         }
     }
 }
 
-// TODO: fonction select (nom de colonne en param), equivalent de ['nom_colonne'] en python
-// TODO: fonction where (avec un filtre)
-// TODO: fonction map (avec une fonction de transformation)
-// TODO: fonction apply (avec une fonction de transformation)
-// TODO: fonction copy (copie d'un DataFrame)
-// TODO: fonction drop (suppression d'une colonne)
+/**
+ * @fn int selectIntFromSeries(Series series, char *label)
+ * @brief Fonction de récupération d'une valeur INT d'une Series à partir de son label
+ * @param[in] series
+ * @param[in] label
+ */
+int selectIntFromSeries(Series series, char *label)
+{
+    for (int i = 0; i < series.nb_items; i++)
+    {
+        Item item = series.items[i];
+        if (strcmp(item.label, label) == 0)
+        {
+            if (item.type != INT)
+            {
+                fprintf(stderr, "La colonne %s n'est pas de type INT\n", label);
+                exit(1);
+            }
+            return *item.value.int_value;
+        }
+    }
+    fprintf(stderr, "La colonne %s n'existe pas\n", label);
+    exit(1);
+}
+
+/**
+ * @fn double selectDoubleFromSeries(Series series, char *label)
+ * @brief Fonction de récupération d'une valeur DOUBLE d'une Series à partir de son label
+ * @param[in] series
+ * @param[in] label
+ */
+double selectDoubleFromSeries(Series series, char *label)
+{
+    for (int i = 0; i < series.nb_items; i++)
+    {
+        Item item = series.items[i];
+        if (strcmp(item.label, label) == 0)
+        {
+            if (item.type != DOUBLE)
+            {
+                fprintf(stderr, "La colonne %s n'est pas de type DOUBLE\n", label);
+                exit(1);
+            }
+            return *item.value.double_value;
+        }
+    }
+    fprintf(stderr, "La colonne %s n'existe pas\n", label);
+    exit(1);
+}
+
+/**
+ * @fn time_t selectTimestampFromSeries(Series series, char *label)
+ * @brief Fonction de récupération d'une valeur TIMESTAMP d'une Series à partir de son label
+ * @param[in] series
+ * @param[in] label
+ */
+time_t selectTimestampFromSeries(Series series, char *label)
+{
+    for (int i = 0; i < series.nb_items; i++)
+    {
+        Item item = series.items[i];
+        if (strcmp(item.label, label) == 0)
+        {
+            if (item.type != TIMESTAMP)
+            {
+                fprintf(stderr, "La colonne %s n'est pas de type DOUBLE\n", label);
+                exit(1);
+            }
+            return *item.value.double_value;
+        }
+    }
+    fprintf(stderr, "La colonne %s n'existe pas\n", label);
+    exit(1);
+}
+
+/**
+ * @fn char *selectStringFromSeries(Series series, char *label)
+ * @brief Fonction de récupération d'une valeur STRING d'une Series à partir de son label
+ * @param[in] series
+ * @param[in] label
+ */
+char *selectStringFromSeries(Series series, char *label)
+{
+    for (int i = 0; i < series.nb_items; i++)
+    {
+        Item item = series.items[i];
+        if (strcmp(item.label, label) == 0)
+        {
+            if (item.type != STRING)
+            {
+                fprintf(stderr, "La colonne %s n'est pas de type STRING\n", label);
+                exit(1);
+            }
+            return *item.value.string_value;
+        }
+    }
+    fprintf(stderr, "La colonne %s n'existe pas\n", label);
+    exit(1);
+}
+
+// int main()
+// {
+//     char filename[] = "jugement.csv";
+//     char path[] = "../data/";
+//     strcat(path, filename);
+//     DataFrame *df = createDataFrameFromCsv(path);
+//     printDf(df);
+//     char column_name[] = "Soumis le :";
+//     char val[] = "10/09/2023 10:54:53";
+
+//     printf("La colonne %s est d'indice : %d\n", column_name, findColumn(df, column_name));
+//     printf("La valeur \"%s\" est dans la colonne \"%s\" : %s\n", val, column_name, isIn(df, column_name, val) ? "true" : "false");
+
+//     Column cours = dfSelect(df, "Cours");
+//     char *DataType[] = {"INT", "DOUBLE", "TIMESTAMP", "STRING"};
+//     printf("La colonne %s est de type %s\n", cours.name, DataType[cours.ctype]);
+
+//     char *columns_names[df->num_columns];
+//     getColumnsNames(df, columns_names);
+//     for (int i = 0; i < df->num_columns; i++)
+//         printf("%s, ", columns_names[i]);
+//     printf("\n\n");
+
+//     Series reponse = getRow(df, column_name, val);
+//     char *nom_complet = selectStringFromSeries(reponse, "Nom complet");
+//     printf(" %s nom complet : %s\n", val, nom_complet);
+
+//     return 0;
+// }

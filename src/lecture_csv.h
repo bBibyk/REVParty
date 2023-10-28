@@ -34,17 +34,6 @@ static FILE *openFile(char *path);
 //////////////////////////////////////////////////
 
 /**
- * @struct Column
- * @brief Structure de données représentant une colonne dans un DataFrame.
- */
-typedef struct
-{
-    char *name;          ///< Nom de la colonne.
-    enum DataType ctype; ///< Type de données de la colonne.
-    void *data;          ///< Données de la colonne.
-} Column;
-
-/**
  * @enum DataType
  * @brief Énumération représentant les types de données des colonnes d'un DataFrame.
  */
@@ -55,6 +44,17 @@ enum DataType
     TIMESTAMP, ///< Horodatage (timestamp).
     STRING     ///< Chaîne de caractères.
 };
+
+/**
+ * @struct Column
+ * @brief Structure de données représentant une colonne dans un DataFrame.
+ */
+typedef struct
+{
+    char *name;          ///< Nom de la colonne.
+    enum DataType ctype; ///< Type de données de la colonne.
+    void *data;          ///< Données de la colonne.
+} Column;
 
 /**
  * @struct DataFrame
@@ -68,6 +68,25 @@ typedef struct
     char delimiter;   ///< Délimiteur de colonnes dans le fichier CSV.
     Column *columns;  ///< Tableau de colonnes du DataFrame.
 } DataFrame;
+
+typedef struct
+{
+    char *label;
+    enum DataType type;
+    union
+    {
+        int *int_value;
+        double *double_value;
+        time_t *timestamp_value;
+        char **string_value;
+    } value;
+} Item;
+
+typedef struct
+{
+    int nb_items;
+    Item *items;
+} Series;
 
 ////////////////////////////////////////////
 // -- Fonctions de gestion de DataFrame -- //
@@ -114,5 +133,81 @@ int findColumn(DataFrame *df, char *column_name);
  * Cette fonction recherche une valeur donnée dans une colonne d'un DataFrame. Si la colonne ou la valeur n'est pas trouvée, elle renvoie false. Sinon, elle renvoie true.
  */
 bool isIn(DataFrame *df, char *column_name, char *value);
+
+/**
+ * @fn void getColumnsNames(DataFrame *df, char *columns_names[df->num_columns])
+ * @brief Fonction de récupération des noms des colonnes d'un DataFrame.
+ * @param[in] df Pointeur vers le DataFrame dont on veut récupérer les noms de colonnes.
+ * @param[out] columns_names Tableau de chaînes de caractères dans lequel stocker les noms de colonnes.
+ *
+ * Cette fonction récupère les noms des colonnes d'un DataFrame et les stocke dans un tableau de chaînes de caractères.
+ */
+void getColumnsNames(DataFrame *df, char *columns_names[df->num_columns]);
+
+/**
+ * @fn Column dfSelect(DataFrame *df, char *column_name)
+ * @brief Fonction de sélection d'une colonne dans un DataFrame.
+ * @param[in] df Pointeur vers le DataFrame dans lequel effectuer la sélection.
+ * @param[in] column_name Nom de la colonne à sélectionner.
+ * @return Colonne sélectionnée.
+ * 
+ * Cette fonction sélectionne une colonne dans un DataFrame par son nom et la renvoie.
+ */
+Column dfSelect(DataFrame *df, char *column_name);
+
+/**
+ * @fn DataFrame getRow(DataFrame *df, char *column_name, char *value)
+ * @brief Fonction de récupération d'une ligne dans un DataFrame.
+ * @param[in] df Pointeur vers le DataFrame dans lequel effectuer la recherche.
+ * @param[in] column_name Nom de la colonne dans laquelle rechercher.
+ * @param[in] value Valeur servant à identifier la ligne à récupérer.
+ * @return DataFrame contenant la ligne trouvée.
+ * 
+ * Cette fonction recherche une valeur donnée dans une colonne d'un DataFrame et renvoie la ligne correspondante sous la forme d'une Series.
+ */
+Series getRow(DataFrame *df, char *column_name, char *value);
+
+/**
+ * @fn void printSeries(Series series)
+ * @brief Fonction d'affichage d'une Series dans la console.
+ * @param[in] series Series à afficher.
+ */
+void printSeries(Series series);
+
+/**
+ * @fn vint selectIntFromSeries(Series series, char *label)
+ * @brief Fonction de sélection d'un item de type entier dans une Series.
+ * @param[in] series Series dans laquelle effectuer la sélection.
+ * @param[in] label Label de la valeur à sélectionner.
+ * @return Valeur sélectionnée.
+ */
+int selectIntFromSeries(Series series, char *label);
+
+/**
+ * @fn double selectDoubleFromSeries(Series series, char *label)
+ * @brief Fonction de sélection d'un item de type double dans une Series.
+ * @param[in] series Series dans laquelle effectuer la sélection.
+ * @param[in] label Label de la valeur à sélectionner.
+ * @return Valeur sélectionnée.
+ */
+double selectDoubleFromSeries(Series series, char *label);
+
+/**
+ * @fn time_t selectTimestampFromSeries(Series series, char *label)
+ * @brief Fonction de sélection d'un item de type timestamp dans une Series.
+ * @param[in] series Series dans laquelle effectuer la sélection.
+ * @param[in] label Label de la valeur à sélectionner.
+ * @return Valeur sélectionnée.
+ */
+time_t selectTimestampFromSeries(Series series, char *label);
+
+/**
+ * @fn char *selectStringFromSeries(Series series, char *label)
+ * @brief Fonction de sélection d'un item de type chaîne de caractères dans une Series.
+ * @param[in] series Series dans laquelle effectuer la sélection.
+ * @param[in] label Label de la valeur à sélectionner.
+ * @return Valeur sélectionnée.
+ */
+char *selectStringFromSeries(Series series, char *label);
 
 #endif // LECTURE_CSV_H
