@@ -13,12 +13,26 @@
 #include "lecture_csv.h"
 #include "../Sha256/sha256_utils.h"
 
+/**
+ * @fn void toUpperCase(char *str)
+ * @brief Fonction de mise en majuscule d'une chaîne de caractères.
+ * @param[in,out] str Chaîne de caractères à mettre en majuscule.
+ *
+ * @details Une fonction qui prend en parametre une chaine de charactere dans un format quelconque (majuscule ou non), et qui la met en majuscule.
+ */
 void toUpperCase(char *str)
 {
     for (int i = 0; str[i]; i++)
         str[i] = toupper((unsigned char)str[i]);
 }
 
+/**
+ * @fn void toCamelCase(char *str)
+ * @brief Fonction de mise en camelCase d'une chaîne de caractères.
+ * @param[in,out] str Chaîne de caractères à mettre en camelCase.
+ *
+ * @details Une fonction qui prend en parametre une chaine de charactere dans un format quelconque et qui met la première lettre en majuscule et le reste en minuscule.
+ */
 void toCamelCase(char *str)
 {
     str[0] = toupper((unsigned char)str[0]);
@@ -26,6 +40,17 @@ void toCamelCase(char *str)
         str[i] = tolower((unsigned char)str[i]);
 }
 
+/**
+ * @fn void getHash(DataFrame *df_codes, char *num_etu, char *nom, char *prenom, char hash_res[SHA256_BLOCK_SIZE * 2 + 1])
+ * @brief Fonction de récupération du hash d'un vote à partir d'un nom, d'un prénom et d'un numéro d'étudiant.
+ * @param[in] df_codes DataFrame contenant les codes personnels des électeurs et leur numéro d'étudiant.
+ * @param[in] num_etu Numéro d'étudiant de l'électeur.
+ * @param[in] nom Nom de l'électeur.
+ * @param[in] prenom Prénom de l'électeur.
+ * @param[out] hash_res Résultat du hash.
+ *
+ * @details Une fonction qui récupère le code personnel de l'électeur à partir de son numéro d'étudiant, puis qui crée le nom complet de l'électeur et le hash.
+ */
 void getHash(DataFrame *df_codes,
              char *num_etu,
              char *nom,
@@ -36,7 +61,7 @@ void getHash(DataFrame *df_codes,
     Series infosEtu = getRow(df_codes, "Electeur", num_etu);
     char *code_perso = selectStringFromSeries(infosEtu, "Clef");
 
-    // -- Puis on crée le nom complet qu'on hash ensuite
+    // -- Puis on crée le nom complet et on hash
     char nom_complet[128];
     toUpperCase(nom);
     toCamelCase(prenom);
@@ -44,6 +69,16 @@ void getHash(DataFrame *df_codes,
     sha256ofString(nom_complet, hash_res);
 }
 
+/**
+ * @fn int main(int argc, char *argv[])
+ * @brief Fonction principale.
+ * @param[in] argc Nombre d'arguments.
+ * @param[in] argv Arguments.
+ * @return 0 si tout s'est bien passé, 1 si le nombre d'arguments est incorrect, 2 si le numéro d'étudiant n'est pas un nombre.
+ *
+ * @details Une fonction qui récupère le nom, le prénom et le numéro d'étudiant, puis elle récupère le hash du vote correspondant. Enfin, elle vérifie si le hash est présent dans le fichier des résultats des votes.
+ *          Si c'est le cas, elle affiche les détails du vote, sinon elle affiche un message d'erreur.
+ */
 int main(int argc, char *argv[])
 {
     if (argc != 4)
