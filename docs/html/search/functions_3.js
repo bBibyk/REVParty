@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['getcolumnindex_53',['getColumnIndex',['../lecture__csv_8c.html#a4da54bfea36b59734cd04970a681b2c7',1,'lecture_csv.c']]],
-  ['getcolumnstype_54',['getColumnsType',['../lecture__csv_8c.html#afeb8939a4598f77bc78ebe46a071f9a9',1,'lecture_csv.c']]],
-  ['getcolumntype_55',['getColumnType',['../lecture__csv_8c.html#a5fcca4fb2f5e84a8122c3e1dd9f94605',1,'lecture_csv.c']]],
-  ['getdelimiter_56',['getDelimiter',['../lecture__csv_8c.html#a9fa0ab328546cdc1ec6d7fda26770653',1,'lecture_csv.c']]],
-  ['getnumcolumns_57',['getNumColumns',['../lecture__csv_8c.html#a67a768e41be64f03c484bb220a21ce8a',1,'lecture_csv.c']]],
-  ['getnumrows_58',['getNumRows',['../lecture__csv_8c.html#a03e9e38ed6c65a5a6cd6e7d04be7ecc9',1,'lecture_csv.c']]],
-  ['getrowelem_59',['getRowElem',['../lecture__csv_8c.html#a89ca53475041097ad14436eae09ab496',1,'lecture_csv.c']]]
+  ['fillrow_70',['fillRow',['../lecture__csv_8c.html#a3c6bbdece64830d2cdb204db5e3834fc',1,'lecture_csv.c']]],
+  ['findcolumn_71',['findColumn',['../lecture__csv_8c.html#acae7124de991d2f9694150acb9003e8d',1,'findColumn(DataFrame *df, char *column_name):&#160;lecture_csv.c'],['../lecture__csv_8h.html#acae7124de991d2f9694150acb9003e8d',1,'findColumn(DataFrame *df, char *column_name):&#160;lecture_csv.c']]],
+  ['freedataframe_72',['freeDataFrame',['../lecture__csv_8c.html#adaa7ba452fd7700a0104a603891446e0',1,'lecture_csv.c']]]
 ];

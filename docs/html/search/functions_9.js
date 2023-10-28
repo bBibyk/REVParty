@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['strtotimestamp_65',['strToTimestamp',['../lecture__csv_8c.html#ace49710155ee1e8b11bdce8f11182288',1,'lecture_csv.c']]]
+  ['openfile_87',['openFile',['../lecture__csv_8c.html#afbc64b8e15ca46a3e0976a01121bc61b',1,'openFile(char *path):&#160;lecture_csv.c'],['../lecture__csv_8h.html#afbc64b8e15ca46a3e0976a01121bc61b',1,'openFile(char *path):&#160;lecture_csv.h']]]
 ];

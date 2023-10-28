@@ -1,9 +1,9 @@
 var indexSectionsWithContent =
 {
-  0: "acdfgilnopst",
-  1: "cd",
-  2: "l",
-  3: "acfgilnopst",
+  0: "acdfgilmnopstv",
+  1: "cdis",
+  2: "lv",
+  3: "acdfgilmnopst",
   4: "cdin",
   5: "d",
   6: "dist"

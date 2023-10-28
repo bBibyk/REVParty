@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['name_30',['name',['../structColumn.html#a1441f20b4f7bc0c9d3edb16dd52d637c',1,'Column']]],
-  ['nextrow_31',['nextRow',['../lecture__csv_8c.html#ada9f638f478dc98dfdb38b7ed4859808',1,'lecture_csv.c']]],
-  ['num_5fcolumns_32',['num_columns',['../structDataFrame.html#ae54fa5e2df2613f9f8c5e34a0724217d',1,'DataFrame']]],
-  ['num_5frows_33',['num_rows',['../structDataFrame.html#a38291090a3784a76ae1b111935ba8ca2',1,'DataFrame']]]
+  ['main_35',['main',['../verify__my__vote_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'verify_my_vote.c']]]
 ];

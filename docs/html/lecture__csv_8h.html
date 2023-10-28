@@ -86,6 +86,15 @@ Graphe des dépendances par inclusion de lecture_csv.h:</div>
 <area shape="rect" title=" " alt="" coords="203,80,267,107"/>
 </map>
 </div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="lecture__csv_8h__dep__incl.png" border="0" usemap="#alecture__csv_8hdep" alt=""/></div>
+<map name="alecture__csv_8hdep" id="alecture__csv_8hdep">
+<area shape="rect" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="19,5,126,32"/>
+<area shape="rect" href="verify__my__vote_8c.html" title="Vérification de la présence et du résultat d&#39;un vote dans un fichier CSV pour un nom et un code donné..." alt="" coords="5,80,140,107"/>
+</map>
+</div>
 </div>
 <p><a href="lecture__csv_8h_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -96,6 +105,12 @@ Structures de données</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDataFrame.html">DataFrame</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>.  <a href="structDataFrame.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structItem.html">Item</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données d'un item de series.  <a href="structItem.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSeries.html">Series</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure de données d'une series (une ligne d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>)  <a href="structSeries.html#details">Plus de détails...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -132,6 +147,30 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a20c82d207eb5a0d3d7a712d711d7a6fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lecture__csv_8h.html#a20c82d207eb5a0d3d7a712d711d7a6fb">isIn</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, char *column_name, char *value)</td></tr>
 <tr class="memdesc:a20c82d207eb5a0d3d7a712d711d7a6fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de recherche d'une valeur dans une colonne d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> à partir de son nom et de sa valeur (int, double ou string uniquement)  <a href="lecture__csv_8h.html#a20c82d207eb5a0d3d7a712d711d7a6fb">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a20c82d207eb5a0d3d7a712d711d7a6fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a681ee19bad660ee70199f72b1a4e49c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lecture__csv_8h.html#a681ee19bad660ee70199f72b1a4e49c8">getColumnsNames</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, char *columns_names[df-&gt;num_columns])</td></tr>
+<tr class="memdesc:a681ee19bad660ee70199f72b1a4e49c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de récupération des noms des colonnes d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>.  <a href="lecture__csv_8h.html#a681ee19bad660ee70199f72b1a4e49c8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a681ee19bad660ee70199f72b1a4e49c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9093ad128fd8fdf5a9954498a60fcb1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structColumn.html">Column</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lecture__csv_8h.html#a9093ad128fd8fdf5a9954498a60fcb1b">dfSelect</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, char *column_name)</td></tr>
+<tr class="memdesc:a9093ad128fd8fdf5a9954498a60fcb1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui retourne une colonne d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> à partir de son nom.  <a href="lecture__csv_8h.html#a9093ad128fd8fdf5a9954498a60fcb1b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a9093ad128fd8fdf5a9954498a60fcb1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87b02fb2e32a6dd414b42ff5f9340ec9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSeries.html">Series</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lecture__csv_8h.html#a87b02fb2e32a6dd414b42ff5f9340ec9">getRow</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, char *column_name, char *value)</td></tr>
+<tr class="memdesc:a87b02fb2e32a6dd414b42ff5f9340ec9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui retourne une ligne d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> à partir d'une des valeurs de la ligne.  <a href="lecture__csv_8h.html#a87b02fb2e32a6dd414b42ff5f9340ec9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a87b02fb2e32a6dd414b42ff5f9340ec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aea6d3f0104c4f9e8f9ae5d152f23d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lecture__csv_8h.html#a4aea6d3f0104c4f9e8f9ae5d152f23d7">printSeries</a> (<a class="el" href="structSeries.html">Series</a> series)</td></tr>
+<tr class="memdesc:a4aea6d3f0104c4f9e8f9ae5d152f23d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'affichage d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a>.  <a href="lecture__csv_8h.html#a4aea6d3f0104c4f9e8f9ae5d152f23d7">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4aea6d3f0104c4f9e8f9ae5d152f23d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71cc83fa2006a9dff2ae46965ca79772"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lecture__csv_8h.html#a71cc83fa2006a9dff2ae46965ca79772">selectIntFromSeries</a> (<a class="el" href="structSeries.html">Series</a> series, char *label)</td></tr>
+<tr class="memdesc:a71cc83fa2006a9dff2ae46965ca79772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de récupération d'une valeur INT d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> à partir de son label.  <a href="lecture__csv_8h.html#a71cc83fa2006a9dff2ae46965ca79772">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a71cc83fa2006a9dff2ae46965ca79772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85c7d7e264e60501f1a3324f53ff2730"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lecture__csv_8h.html#a85c7d7e264e60501f1a3324f53ff2730">selectDoubleFromSeries</a> (<a class="el" href="structSeries.html">Series</a> series, char *label)</td></tr>
+<tr class="memdesc:a85c7d7e264e60501f1a3324f53ff2730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de récupération d'une valeur DOUBLE d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> à partir de son label.  <a href="lecture__csv_8h.html#a85c7d7e264e60501f1a3324f53ff2730">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a85c7d7e264e60501f1a3324f53ff2730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4732bbd81b92f058e8175b9f8246b540"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lecture__csv_8h.html#a4732bbd81b92f058e8175b9f8246b540">selectTimestampFromSeries</a> (<a class="el" href="structSeries.html">Series</a> series, char *label)</td></tr>
+<tr class="memdesc:a4732bbd81b92f058e8175b9f8246b540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de récupération d'une valeur TIMESTAMP d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> à partir de son label.  <a href="lecture__csv_8h.html#a4732bbd81b92f058e8175b9f8246b540">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4732bbd81b92f058e8175b9f8246b540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84b0078fd28834bd7c8163efdde3ed9b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lecture__csv_8h.html#a84b0078fd28834bd7c8163efdde3ed9b">selectStringFromSeries</a> (<a class="el" href="structSeries.html">Series</a> series, char *label)</td></tr>
+<tr class="memdesc:a84b0078fd28834bd7c8163efdde3ed9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de récupération d'une valeur STRING d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> à partir de son label.  <a href="lecture__csv_8h.html#a84b0078fd28834bd7c8163efdde3ed9b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a84b0078fd28834bd7c8163efdde3ed9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Gestion et création des structures de données <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> à partir de fichiers CSV (en-tête). </p>
@@ -183,8 +222,6 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Fonction de création d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> à partir d'un fichier CSV. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Essengue Matis </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>23 octobre 2023</dd></dl>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>char* </td></tr>
@@ -200,6 +237,54 @@ Fonctions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>Pointeur vers le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> créé.</dd></dl>
 <p>Cette fonction crée un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> à partir d'un fichier CSV situé au chemin spécifié. Elle alloue la mémoire nécessaire, lit les données depuis le fichier CSV et remplit le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>. En cas d'erreur, elle renvoie NULL. </p>
+
+</div>
+</div>
+<a id="a9093ad128fd8fdf5a9954498a60fcb1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9093ad128fd8fdf5a9954498a60fcb1b">&#9670;&nbsp;</a></span>dfSelect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structColumn.html">Column</a> dfSelect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>column_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui retourne une colonne d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> à partir de son nom. </p>
+<p>Fonction de sélection d'une colonne dans un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>src </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">column_name</td><td>nom de la colonne à récupérer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="structColumn.html" title="Structure de données d&#39;une colonne.">Column</a></dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Pointeur vers le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> dans lequel effectuer la sélection. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">column_name</td><td>Nom de la colonne à sélectionner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Colonne sélectionnée.</dd></dl>
+<p>Cette fonction sélectionne une colonne dans un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> par son nom et la renvoie. </p>
 
 </div>
 </div>
@@ -231,8 +316,6 @@ Fonctions</h2></td></tr>
 
 <p>Fonction de recherche d'une colonne dans un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> à partir de son nom. </p>
 <p>Fonction de recherche d'une colonne dans un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> par nom.</p>
-<dl class="section author"><dt>Auteur</dt><dd>Essengue Matis </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>23 octobre 2023</dd></dl>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>DataFrame* </td></tr>
@@ -251,6 +334,102 @@ Fonctions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>Indice de la colonne si trouvée, -1 sinon.</dd></dl>
 <p>Cette fonction recherche une colonne dans un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> par son nom. Si la colonne est trouvée, elle renvoie l'indice de la colonne. Sinon, elle renvoie -1. </p>
+
+</div>
+</div>
+<a id="a681ee19bad660ee70199f72b1a4e49c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a681ee19bad660ee70199f72b1a4e49c8">&#9670;&nbsp;</a></span>getColumnsNames()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getColumnsNames </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>columns_names</em>[df-&gt;num_columns]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de récupération des noms des colonnes d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>src </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">columns_names</td><td>dest</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Pointeur vers le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> dont on veut récupérer les noms de colonnes. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">columns_names</td><td>Tableau de chaînes de caractères dans lequel stocker les noms de colonnes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Cette fonction récupère les noms des colonnes d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> et les stocke dans un tableau de chaînes de caractères. </p>
+
+</div>
+</div>
+<a id="a87b02fb2e32a6dd414b42ff5f9340ec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87b02fb2e32a6dd414b42ff5f9340ec9">&#9670;&nbsp;</a></span>getRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSeries.html">Series</a> getRow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>column_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui retourne une ligne d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> à partir d'une des valeurs de la ligne. </p>
+<p>Fonction de récupération d'une ligne dans un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>src </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">column_name</td><td>nom de la colonne à récupérer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>valeur de la colonne pour localiser la ligne </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a></dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Pointeur vers le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> dans lequel effectuer la recherche. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">column_name</td><td>Nom de la colonne dans laquelle rechercher. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Valeur servant à identifier la ligne à récupérer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd><a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> contenant la ligne trouvée.</dd></dl>
+<p>Cette fonction recherche une valeur donnée dans une colonne d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> et renvoie la ligne correspondante sous la forme d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a>. </p>
 
 </div>
 </div>
@@ -288,8 +467,6 @@ Fonctions</h2></td></tr>
 
 <p>Fonction de recherche d'une valeur dans une colonne d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> à partir de son nom et de sa valeur (int, double ou string uniquement) </p>
 <p>Fonction de recherche d'une valeur dans une colonne d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>.</p>
-<dl class="section author"><dt>Auteur</dt><dd>Essengue Matis </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>23 octobre 2023</dd></dl>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>DataFrame* </td></tr>
@@ -298,8 +475,8 @@ Fonctions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Renvoie</dt><dd>bool</dd></dl>
-<p>Cette fonction permet de verifier si une valeur est présente dans une colonne d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>. </p><dl class="section note"><dt>Note</dt><dd>Si la colonne n'existe pas, la fonction retourne false.</dd></dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int</dd></dl>
+<p>Cette fonction permet de verifier si une valeur est présente dans une colonne d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>. Si elle est présente, la fonction retourne l'indice de la ligne, -1 sinon. </p><dl class="section note"><dt>Note</dt><dd>Si la colonne n'existe pas, la fonction retourne false.</dd></dl>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Pointeur vers le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> dans lequel effectuer la recherche. </td></tr>
@@ -366,8 +543,6 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Fonction d'affichage d'un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> dans la console. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Essengue Matis </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>23 octobre 2023</dd></dl>
 <dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>DataFrame*</td></tr>
@@ -382,6 +557,198 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <p>Cette fonction affiche les informations sur un <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>, y compris le nombre de colonnes et de lignes, ainsi que les noms des colonnes. Elle affiche ensuite le contenu de chaque colonne, aligné selon le type de données. </p>
+
+</div>
+</div>
+<a id="a4aea6d3f0104c4f9e8f9ae5d152f23d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aea6d3f0104c4f9e8f9ae5d152f23d7">&#9670;&nbsp;</a></span>printSeries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printSeries </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSeries.html">Series</a>&#160;</td>
+          <td class="paramname"><em>series</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'affichage d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a>. </p>
+<p>Fonction d'affichage d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> dans la console.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">series</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">series</td><td><a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> à afficher. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a85c7d7e264e60501f1a3324f53ff2730"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85c7d7e264e60501f1a3324f53ff2730">&#9670;&nbsp;</a></span>selectDoubleFromSeries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double selectDoubleFromSeries </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSeries.html">Series</a>&#160;</td>
+          <td class="paramname"><em>series</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>label</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de récupération d'une valeur DOUBLE d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> à partir de son label. </p>
+<p>Fonction de sélection d'un item de type double dans une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">series</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">label</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">series</td><td><a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> dans laquelle effectuer la sélection. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">label</td><td>Label de la valeur à sélectionner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Valeur sélectionnée. </dd></dl>
+
+</div>
+</div>
+<a id="a71cc83fa2006a9dff2ae46965ca79772"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71cc83fa2006a9dff2ae46965ca79772">&#9670;&nbsp;</a></span>selectIntFromSeries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int selectIntFromSeries </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSeries.html">Series</a>&#160;</td>
+          <td class="paramname"><em>series</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>label</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de récupération d'une valeur INT d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> à partir de son label. </p>
+<p>Fonction de sélection d'un item de type entier dans une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">series</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">label</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">series</td><td><a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> dans laquelle effectuer la sélection. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">label</td><td>Label de la valeur à sélectionner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Valeur sélectionnée. </dd></dl>
+
+</div>
+</div>
+<a id="a84b0078fd28834bd7c8163efdde3ed9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84b0078fd28834bd7c8163efdde3ed9b">&#9670;&nbsp;</a></span>selectStringFromSeries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* selectStringFromSeries </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSeries.html">Series</a>&#160;</td>
+          <td class="paramname"><em>series</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>label</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de récupération d'une valeur STRING d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> à partir de son label. </p>
+<p>Fonction de sélection d'un item de type chaîne de caractères dans une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">series</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">label</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">series</td><td><a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> dans laquelle effectuer la sélection. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">label</td><td>Label de la valeur à sélectionner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Valeur sélectionnée. </dd></dl>
+
+</div>
+</div>
+<a id="a4732bbd81b92f058e8175b9f8246b540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4732bbd81b92f058e8175b9f8246b540">&#9670;&nbsp;</a></span>selectTimestampFromSeries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">time_t selectTimestampFromSeries </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structSeries.html">Series</a>&#160;</td>
+          <td class="paramname"><em>series</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>label</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction de récupération d'une valeur TIMESTAMP d'une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> à partir de son label. </p>
+<p>Fonction de sélection d'un item de type timestamp dans une <a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a>.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">series</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">label</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">series</td><td><a class="el" href="structSeries.html" title="Structure de données d&#39;une series (une ligne d&#39;un DataFrame)">Series</a> dans laquelle effectuer la sélection. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">label</td><td>Label de la valeur à sélectionner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Valeur sélectionnée. </dd></dl>
 
 </div>
 </div>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['string_36',['STRING',['../lecture__csv_8h.html#ad8ed01ff3ff33333d8e19db4d2818bb6aee847e634a4297b274316de8a8ca9921',1,'lecture_csv.h']]],
-  ['strtotimestamp_37',['strToTimestamp',['../lecture__csv_8c.html#ace49710155ee1e8b11bdce8f11182288',1,'lecture_csv.c']]]
+  ['printdf_41',['printDf',['../lecture__csv_8c.html#a726a973dd81e2eabf386cdd9946bb01d',1,'printDf(DataFrame *df):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a726a973dd81e2eabf386cdd9946bb01d',1,'printDf(DataFrame *df):&#160;lecture_csv.c']]],
+  ['printseries_42',['printSeries',['../lecture__csv_8c.html#a4aea6d3f0104c4f9e8f9ae5d152f23d7',1,'printSeries(Series series):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a4aea6d3f0104c4f9e8f9ae5d152f23d7',1,'printSeries(Series series):&#160;lecture_csv.c']]]
 ];

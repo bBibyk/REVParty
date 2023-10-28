@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loadcsvmetadata_61',['loadCsvMetadata',['../lecture__csv_8c.html#afa5fa7f9a41427e4f572cd1b366b19ed',1,'lecture_csv.c']]]
+  ['isin_83',['isIn',['../lecture__csv_8c.html#a20c82d207eb5a0d3d7a712d711d7a6fb',1,'isIn(DataFrame *df, char *column_name, char *value):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a20c82d207eb5a0d3d7a712d711d7a6fb',1,'isIn(DataFrame *df, char *column_name, char *value):&#160;lecture_csv.c']]]
 ];

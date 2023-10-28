@@ -1,0 +1,11 @@
+<map id="verify_my_vote.c" name="verify_my_vote.c">
+<area shape="rect" id="node1" title="Vérification de la présence et du résultat d&#39;un vote dans un fichier CSV pour un nom et un code donné..." alt="" coords="167,5,301,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,76,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="171,155,238,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="152,80,223,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="247,80,317,107"/>
+<area shape="rect" id="node6" href="$lecture__csv_8h.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="342,80,449,107"/>
+<area shape="rect" id="node9" title=" " alt="" coords="473,80,653,107"/>
+<area shape="rect" id="node7" title=" " alt="" coords="305,155,387,181"/>
+<area shape="rect" id="node8" title=" " alt="" coords="411,155,475,181"/>
+</map>
