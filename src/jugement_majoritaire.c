@@ -12,7 +12,7 @@
 #define JUGEMENT_MAJORITAIRE_C
 
 #include "jugement_majoritaire.h"
-#include "dynamic_array.h"
+#include "lecture_csv.h"
 //TODO : includes
 
 //TODO : code avec commentaires et division en parties
