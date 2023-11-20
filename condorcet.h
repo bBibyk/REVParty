@@ -11,7 +11,7 @@
 #ifndef CONDORCET_H
 #define CONDORCET_H
 
-#include "dynamic_array.h"
+#include "lecture_csv.h"
 //TODO : includes
 
 //TODO : en-têtes de fonctions
