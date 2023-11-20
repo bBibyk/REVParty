@@ -11,7 +11,7 @@
 #ifndef JUGEMENT_MAJORITAIRE_H
 #define JUGEMENT_MAJORITAIRE_H
 
-#include "dynamic_array.h"
+#include "lecture_csv.h"
 //TODO : includes
 
 //TODO : en-têtes de fonctions
