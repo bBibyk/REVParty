@@ -25,7 +25,7 @@ typedef struct VoteResult{
     int nbVoters;
     float score;
     char winner[MAXCHAR];
-}
+} VoteResult;
 
 ////////////////////////////////////////////
 // -- Fonctions de gestion de fichiers -- //
@@ -144,7 +144,7 @@ int findColumn(DataFrame *df, char *column_name);
  *
  * Cette fonction recherche une valeur donnée dans une colonne d'un DataFrame. Si la colonne ou la valeur n'est pas trouvée, elle renvoie false. Sinon, elle renvoie true.
  */
-bool isIn(DataFrame *df, char *column_name, char *value);
+int isIn(DataFrame *df, char *column_name, char *value);
 
 /**
  * @fn void getColumnsNames(DataFrame *df, char *columns_names[df->num_columns])
