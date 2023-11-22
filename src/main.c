@@ -148,7 +148,13 @@ void printResult(VoteResult result, char *method, int tour){
         printf("Jugement majoritaire");
     }
 
-    printf(", %d candidats, %d votants, vainqueur = %s, score = %d%%\n", result.nb_candidates, result.nb_voters, result.winner, result.score);
+    printf(", %d candidats, %d votants, vainqueur = %s", result.nb_candidates, result.nb_voters, result.winner);
+
+    if(strcmp(method, "uni1") == 0 || strcmp(method, "uni2") == 0){
+        printf(", score = %d", result.score);
+    }
+
+    printf("\n");
 }
 
 ////////////////
@@ -181,7 +187,7 @@ int main(int argc, char *argv[]){
     DataFrame *df = createDataFrameFromCsv(inputFile);
 
     if(strcmp(method, "uni1") == 0){
-        printf("uni1");
+        printResult(voteUninominalUnTour(NULL, NULL, NULL), method, 1);
     }else if(strcmp(method, "uni2") == 0){
         printf("uni2");
     }else if(strcmp(method, "cm") == 0){
