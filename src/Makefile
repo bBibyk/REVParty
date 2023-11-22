@@ -1,1 +1,1 @@
-gcc
+exe : gcc main.c

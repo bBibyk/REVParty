@@ -15,8 +15,8 @@
 #include <stdbool.h>
 #include <time.h>
 
-#include "lecture_csv.h"
-
+/// @def MAXCHAR
+#define MAXCHAR 1024
 
 ////////////////////////////////////////////
 // -- Fonctions de gestion de fichiers -- //

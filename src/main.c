@@ -18,44 +18,128 @@
 #include "jugement_majoritaire.h"
 #include "uninominales.h"
 
+////////////////////////////////
+// -- Fonctions auxilières -- //
+////////////////////////////////
+
+/**
+ * @fn static FILE *openFile(char *path)
+ * @brief Fonction d'ouverture d'un fichier en mode lecture seule
+ * @param[in] path Chemin du fichier à ouvrir
+ * @return Pointeur vers le fichier ouvert
+ *
+ * @note Cette fonction affiche un message d'erreur si le fichier n'a pas pu être ouvert.
+ */
+FILE *openFileWrite(char *path){
+    FILE *fp = fopen(path, "w");
+    if (fp == NULL){
+        perror("fopen");
+        exit(EXIT_FAILURE);
+    }
+    return fp;
+}
+
+/**
+ * @fn bool isIn(char *string, char *tab[], int lenTab)
+ * @brief Fonction de recherche d'une valeur dans un tableau de chaînes de caractères.
+ * @param[in] string Valeur à rechercher.
+ * @param[in] tab Tableau de chaînes de caractères dans lequel effectuer la recherche.
+ * @param[in] lenTab Taille du tableau.
+ * @return true si la valeur est trouvée, false sinon.
+**/
+bool stringInArray(char *string, char *tab[], int lenTab){
+    for(int i; i<lenTab; i++){
+        if(strcmp(string, tab[i]) == 0){
+            return true;
+        }
+    }
+    return false;
+}
+
 ////////////////////////////////////////////////////////
 // -- Fonctions de gestion de la ligne de commande -- //
 ////////////////////////////////////////////////////////
 
-//To be removed
-
-//End to be removed
-
-char *getParameters(int argc, char *argv[]){
+/**
+ * @fn void getParameters(int argc, char *argv[], bool *duel, char *inputFile, char *logFile, char *method)
+ * @brief Fonction de récupération des options et des arguments.
+ * @param[in] argc Nombre d'arguments donnés.
+ * @param[in] atgv Tableau d'arguments donnés.
+ * @param[out] duel Indicateur de duel.
+ * @param[out] inputFile Chemin du fichier d'entrée.
+ * @param[out] logFile Chemin du fichier de log.
+ *
+ * @note Cette fonction affiche un message d'erreur si une option n'est pas valide.
+ */
+void getParameters(int argc, char *argv[], bool *duel, char *inputFile, char *logFile, char *method){
+    int option;
+    while((option = getopt(argc, argv, "i:d:o:m:")) != -1){
+        switch(option){
+            case 'i':
+                *duel = false;
+                strcpy(inputFile, optarg);
+                break;
+            case 'd':
+                *duel = true;
+                strcpy(inputFile, optarg);
+                break;
+            case 'o':
+                strcpy(logFile, optarg);
+                break;
+            case 'm':
+                strcpy(method, optarg);
+                break;
+            case '?':
+                fprintf(stderr, "Usage: -i|-d nom_fichier -m méthode [-o nom_fichier]\n");
+                exit(EXIT_FAILURE);
+        }
+    }
 }
 
-void checkParameters();
+/**
+ * @fn bool checkParameters(bool duel, char inputFile, char logFile, char method)
+ * @brief Fonction de verification de validité des paramètres.
+ * @param[in] duel Indicateur de duel.
+ * @param[in] methods Tableau des méthodes.
+ * @param[in] lenMethods Taille du tableau.
+ * @param[in] inputFile Chemin du fichier d'entrée.
+ * @param[in] logFile Chemin du fichier de log.
+ * @param[in] method Nom de la méthode.
+ * 
+ * @note Cette fonction affiche un message d'erreur si une option est manquante ou si un argument n'est pas valide.
+**/
+void checkParameters(bool duel, char *methods[], int lenMethods, char *inputFile, char *method){
+    if(inputFile==NULL || method==NULL){
+        fprintf(stderr, "Usage: -i|-d et -m sont des méthodes obligatoires\n");
+        exit(EXIT_FAILURE);
+    }
+    if(!stringInArray(method, methods, lenMethods)){
+        fprintf(stderr, "Usage: méthode doit être dans [");
+        for(int i=0; i<lenMethods; i++){
+            fprintf(stderr, "%s", methods[i]);
+            if(i<lenMethods-1){
+                fprintf(stderr, ", ");
+            }
+        }
+        fprintf(stderr, "]\n");
+        exit(EXIT_FAILURE);
+    }
+}
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
     bool duel = false;
     char inputFile[MAXCHAR];
     char logFile[MAXCHAR];
     char method[MAXCHAR];
 
-    int option;
-    while((option = getopt(argc, argv, "i:d:o:m:")) != -1){
-        switch(option){
-            case 'i':
-                duel = false;
-                strcpy(inputFile, optarg);
-            case 'd':
-                duel = true;
-                strcpy(inputFile, optarg);
-            case 'o':
-                strcpy(logFile, optarg);
-            case 'm':
-                strcpy(method, optarg);
-            case '?':
-                fprintf(stderr, "Usage: -i|-d nom_fichier [-o nom_fichier] -m méthode\n");
-                // exit(EXIT_FAILURE);
-        }
+    getParameters(argc, argv, &duel, inputFile, logFile, method);
+    char *methods[] = {"uni1", "uni2", "cm", "cp", "cs", "jm", "all"};
+    int lenMethods = 7;
+    if(duel){
+        char *methods[] = {"cm", "cp", "cs", "jm", "all"};
+        int lenMethods = 5;
     }
+    checkParameters(duel, methods, lenMethods, inputFile, method);
 
     printf("Input is:\n%s > %i\n%s\n%s\n", inputFile, duel, logFile, method);
 }
