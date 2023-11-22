@@ -2,6 +2,7 @@
 #define UNINOMINALES_H
 
 #include "lecture_csv.h"
+#include <stdbool.h>
 
 /**
  * @file uninominales.h
@@ -14,7 +15,7 @@
  */
 
 /**
- * @fn VoteResult voteUninominalUnTour(DataFrame *df);
+ * @fn void voteUninominalUnTour(DataFrame *df);
  * @brief Fonction pour effectuer un vote uninominal à un tour.
  * @param[in] df Pointeur vers le DataFrame contenant les résultats du vote.
  * @return Structure VoteResult contenant les résultats du vote uninominal à un tour.
@@ -22,11 +23,29 @@
 VoteResult voteUninominalUnTour(DataFrame *df);
 
 /**
- * @fn VoteResult voteUninominalDeuxTours(DataFrame *df);
+ * @fn void voteUninominalDeuxTours(DataFrame *df);
  * @brief Fonction pour effectuer un vote uninominal à deux tours.
  * @param[in] df Pointeur vers le DataFrame contenant les résultats du vote.
  * @return Structure VoteResult contenant les résultats du vote uninominal à deux tours.
  */
 VoteResult voteUninominalDeuxTours(DataFrame *df);
+
+/**
+ * @fn void voteUninominalUnTourDebug(DataFrame *df, FILE *log, bool debugMode);
+ * @brief Fonction alternative pour effectuer un vote uninominal à un tour avec débogage.
+ * @param[in] df Pointeur vers le DataFrame contenant les résultats du vote.
+ * @param[in] log Pointeur vers le fichier de test des sorties.
+ * @param[in] debugMode Indique si le mode débogage est activé.
+ */
+void voteUninominalUnTourDebug(DataFrame *df, FILE *log, bool debugMode);
+
+/**
+ * @fn void voteUninominalDeuxToursDebug(DataFrame *df, FILE *log, bool debugMode);
+ * @brief Fonction alternative pour effectuer un vote uninominal à deux tours avec débogage.
+ * @param[in] df Pointeur vers le DataFrame contenant les résultats du vote.
+ * @param[in] log Pointeur vers le fichier de test des sorties.
+ * @param[in] debugMode Indique si le mode débogage est activé.
+ */
+void voteUninominalDeuxToursDebug(DataFrame *df, FILE *log, bool debugMode);
 
 #endif
