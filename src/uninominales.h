@@ -2,7 +2,7 @@
 #define UNINOMINALES_H
 
 #include "lecture_csv.h"
-#include "utils.c"
+#include "utils.h"
 #include <stdbool.h>
 
 /**

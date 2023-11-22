@@ -2,7 +2,7 @@
 #define JUGEMENT_MAJORITAIRE_H
 
 #include "lecture_csv.h"
-#include "utils.c"
+#include "utils.h"
 
 /**
  * @file jugement_majoritaire.h
