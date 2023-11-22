@@ -1,1 +1,1 @@
-exe : gcc main.c
+gcc main.c lecture_csv.h condorcet.h jugement_majoritaire.h -o exe

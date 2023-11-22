@@ -39,7 +39,7 @@ FILE *openFileWrite(char *path){
     return fp;
 }
 
-/**
+/**fopen
  * @fn bool isIn(char *string, char *tab[], int lenTab)
  * @brief Fonction de recherche d'une valeur dans un tableau de chaînes de caractères.
  * @param[in] string Valeur à rechercher.
@@ -48,7 +48,7 @@ FILE *openFileWrite(char *path){
  * @return true si la valeur est trouvée, false sinon.
 **/
 bool stringInArray(char *string, char *tab[], int lenTab){
-    for(int i; i<lenTab; i++){
+    for(int i=0; i<lenTab; i++){
         if(strcmp(string, tab[i]) == 0){
             return true;
         }
@@ -133,13 +133,15 @@ int main(int argc, char *argv[]){
     char method[MAXCHAR];
 
     getParameters(argc, argv, &duel, inputFile, logFile, method);
-    char *methods[] = {"uni1", "uni2", "cm", "cp", "cs", "jm", "all"};
-    int lenMethods = 7;
     if(duel){
         char *methods[] = {"cm", "cp", "cs", "jm", "all"};
         int lenMethods = 5;
+        checkParameters(duel, methods, 5, inputFile, method);
+    }else{
+        char *methods[] = {"uni1", "uni2", "cm", "cp", "cs", "jm", "all"};
+        int lenMethods = 7;
+        checkParameters(duel, methods, 7, inputFile, method);
     }
-    checkParameters(duel, methods, lenMethods, inputFile, method);
 
-    printf("Input is:\n%s > %i\n%s\n%s\n", inputFile, duel, logFile, method);
+
 }
