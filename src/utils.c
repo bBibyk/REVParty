@@ -27,11 +27,19 @@ typedef struct VoteResult
     char winner[MAXCHAR];
 } VoteResult;
 
-///////////////////////////////////////////////
+/////////////////////
 // -- Fonctions -- //
-///////////////////////////////////////////////
+/////////////////////
 
-// TODO : doc
+/**
+ * @fn void printResult(VoteResult result, char *method, int tour)
+ * @brief Fonction pour afficher les résultats d'un vote.
+ * @param[in] result Structure contenant les données du vote.
+ * @param[in] method Mode de scrutin.
+ * @param[in] tour Tour du vote, si uninominal.
+ * 
+ * @note L'affichage est base sur le mode de scrutin.
+ */
 void printResult(VoteResult result, char *method, int tour){
     printf("Mode de scrutin : ");
 
