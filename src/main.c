@@ -126,11 +126,41 @@ void checkParameters(bool duel, char *methods[], int lenMethods, char *inputFile
     }
 }
 
+///////////////////////////////////////////////
+// -- Fonctions d'affichage des résultats -- //
+///////////////////////////////////////////////
+
+// TODO : doc
+void printResult(VoteResult result, char *method, int tour){
+    printf("Mode de scrutin : ");
+
+    if(strcmp(method, "uni1") == 0){
+        printf("uninominal à un tour, tour %d", tour);
+    }else if(strcmp(method, "uni2") == 0){
+        printf("uninominal à deux tours, tour %d", tour);
+    }else if(strcmp(method, "cm") == 0){
+        printf("Condorcet minimax");
+    }else if(strcmp(method, "cp") == 0){
+        printf("Condorcet paires");
+    }else if(strcmp(method, "cs") == 0){
+        printf("Condorcet Schulze");
+    }else if(strcmp(method, "jm") == 0){
+        printf("Jugement majoritaire");
+    }
+
+    printf(", %d candidats, %d votants, vainqueur = %s, score = %d%%\n", result.nb_candidates, result.nb_voters, result.winner, result.score);
+}
+
+////////////////
+// -- MAIN -- //
+////////////////
+
 int main(int argc, char *argv[]){
     bool duel = false;
     char inputFile[MAXCHAR];
     char logFile[MAXCHAR];
     char method[MAXCHAR];
+    bool debugMode = false;
 
     getParameters(argc, argv, &duel, inputFile, logFile, method);
     if(duel){
@@ -144,6 +174,7 @@ int main(int argc, char *argv[]){
     }
 
     if(logFile){
+        debugMode = true;
         FILE *log = openFileWrite(logFile);
     }
 

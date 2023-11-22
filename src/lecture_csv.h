@@ -21,8 +21,8 @@
 #define MAXCHAR 1024
 
 typedef struct VoteResult{
-    int nbCandidates;
-    int nbVoters;
+    int nb_candidates;
+    int nb_voters;
     float score;
     char winner[MAXCHAR];
 } VoteResult;
