@@ -11,7 +11,10 @@
 #ifndef LECTURE_CSV_H
 #define LECTURE_CSV_H
 
+#include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+#include <unistd.h>
 #include <stdbool.h>
 #include <time.h>
 
