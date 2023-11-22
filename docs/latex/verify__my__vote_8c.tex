@@ -1,0 +1,120 @@
+\hypertarget{verify__my__vote_8c}{}\doxysection{Référence du fichier verify\+\_\+my\+\_\+vote.\+c}
+\label{verify__my__vote_8c}\index{verify\_my\_vote.c@{verify\_my\_vote.c}}
+
+
+Vérification de la présence et du résultat d\textquotesingle{}un vote dans un fichier CSV pour un nom et un code donné.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}lecture\+\_\+csv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Sha256/sha256\+\_\+utils.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de verify\+\_\+my\+\_\+vote.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verify__my__vote_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{verify__my__vote_8c_ab0e3f1e3e94294defad81ae2479615da}{to\+Upper\+Case}} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Fonction de mise en majuscule d\textquotesingle{}une chaîne de caractères. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{verify__my__vote_8c_a5e7b14c76a5505c643d8f1484f38442a}{to\+Camel\+Case}} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Fonction de mise en camel\+Case d\textquotesingle{}une chaîne de caractères. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{verify__my__vote_8c_af9fda5f84d6ee91f48b88e93e0bb8731}{get\+Hash}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df\+\_\+codes, char $\ast$num\+\_\+etu, char $\ast$nom, char $\ast$prenom, char hash\+\_\+res\mbox{[}SHA256\+\_\+\+BLOCK\+\_\+\+SIZE $\ast$2+1\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction de récupération du hash d\textquotesingle{}un vote à partir d\textquotesingle{}un nom, d\textquotesingle{}un prénom et d\textquotesingle{}un numéro d\textquotesingle{}étudiant. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verify__my__vote_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction principale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Vérification de la présence et du résultat d\textquotesingle{}un vote dans un fichier CSV pour un nom et un code donné. 
+
+\begin{DoxyAuthor}{Auteur}
+Essengue Matis 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+27 octobre 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{verify__my__vote_8c_af9fda5f84d6ee91f48b88e93e0bb8731}\label{verify__my__vote_8c_af9fda5f84d6ee91f48b88e93e0bb8731}} 
+\index{verify\_my\_vote.c@{verify\_my\_vote.c}!getHash@{getHash}}
+\index{getHash@{getHash}!verify\_my\_vote.c@{verify\_my\_vote.c}}
+\doxysubsubsection{\texorpdfstring{getHash()}{getHash()}}
+{\footnotesize\ttfamily void get\+Hash (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df\+\_\+codes,  }\item[{char $\ast$}]{num\+\_\+etu,  }\item[{char $\ast$}]{nom,  }\item[{char $\ast$}]{prenom,  }\item[{char}]{hash\+\_\+res\mbox{[}\+SHA256\+\_\+\+BLOCK\+\_\+\+SIZE $\ast$2+1\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction de récupération du hash d\textquotesingle{}un vote à partir d\textquotesingle{}un nom, d\textquotesingle{}un prénom et d\textquotesingle{}un numéro d\textquotesingle{}étudiant. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em df\+\_\+codes} & \mbox{\hyperlink{structDataFrame}{Data\+Frame}} contenant les codes personnels des électeurs et leur numéro d\textquotesingle{}étudiant. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+\_\+etu} & Numéro d\textquotesingle{}étudiant de l\textquotesingle{}électeur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em nom} & Nom de l\textquotesingle{}électeur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em prenom} & Prénom de l\textquotesingle{}électeur. \\
+\hline
+\mbox{\texttt{ out}}  & {\em hash\+\_\+res} & Résultat du hash.\\
+\hline
+\end{DoxyParams}
+Une fonction qui récupère le code personnel de l\textquotesingle{}électeur à partir de son numéro d\textquotesingle{}étudiant, puis qui crée le nom complet de l\textquotesingle{}électeur et le hash. \mbox{\Hypertarget{verify__my__vote_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{verify__my__vote_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{verify\_my\_vote.c@{verify\_my\_vote.c}!main@{main}}
+\index{main@{main}!verify\_my\_vote.c@{verify\_my\_vote.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction principale. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em argc} & Nombre d\textquotesingle{}arguments. \\
+\hline
+\mbox{\texttt{ in}}  & {\em argv} & Arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé, 1 si le nombre d\textquotesingle{}arguments est incorrect, 2 si le numéro d\textquotesingle{}étudiant n\textquotesingle{}est pas un nombre.
+\end{DoxyReturn}
+Une fonction qui récupère le nom, le prénom et le numéro d\textquotesingle{}étudiant, puis elle récupère le hash du vote correspondant. Enfin, elle vérifie si le hash est présent dans le fichier des résultats des votes. Si c\textquotesingle{}est le cas, elle affiche les détails du vote, sinon elle affiche un message d\textquotesingle{}erreur. \mbox{\Hypertarget{verify__my__vote_8c_a5e7b14c76a5505c643d8f1484f38442a}\label{verify__my__vote_8c_a5e7b14c76a5505c643d8f1484f38442a}} 
+\index{verify\_my\_vote.c@{verify\_my\_vote.c}!toCamelCase@{toCamelCase}}
+\index{toCamelCase@{toCamelCase}!verify\_my\_vote.c@{verify\_my\_vote.c}}
+\doxysubsubsection{\texorpdfstring{toCamelCase()}{toCamelCase()}}
+{\footnotesize\ttfamily void to\+Camel\+Case (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Fonction de mise en camel\+Case d\textquotesingle{}une chaîne de caractères. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in,out}}  & {\em str} & Chaîne de caractères à mettre en camel\+Case.\\
+\hline
+\end{DoxyParams}
+Une fonction qui prend en parametre une chaine de charactere dans un format quelconque et qui met la première lettre en majuscule et le reste en minuscule. \mbox{\Hypertarget{verify__my__vote_8c_ab0e3f1e3e94294defad81ae2479615da}\label{verify__my__vote_8c_ab0e3f1e3e94294defad81ae2479615da}} 
+\index{verify\_my\_vote.c@{verify\_my\_vote.c}!toUpperCase@{toUpperCase}}
+\index{toUpperCase@{toUpperCase}!verify\_my\_vote.c@{verify\_my\_vote.c}}
+\doxysubsubsection{\texorpdfstring{toUpperCase()}{toUpperCase()}}
+{\footnotesize\ttfamily void to\+Upper\+Case (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Fonction de mise en majuscule d\textquotesingle{}une chaîne de caractères. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in,out}}  & {\em str} & Chaîne de caractères à mettre en majuscule.\\
+\hline
+\end{DoxyParams}
+Une fonction qui prend en parametre une chaine de charactere dans un format quelconque (majuscule ou non), et qui la met en majuscule. 

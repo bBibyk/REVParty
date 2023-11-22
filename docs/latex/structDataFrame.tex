@@ -1,0 +1,81 @@
+\hypertarget{structDataFrame}{}\doxysection{Référence de la structure Data\+Frame}
+\label{structDataFrame}\index{DataFrame@{DataFrame}}
+
+
+Structure de données d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}.  
+
+
+
+
+{\ttfamily \#include $<$lecture\+\_\+csv.\+h$>$}
+
+
+
+Graphe de collaboration de Data\+Frame\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{structDataFrame__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structColumn}{Column}} $\ast$ \mbox{\hyperlink{structDataFrame_a547899e789cabe42ae79ab324b29f8a7}{columns}}
+\begin{DoxyCompactList}\small\item\em Tableau de colonnes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structDataFrame_ae54fa5e2df2613f9f8c5e34a0724217d}{num\+\_\+columns}}
+\begin{DoxyCompactList}\small\item\em Nombre de colonnes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structDataFrame_a38291090a3784a76ae1b111935ba8ca2}{num\+\_\+rows}}
+\begin{DoxyCompactList}\small\item\em Nombre de lignes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structDataFrame_a75098623bb18f103e3dee268191065dd}\label{structDataFrame_a75098623bb18f103e3dee268191065dd}} 
+char $\ast$ \mbox{\hyperlink{structDataFrame_a75098623bb18f103e3dee268191065dd}{index\+\_\+name}}
+\begin{DoxyCompactList}\small\item\em Nom de l\textquotesingle{}index du \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structDataFrame_a373de6175ea36f3bb7e52579c40d381d}\label{structDataFrame_a373de6175ea36f3bb7e52579c40d381d}} 
+char \mbox{\hyperlink{structDataFrame_a373de6175ea36f3bb7e52579c40d381d}{delimiter}}
+\begin{DoxyCompactList}\small\item\em Délimiteur de colonnes dans le fichier CSV. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Structure de données d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. 
+
+Structure de données représentant un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}.
+
+Cette structure permet de stocker les informations d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. Elle contient un tableau de colonnes, le nombre de colonnes et le nombre de lignes. L\textquotesingle{}avatar de cette structure est un tableau à deux dimensions, où chaque ligne représente une colonne et chaque colonne représente une ligne. On peut donc accéder facilement à une colonne ou à une ligne en fonction de l\textquotesingle{}index de la colonne ou de la ligne. 
+
+\doxysubsection{Documentation des champs}
+\mbox{\Hypertarget{structDataFrame_a547899e789cabe42ae79ab324b29f8a7}\label{structDataFrame_a547899e789cabe42ae79ab324b29f8a7}} 
+\index{DataFrame@{DataFrame}!columns@{columns}}
+\index{columns@{columns}!DataFrame@{DataFrame}}
+\doxysubsubsection{\texorpdfstring{columns}{columns}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structColumn}{Column}} $\ast$ Data\+Frame\+::columns}
+
+
+
+Tableau de colonnes. 
+
+Tableau de colonnes du \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. \mbox{\Hypertarget{structDataFrame_ae54fa5e2df2613f9f8c5e34a0724217d}\label{structDataFrame_ae54fa5e2df2613f9f8c5e34a0724217d}} 
+\index{DataFrame@{DataFrame}!num\_columns@{num\_columns}}
+\index{num\_columns@{num\_columns}!DataFrame@{DataFrame}}
+\doxysubsubsection{\texorpdfstring{num\_columns}{num\_columns}}
+{\footnotesize\ttfamily int Data\+Frame\+::num\+\_\+columns}
+
+
+
+Nombre de colonnes. 
+
+Nombre de colonnes dans le \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. \mbox{\Hypertarget{structDataFrame_a38291090a3784a76ae1b111935ba8ca2}\label{structDataFrame_a38291090a3784a76ae1b111935ba8ca2}} 
+\index{DataFrame@{DataFrame}!num\_rows@{num\_rows}}
+\index{num\_rows@{num\_rows}!DataFrame@{DataFrame}}
+\doxysubsubsection{\texorpdfstring{num\_rows}{num\_rows}}
+{\footnotesize\ttfamily int Data\+Frame\+::num\+\_\+rows}
+
+
+
+Nombre de lignes. 
+
+Nombre de lignes dans le \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lecture__csv_8c}{lecture\+\_\+csv.\+c}}\item 
+\mbox{\hyperlink{lecture__csv_8h}{lecture\+\_\+csv.\+h}}\end{DoxyCompactItemize}
