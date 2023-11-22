@@ -12,7 +12,6 @@
 #define CONDORCET_C
 
 #include "condorcet.h"
-#include "lecture_csv.h"
 //TODO : includes
 
 //TODO : code avec commentaires et division en parties
