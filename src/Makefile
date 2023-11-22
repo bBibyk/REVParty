@@ -1,5 +1,5 @@
-scrutin : main.o lecture_csv.o uninominales.o
-	gcc main.o lecture_csv.o uninominales.o -o scrutin
+scrutin : main.o utils.o uninominales.o lecture_csv.o
+	gcc main.o utils.o uninominales.o lecture_csv.o -o scrutin
 
 main.o : main.c
 	gcc -c main.c -o main.o

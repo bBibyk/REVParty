@@ -13,7 +13,16 @@
 
 #include "uninominales.h"
 //TODO : includes
+VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode){
+    VoteResult res;
 
+    res.nb_candidates = 10;
+    res.nb_voters = 100;
+    res.score = 51;
+    strcpy(res.winner, "Pigani");
+
+    return res;
+}
 //TODO : code avec commentaires et division en parties
 
 #endif

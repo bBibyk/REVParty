@@ -17,7 +17,7 @@
 #include "condorcet.h"
 #include "jugement_majoritaire.h"
 #include "uninominales.h"
-#include "utils.c"
+#include "utils.h"
 
 ////////////////////////////////
 // -- Fonctions auxilières -- //

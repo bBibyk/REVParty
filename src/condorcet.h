@@ -12,7 +12,7 @@
 #define CONDORCET_H
 
 #include "lecture_csv.h"
-#include "utils.c"
+#include "utils.h"
 //TODO : includes
 
 //TODO : en-têtes de fonctions
