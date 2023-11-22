@@ -2,6 +2,7 @@
 #define UNINOMINALES_H
 
 #include "lecture_csv.h"
+#include "utils.h"
 #include <stdbool.h>
 
 /**
@@ -18,7 +19,7 @@
  * @fn VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode);
  * @brief Fonction pour effectuer un vote uninominal à un tour.
  * @param[in] df Pointeur vers le DataFrame contenant les résultats du vote.
- * @param[in] log Pointeur vers le fichier journal pour les sorties.
+ * @param[in] log Pointeur vers le fichier de test des sorties.
  * @param[in] debugMode Indique si le mode débogage est activé.
  * @return Structure VoteResult contenant les résultats du vote uninominal à un tour.
  */
@@ -28,7 +29,7 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode);
  * @fn void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResult *firstTour, VoteResult *secondTour);
  * @brief Fonction pour effectuer un vote uninominal à deux tours.
  * @param[in] df Pointeur vers le DataFrame contenant les résultats du vote.
- * @param[in] log Pointeur vers le fichier journal pour les sorties.
+ * @param[in] log Pointeur vers le fichier de test des sorties.
  * @param[in] debugMode Indique si le mode débogage est activé.
  * @param[out] firstTour Résultats du premier tour de vote.
  * @param[out] secondTour Résultats du deuxième tour de vote.
