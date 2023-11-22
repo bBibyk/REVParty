@@ -15,6 +15,8 @@
 #include <stdbool.h>
 #include <time.h>
 
+#define MAXCHAR 1024
+
 ////////////////////////////////////////////
 // -- Fonctions de gestion de fichiers -- //
 ////////////////////////////////////////////
@@ -47,18 +49,27 @@ enum DataType
 
 /**
  * @struct Column
- * @brief Structure de données représentant une colonne dans un DataFrame.
+ * @brief Structure de données d'une colonne
+ * @details Cette structure permet de stocker les informations d'une colonne d'un DataFrame.
+ *         Elle contient le nom de la colonne, son type de données et un tableau de données.
  */
 typedef struct
 {
-    char *name;          ///< Nom de la colonne.
-    enum DataType ctype; ///< Type de données de la colonne.
-    void *data;          ///< Données de la colonne.
+    /// @brief Nom de la colonne
+    char *name;
+    /// @brief Type de données de la colonne
+    enum DataType ctype;
+    /// @brief Tableau de données de la colonne, de type void pour pouvoir stocker des données de différents types
+    void *data;
 } Column;
 
 /**
  * @struct DataFrame
- * @brief Structure de données représentant un DataFrame.
+ * @brief Structure de données d'un DataFrame
+ * @details Cette structure permet de stocker les informations d'un DataFrame.
+ *         Elle contient un tableau de colonnes, le nombre de colonnes et le nombre de lignes.
+ *         L'avatar de cette structure est un tableau à deux dimensions, où chaque ligne représente une colonne et chaque colonne représente une ligne.
+ *         On peut donc accéder facilement à une colonne ou à une ligne en fonction de l'index de la colonne ou de la ligne.
  */
 typedef struct
 {
@@ -142,7 +153,7 @@ bool isIn(DataFrame *df, char *column_name, char *value);
  *
  * Cette fonction récupère les noms des colonnes d'un DataFrame et les stocke dans un tableau de chaînes de caractères.
  */
-void getColumnsNames(DataFrame *df, char *columns_names[df->num_columns]);
+void getColumnsNames(DataFrame *df, char *columns_names[]);
 
 /**
  * @fn Column dfSelect(DataFrame *df, char *column_name)
@@ -150,7 +161,7 @@ void getColumnsNames(DataFrame *df, char *columns_names[df->num_columns]);
  * @param[in] df Pointeur vers le DataFrame dans lequel effectuer la sélection.
  * @param[in] column_name Nom de la colonne à sélectionner.
  * @return Colonne sélectionnée.
- * 
+ *
  * Cette fonction sélectionne une colonne dans un DataFrame par son nom et la renvoie.
  */
 Column dfSelect(DataFrame *df, char *column_name);
@@ -162,7 +173,7 @@ Column dfSelect(DataFrame *df, char *column_name);
  * @param[in] column_name Nom de la colonne dans laquelle rechercher.
  * @param[in] value Valeur servant à identifier la ligne à récupérer.
  * @return DataFrame contenant la ligne trouvée.
- * 
+ *
  * Cette fonction recherche une valeur donnée dans une colonne d'un DataFrame et renvoie la ligne correspondante sous la forme d'une Series.
  */
 Series getRow(DataFrame *df, char *column_name, char *value);
