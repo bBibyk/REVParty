@@ -11,6 +11,7 @@ Gestion et création des structures de données \mbox{\hyperlink{structDataFrame
 {\ttfamily \#include $<$unistd.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}lecture\+\_\+csv.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de lecture\+\_\+csv.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -18,38 +19,6 @@ Graphe des dépendances par inclusion de lecture\+\_\+csv.\+c\+:\nopagebreak
 \includegraphics[width=350pt]{lecture__csv_8c__incl}
 \end{center}
 \end{figure}
-\doxysubsection*{Structures de données}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{structColumn}{Column}}
-\begin{DoxyCompactList}\small\item\em Structure de données d\textquotesingle{}une colonne. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structDataFrame}{Data\+Frame}}
-\begin{DoxyCompactList}\small\item\em Structure de données d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structItem}{Item}}
-\begin{DoxyCompactList}\small\item\em Structure de données d\textquotesingle{}un item de series. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structSeries}{Series}}
-\begin{DoxyCompactList}\small\item\em Structure de données d\textquotesingle{}une series (une ligne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{lecture__csv_8c_ac1535592e39e7edf0cafbd5e695ea622}\label{lecture__csv_8c_ac1535592e39e7edf0cafbd5e695ea622}} 
-\#define {\bfseries MAXCHAR}~1024
-\end{DoxyCompactItemize}
-\doxysubsection*{Énumérations}
-\begin{DoxyCompactItemize}
-\item 
-enum \mbox{\hyperlink{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}} \{ \newline
-{\bfseries INT}
-, {\bfseries DOUBLE}
-, {\bfseries TIMESTAMP}
-, {\bfseries STRING}
-, \newline
-\mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6afd5a5f51ce25953f3db2c7e93eb7864a}{INT}}
-, \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6a33465d1d419b1074fb259ef444609e92}{DOUBLE}}
-, \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6a3f2dbbd8fe9ad35caa594416336ceeda}{TIMESTAMP}}
-, \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6aee847e634a4297b274316de8a8ca9921}{STRING}}
- \}
-\begin{DoxyCompactList}\small\item\em Enumération des types de données. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
@@ -65,9 +34,9 @@ static int \mbox{\hyperlink{lecture__csv_8c_a03e9e38ed6c65a5a6cd6e7d04be7ecc9}{g
 \begin{DoxyCompactList}\small\item\em Fonction de comptage du nombre de lignes d\textquotesingle{}un fichier CSV. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{lecture__csv_8c_a89ca53475041097ad14436eae09ab496}{get\+Row\+Elem}} (char row\mbox{[}MAXCHAR\mbox{]}, char delimiter, char $\ast$data\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em Fonction de récupération des éléments d\textquotesingle{}une ligne d\textquotesingle{}un fichier CSV. \end{DoxyCompactList}\item 
-static enum \mbox{\hyperlink{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}} \mbox{\hyperlink{lecture__csv_8c_a5fcca4fb2f5e84a8122c3e1dd9f94605}{get\+Column\+Type}} (char $\ast$data)
+static enum \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}} \mbox{\hyperlink{lecture__csv_8c_a5fcca4fb2f5e84a8122c3e1dd9f94605}{get\+Column\+Type}} (char $\ast$data)
 \begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}identification du type de données d\textquotesingle{}une colonne. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{lecture__csv_8c_afeb8939a4598f77bc78ebe46a071f9a9}{get\+Columns\+Type}} (char $\ast$data\mbox{[}$\,$\mbox{]}, int num\+\_\+columns, enum \mbox{\hyperlink{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}} columns\+\_\+type\mbox{[}num\+\_\+columns\mbox{]})
+static void \mbox{\hyperlink{lecture__csv_8c_afeb8939a4598f77bc78ebe46a071f9a9}{get\+Columns\+Type}} (char $\ast$data\mbox{[}$\,$\mbox{]}, int num\+\_\+columns, enum \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}} columns\+\_\+type\mbox{[}num\+\_\+columns\mbox{]})
 \begin{DoxyCompactList}\small\item\em Fonction de récupération des types de données des colonnes d\textquotesingle{}un fichier CSV. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{lecture__csv_8c_a4da54bfea36b59734cd04970a681b2c7}{get\+Column\+Index}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$column\+\_\+name)
 \begin{DoxyCompactList}\small\item\em Fonction de récupération de l\textquotesingle{}index d\textquotesingle{}une colonne. \end{DoxyCompactList}\item 
@@ -129,37 +98,6 @@ Essengue Matis
 22 octobre 2023
 \end{DoxyDate}
 Fonctions de gestion et de création des structures de données \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir de fichiers CSV. 
-
-\doxysubsection{Documentation du type de l\textquotesingle{}énumération}
-\mbox{\Hypertarget{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6}\label{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6}} 
-\index{lecture\_csv.c@{lecture\_csv.c}!DataType@{DataType}}
-\index{DataType@{DataType}!lecture\_csv.c@{lecture\_csv.c}}
-\doxysubsubsection{\texorpdfstring{DataType}{DataType}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}}}
-
-
-
-Enumération des types de données. 
-
-Cette énumération permet de définir les types de données possibles pour une colonne (INT, DOUBLE, TIMESTAMP, STRING). \begin{DoxyEnumFields}{Valeurs énumérées}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{INT@{INT}!lecture\_csv.c@{lecture\_csv.c}}\index{lecture\_csv.c@{lecture\_csv.c}!INT@{INT}}}\mbox{\Hypertarget{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6afd5a5f51ce25953f3db2c7e93eb7864a}\label{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6afd5a5f51ce25953f3db2c7e93eb7864a}} 
-INT&Entier. \\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DOUBLE@{DOUBLE}!lecture\_csv.c@{lecture\_csv.c}}\index{lecture\_csv.c@{lecture\_csv.c}!DOUBLE@{DOUBLE}}}\mbox{\Hypertarget{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6a33465d1d419b1074fb259ef444609e92}\label{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6a33465d1d419b1074fb259ef444609e92}} 
-DOUBLE&Nombre à virgule flottante. \\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{TIMESTAMP@{TIMESTAMP}!lecture\_csv.c@{lecture\_csv.c}}\index{lecture\_csv.c@{lecture\_csv.c}!TIMESTAMP@{TIMESTAMP}}}\mbox{\Hypertarget{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6a3f2dbbd8fe9ad35caa594416336ceeda}\label{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6a3f2dbbd8fe9ad35caa594416336ceeda}} 
-TIMESTAMP&Horodatage (timestamp). \\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{STRING@{STRING}!lecture\_csv.c@{lecture\_csv.c}}\index{lecture\_csv.c@{lecture\_csv.c}!STRING@{STRING}}}\mbox{\Hypertarget{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6aee847e634a4297b274316de8a8ca9921}\label{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6aee847e634a4297b274316de8a8ca9921}} 
-STRING&Chaîne de caractères. \\
-\hline
-
-\end{DoxyEnumFields}
-
 
 \doxysubsection{Documentation des fonctions}
 \mbox{\Hypertarget{lecture__csv_8c_a7ffb6146ac38d306c9b168bed767443f}\label{lecture__csv_8c_a7ffb6146ac38d306c9b168bed767443f}} 
@@ -428,7 +366,7 @@ Cette fonction récupère les noms des colonnes d\textquotesingle{}un \mbox{\hyp
 \index{lecture\_csv.c@{lecture\_csv.c}!getColumnsType@{getColumnsType}}
 \index{getColumnsType@{getColumnsType}!lecture\_csv.c@{lecture\_csv.c}}
 \doxysubsubsection{\texorpdfstring{getColumnsType()}{getColumnsType()}}
-{\footnotesize\ttfamily static void get\+Columns\+Type (\begin{DoxyParamCaption}\item[{char $\ast$}]{data\mbox{[}$\,$\mbox{]},  }\item[{int}]{num\+\_\+columns,  }\item[{enum \mbox{\hyperlink{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}}}]{columns\+\_\+type\mbox{[}num\+\_\+columns\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static void get\+Columns\+Type (\begin{DoxyParamCaption}\item[{char $\ast$}]{data\mbox{[}$\,$\mbox{]},  }\item[{int}]{num\+\_\+columns,  }\item[{enum \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}}}]{columns\+\_\+type\mbox{[}num\+\_\+columns\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -447,7 +385,7 @@ Cette fonction permet de récupérer les types de données des colonnes d\textqu
 \index{lecture\_csv.c@{lecture\_csv.c}!getColumnType@{getColumnType}}
 \index{getColumnType@{getColumnType}!lecture\_csv.c@{lecture\_csv.c}}
 \doxysubsubsection{\texorpdfstring{getColumnType()}{getColumnType()}}
-{\footnotesize\ttfamily static enum \mbox{\hyperlink{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}} get\+Column\+Type (\begin{DoxyParamCaption}\item[{char $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily static enum \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}} get\+Column\+Type (\begin{DoxyParamCaption}\item[{char $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 

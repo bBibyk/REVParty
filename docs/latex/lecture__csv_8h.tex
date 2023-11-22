@@ -20,7 +20,7 @@ Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=181pt]{lecture__csv_8h__dep__incl}
+\includegraphics[width=344pt]{lecture__csv_8h__dep__incl}
 \end{center}
 \end{figure}
 \doxysubsection*{Structures de données}
@@ -31,19 +31,19 @@ struct \mbox{\hyperlink{structColumn}{Column}}
 struct \mbox{\hyperlink{structDataFrame}{Data\+Frame}}
 \begin{DoxyCompactList}\small\item\em Structure de données d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structItem}{Item}}
-\begin{DoxyCompactList}\small\item\em Structure de données d\textquotesingle{}un item de series. \end{DoxyCompactList}\item 
+\item 
 struct \mbox{\hyperlink{structSeries}{Series}}
-\begin{DoxyCompactList}\small\item\em Structure de données d\textquotesingle{}une series (une ligne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{lecture__csv_8h_ac1535592e39e7edf0cafbd5e695ea622}\label{lecture__csv_8h_ac1535592e39e7edf0cafbd5e695ea622}} 
+\#define {\bfseries MAXCHAR}~1024
+\end{DoxyCompactItemize}
 \doxysubsection*{Énumérations}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}} \{ \newline
-{\bfseries INT}
-, {\bfseries DOUBLE}
-, {\bfseries TIMESTAMP}
-, {\bfseries STRING}
-, \newline
-\mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6afd5a5f51ce25953f3db2c7e93eb7864a}{INT}}
+enum \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}} \{ \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6afd5a5f51ce25953f3db2c7e93eb7864a}{INT}}
 , \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6a33465d1d419b1074fb259ef444609e92}{DOUBLE}}
 , \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6a3f2dbbd8fe9ad35caa594416336ceeda}{TIMESTAMP}}
 , \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6aee847e634a4297b274316de8a8ca9921}{STRING}}
@@ -60,10 +60,11 @@ void \mbox{\hyperlink{lecture__csv_8h_a726a973dd81e2eabf386cdd9946bb01d}{print\+
 \begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} dans la console. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{lecture__csv_8h_acae7124de991d2f9694150acb9003e8d}{find\+Column}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$column\+\_\+name)
 \begin{DoxyCompactList}\small\item\em Fonction de recherche d\textquotesingle{}une colonne dans un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir de son nom. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{lecture__csv_8h_a20c82d207eb5a0d3d7a712d711d7a6fb}{is\+In}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$column\+\_\+name, char $\ast$value)
+int \mbox{\hyperlink{lecture__csv_8h_ad588c55c42142e22fce023f1e4608c1f}{is\+In}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$column\+\_\+name, char $\ast$value)
 \begin{DoxyCompactList}\small\item\em Fonction de recherche d\textquotesingle{}une valeur dans une colonne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir de son nom et de sa valeur (int, double ou string uniquement) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{lecture__csv_8h_a681ee19bad660ee70199f72b1a4e49c8}{get\+Columns\+Names}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$columns\+\_\+names\mbox{[}df-\/$>$num\+\_\+columns\mbox{]})
-\begin{DoxyCompactList}\small\item\em Fonction de récupération des noms des colonnes d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{lecture__csv_8h_aa2a7d57522f56f02c93b4a91259a2166}\label{lecture__csv_8h_aa2a7d57522f56f02c93b4a91259a2166}} 
+void {\bfseries get\+Columns\+Names} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$columns\+\_\+names\mbox{[}$\,$\mbox{]})
+\item 
 \mbox{\hyperlink{structColumn}{Column}} \mbox{\hyperlink{lecture__csv_8h_a9093ad128fd8fdf5a9954498a60fcb1b}{df\+Select}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$column\+\_\+name)
 \begin{DoxyCompactList}\small\item\em Fonction qui retourne une colonne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir de son nom. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structSeries}{Series}} \mbox{\hyperlink{lecture__csv_8h_a87b02fb2e32a6dd414b42ff5f9340ec9}{get\+Row}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$column\+\_\+name, char $\ast$value)
@@ -96,7 +97,7 @@ Fichier d\textquotesingle{}en-\/tête pour la gestion et la création des struct
 \index{lecture\_csv.h@{lecture\_csv.h}!DataType@{DataType}}
 \index{DataType@{DataType}!lecture\_csv.h@{lecture\_csv.h}}
 \doxysubsubsection{\texorpdfstring{DataType}{DataType}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{lecture__csv_8c_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lecture__csv_8h_ad8ed01ff3ff33333d8e19db4d2818bb6}{Data\+Type}}}
 
 
 
@@ -215,28 +216,7 @@ Cette fonction permet de rechercher une colonne dans un \mbox{\hyperlink{structD
 \begin{DoxyReturn}{Renvoie}
 Indice de la colonne si trouvée, -\/1 sinon.
 \end{DoxyReturn}
-Cette fonction recherche une colonne dans un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} par son nom. Si la colonne est trouvée, elle renvoie l\textquotesingle{}indice de la colonne. Sinon, elle renvoie -\/1. \mbox{\Hypertarget{lecture__csv_8h_a681ee19bad660ee70199f72b1a4e49c8}\label{lecture__csv_8h_a681ee19bad660ee70199f72b1a4e49c8}} 
-\index{lecture\_csv.h@{lecture\_csv.h}!getColumnsNames@{getColumnsNames}}
-\index{getColumnsNames@{getColumnsNames}!lecture\_csv.h@{lecture\_csv.h}}
-\doxysubsubsection{\texorpdfstring{getColumnsNames()}{getColumnsNames()}}
-{\footnotesize\ttfamily void get\+Columns\+Names (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{char $\ast$}]{columns\+\_\+names\mbox{[}df-\/$>$num\+\_\+columns\mbox{]} }\end{DoxyParamCaption})}
-
-
-
-Fonction de récupération des noms des colonnes d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. 
-
-
-\begin{DoxyParams}[1]{Paramètres}
-\mbox{\texttt{ in}}  & {\em df} & src \\
-\hline
-\mbox{\texttt{ out}}  & {\em columns\+\_\+names} & dest\\
-\hline
-\mbox{\texttt{ in}}  & {\em df} & Pointeur vers le \mbox{\hyperlink{structDataFrame}{Data\+Frame}} dont on veut récupérer les noms de colonnes. \\
-\hline
-\mbox{\texttt{ out}}  & {\em columns\+\_\+names} & Tableau de chaînes de caractères dans lequel stocker les noms de colonnes.\\
-\hline
-\end{DoxyParams}
-Cette fonction récupère les noms des colonnes d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} et les stocke dans un tableau de chaînes de caractères. \mbox{\Hypertarget{lecture__csv_8h_a87b02fb2e32a6dd414b42ff5f9340ec9}\label{lecture__csv_8h_a87b02fb2e32a6dd414b42ff5f9340ec9}} 
+Cette fonction recherche une colonne dans un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} par son nom. Si la colonne est trouvée, elle renvoie l\textquotesingle{}indice de la colonne. Sinon, elle renvoie -\/1. \mbox{\Hypertarget{lecture__csv_8h_a87b02fb2e32a6dd414b42ff5f9340ec9}\label{lecture__csv_8h_a87b02fb2e32a6dd414b42ff5f9340ec9}} 
 \index{lecture\_csv.h@{lecture\_csv.h}!getRow@{getRow}}
 \index{getRow@{getRow}!lecture\_csv.h@{lecture\_csv.h}}
 \doxysubsubsection{\texorpdfstring{getRow()}{getRow()}}
@@ -272,11 +252,11 @@ Fonction de récupération d\textquotesingle{}une ligne dans un \mbox{\hyperlink
 \begin{DoxyReturn}{Renvoie}
 \mbox{\hyperlink{structDataFrame}{Data\+Frame}} contenant la ligne trouvée.
 \end{DoxyReturn}
-Cette fonction recherche une valeur donnée dans une colonne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} et renvoie la ligne correspondante sous la forme d\textquotesingle{}une \mbox{\hyperlink{structSeries}{Series}}. \mbox{\Hypertarget{lecture__csv_8h_a20c82d207eb5a0d3d7a712d711d7a6fb}\label{lecture__csv_8h_a20c82d207eb5a0d3d7a712d711d7a6fb}} 
+Cette fonction recherche une valeur donnée dans une colonne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} et renvoie la ligne correspondante sous la forme d\textquotesingle{}une \mbox{\hyperlink{structSeries}{Series}}. \mbox{\Hypertarget{lecture__csv_8h_ad588c55c42142e22fce023f1e4608c1f}\label{lecture__csv_8h_ad588c55c42142e22fce023f1e4608c1f}} 
 \index{lecture\_csv.h@{lecture\_csv.h}!isIn@{isIn}}
 \index{isIn@{isIn}!lecture\_csv.h@{lecture\_csv.h}}
 \doxysubsubsection{\texorpdfstring{isIn()}{isIn()}}
-{\footnotesize\ttfamily bool is\+In (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{char $\ast$}]{column\+\_\+name,  }\item[{char $\ast$}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int is\+In (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{char $\ast$}]{column\+\_\+name,  }\item[{char $\ast$}]{value }\end{DoxyParamCaption})}
 
 
 
