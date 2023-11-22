@@ -1,1 +1,11 @@
-gcc main.c lecture_csv.h condorcet.h jugement_majoritaire.h -o exe
+scrutin : main.o lecture_csv.o uninominales.o
+	gcc main.o lecture_csv.o uninominales.o -o scrutin
+
+main.o : main.c
+	gcc -c main.c -o main.o
+
+lecture_csv.o : lecture_csv.c
+	gcc -c lecture_csv.c -o lecture_csv.o
+
+uninominales.o : uninominales.c
+	gcc -c uninominales.c -o uninominales.o
