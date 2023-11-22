@@ -13,15 +13,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
 #include "lecture_csv.h"
 
 /////////////////////////////////
 // -- Structures de données -- //
 /////////////////////////////////
 
-typedef struct VoteResult{
+typedef struct VoteResult
+{
     int nb_candidates;
     int nb_voters;
     int score;
