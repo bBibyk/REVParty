@@ -17,6 +17,7 @@
 #include "condorcet.h"
 #include "jugement_majoritaire.h"
 #include "uninominales.h"
+#include "utils.c"
 
 ////////////////////////////////
 // -- Fonctions auxilières -- //
@@ -124,37 +125,6 @@ void checkParameters(bool duel, char *methods[], int lenMethods, char *inputFile
         fprintf(stderr, "]\n");
         exit(EXIT_FAILURE);
     }
-}
-
-///////////////////////////////////////////////
-// -- Fonctions d'affichage des résultats -- //
-///////////////////////////////////////////////
-
-// TODO : doc
-void printResult(VoteResult result, char *method, int tour){
-    printf("Mode de scrutin : ");
-
-    if(strcmp(method, "uni1") == 0){
-        printf("uninominal à un tour, tour %d", tour);
-    }else if(strcmp(method, "uni2") == 0){
-        printf("uninominal à deux tours, tour %d", tour);
-    }else if(strcmp(method, "cm") == 0){
-        printf("Condorcet minimax");
-    }else if(strcmp(method, "cp") == 0){
-        printf("Condorcet paires");
-    }else if(strcmp(method, "cs") == 0){
-        printf("Condorcet Schulze");
-    }else if(strcmp(method, "jm") == 0){
-        printf("Jugement majoritaire");
-    }
-
-    printf(", %d candidats, %d votants, vainqueur = %s", result.nb_candidates, result.nb_voters, result.winner);
-
-    if(strcmp(method, "uni1") == 0 || strcmp(method, "uni2") == 0){
-        printf(", score = %d", result.score);
-    }
-
-    printf("\n");
 }
 
 ////////////////

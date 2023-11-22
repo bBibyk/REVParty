@@ -14,9 +14,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <time.h>
-
-/// @def MAXCHAR
-#define MAXCHAR 1024
+#include "lecture_csv.h"
 
 ////////////////////////////////////////////
 // -- Fonctions de gestion de fichiers -- //
@@ -171,19 +169,6 @@ static void getRowElem(char row[MAXCHAR], char delimiter, char *data[])
 }
 
 /**
- * @enum DataType
- * @brief Enumération des types de données
- * @details Cette énumération permet de définir les types de données possibles pour une colonne (INT, DOUBLE, TIMESTAMP, STRING).
- */
-enum DataType
-{
-    INT,
-    DOUBLE,
-    TIMESTAMP,
-    STRING
-};
-
-/**
  * @fn static enum DataType getColumnType(char *data)
  * @brief Fonction d'identification du type de données d'une colonne
  * @param[in] data Tableau contenant les éléments d'une colonne
@@ -231,69 +216,6 @@ static void getColumnsType(char *data[], int num_columns, enum DataType columns_
 /////////////////////////////////////////////
 // -- Fonctions de gestion de DataFrame -- //
 /////////////////////////////////////////////
-
-/**
- * @struct Column
- * @brief Structure de données d'une colonne
- * @details Cette structure permet de stocker les informations d'une colonne d'un DataFrame.
- *         Elle contient le nom de la colonne, son type de données et un tableau de données.
- */
-typedef struct
-{
-    /// @brief Nom de la colonne
-    char *name;
-    /// @brief Type de données de la colonne
-    enum DataType ctype;
-    /// @brief Tableau de données de la colonne, de type void pour pouvoir stocker des données de différents types
-    void *data;
-} Column;
-
-/**
- * @struct DataFrame
- * @brief Structure de données d'un DataFrame
- * @details Cette structure permet de stocker les informations d'un DataFrame.
- *         Elle contient un tableau de colonnes, le nombre de colonnes et le nombre de lignes.
- *         L'avatar de cette structure est un tableau à deux dimensions, où chaque ligne représente une colonne et chaque colonne représente une ligne.
- *         On peut donc accéder facilement à une colonne ou à une ligne en fonction de l'index de la colonne ou de la ligne.
- */
-typedef struct
-{
-    /// @brief Tableau de colonnes
-    Column *columns;
-    /// @brief Nombre de colonnes
-    int num_columns;
-    /// @brief Nombre de lignes
-    int num_rows;
-} DataFrame;
-
-/**
- * @struct Item
- * @brief Structure de données d'un item de series.
- *
- */
-typedef struct
-{
-    char *label;
-    enum DataType type;
-    union
-    {
-        int *int_value;
-        double *double_value;
-        time_t *timestamp_value;
-        char **string_value;
-    } value;
-} Item;
-
-/**
- * @struct Series
- * @brief Structure de données d'une series (une ligne d'un DataFrame)
- *
- */
-typedef struct
-{
-    int nb_items;
-    Item *items;
-} Series;
 
 /**
  * @fn static int getColumnIndex(DataFrame *df, char *column_name)
