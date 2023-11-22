@@ -143,5 +143,25 @@ int main(int argc, char *argv[]){
         checkParameters(duel, methods, 7, inputFile, method);
     }
 
+    if(logFile){
+        FILE *log = openFileWrite(logFile);
+    }
 
+    DataFrame *df = createDataFrameFromCsv(inputFile);
+
+    if(strcmp(method, "uni1") == 0){
+        printf("uni1");
+    }else if(strcmp(method, "uni2") == 0){
+        printf("uni2");
+    }else if(strcmp(method, "cm") == 0){
+        printf("Not implemented yet\n");
+    }else if(strcmp(method, "cp") == 0){
+        printf("Not implemented yet\n");
+    }else if(strcmp(method, "cs") == 0){
+        printf("Not implemented yet\n");
+    }else if(strcmp(method, "jm") == 0){
+        printf("Not implemented yet\n");
+    }else{
+        printf("and all other methods...\n");
+    }
 }
