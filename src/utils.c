@@ -1,7 +1,7 @@
 /**
  * @file utils.c
  * @brief Fonctions et structures utiles pour les différents systèmes de votes.
- * @authors Essengue Matis, Bibyk Bogdan
+ * @authors Bibyk Bogdan
  * @date 11 novembre 2023
  *
  * Fichier avec les utiles pour les différents systèmes de votes.
@@ -11,21 +11,7 @@
 #ifndef UTILS_C
 #define UTILS_C
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "lecture_csv.h"
-
-/////////////////////////////////
-// -- Structures de données -- //
-/////////////////////////////////
-
-typedef struct VoteResult
-{
-    int nb_candidates;
-    int nb_voters;
-    int score;
-    char winner[MAXCHAR];
-} VoteResult;
+#include "utils.h"
 
 /////////////////////
 // -- Fonctions -- //
@@ -66,4 +52,4 @@ void printResult(VoteResult result, char *method, int tour){
     printf("\n");
 }
 
-#endif // UTILS_H
+#endif // UTILS_C
