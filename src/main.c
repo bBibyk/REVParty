@@ -69,7 +69,9 @@ bool stringInArray(char *string, char *tab[], int lenTab){
  * @param[in] atgv Tableau d'arguments donnés.
  * @param[out] duel Indicateur de duel.
  * @param[out] inputFile Chemin du fichier d'entrée.
- * @param[out] logFile Chemin du fichier de log.
+ * @param[out] logFile Chemin du fichier de log
+ * @param[out] debugMode Indicateur de mode debug.
+ * @param[out] method Nom de la méthode.
  *
  * @note Cette fonction affiche un message d'erreur si une option n'est pas valide.
  */
