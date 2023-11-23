@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <getopt.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "lecture_csv.h"
 #include "condorcet.h"
@@ -72,7 +73,7 @@ bool stringInArray(char *string, char *tab[], int lenTab){
  *
  * @note Cette fonction affiche un message d'erreur si une option n'est pas valide.
  */
-void getParameters(int argc, char *argv[], bool *duel, char *inputFile, char *logFile, char *method){
+void getParameters(int argc, char *argv[], bool *duel, char *inputFile, char *logFile, bool *debugMode, char *method){
     int option;
     while((option = getopt(argc, argv, "i:d:o:m:")) != -1){
         switch(option){
@@ -85,6 +86,7 @@ void getParameters(int argc, char *argv[], bool *duel, char *inputFile, char *lo
                 strcpy(inputFile, optarg);
                 break;
             case 'o':
+                *debugMode = true;
                 strcpy(logFile, optarg);
                 break;
             case 'm':
@@ -138,7 +140,7 @@ int main(int argc, char *argv[]){
     char method[MAXCHAR];
     bool debugMode = false;
 
-    getParameters(argc, argv, &duel, inputFile, logFile, method);
+    getParameters(argc, argv, &duel, inputFile, logFile, &debugMode, method);
     if(duel){
         char *methods[] = {"cm", "cp", "cs", "jm", "all"};
         int lenMethods = 5;
@@ -150,8 +152,7 @@ int main(int argc, char *argv[]){
     }
 
     FILE *log;
-    if(logFile){
-        debugMode = true;
+    if(debugMode){
         log = openFileWrite(logFile);
     }
 
@@ -174,12 +175,14 @@ int main(int argc, char *argv[]){
     }else if(strcmp(method, "jm") == 0){
         printf("Not implemented yet\n");
     }else{
-        printResult(voteUninominalUnTour(df, log, debugMode), "uni1", 1);
-        VoteResult result1;
-        VoteResult result2;
-        voteUninominalDeuxTours(df, log, debugMode, &result1, &result2);
-        printResult(result1, "uni2", 1);
-        printResult(result2, "uni2", 2);
+        if(!duel){
+            printResult(voteUninominalUnTour(df, log, debugMode), "uni1", 1);
+            VoteResult result1;
+            VoteResult result2;
+            voteUninominalDeuxTours(df, log, debugMode, &result1, &result2);
+            printResult(result1, "uni2", 1);
+            printResult(result2, "uni2", 2);
+        }
         printf("and all other methods...\n");
     }
 }
