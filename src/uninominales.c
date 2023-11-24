@@ -30,7 +30,7 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode) {
     int nbVotes;
     strcpy(result.winner,gagnantUninominalUnTour(df));
 
-    result.nbCandidates = df->num_columns - 1; // Nombre de candidats
+    result.nbCandidates = df->num_columns - 4; // Nombre de candidats
     result.nbVoters = df->num_rows; // Nombre d'électeurs
     result.score = nbVotes; // score du gagnant
 
