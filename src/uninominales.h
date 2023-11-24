@@ -3,8 +3,10 @@
 
 #include "lecture_csv.h"
 #include "utils.h"
+#include <stdio.h>
 #include <stdbool.h>
-
+#include <stdlib.h>
+#include <string.h>
 /**
  * @file uninominales.h
  * @brief Gestion des méthodes de vote uninominales à un et deux tours.
