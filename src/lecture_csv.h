@@ -102,6 +102,18 @@ typedef struct
     Item *items;
 } Series;
 
+struct Value
+{
+    union
+    {
+        int int_value;
+        double double_value;
+        time_t timestamp_value;
+        char *string_value;
+    };
+    enum DataType type;
+};
+
 ////////////////////////////////////////////
 // -- Fonctions de gestion de DataFrame -- //
 ////////////////////////////////////////////

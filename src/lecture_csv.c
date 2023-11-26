@@ -849,23 +849,6 @@ char *selectStringFromSeries(Series series, char *label)
     exit(1);
 }
 
-// struct Value
-// {
-//     union
-//     {
-//         int int_value;
-//         double double_value;
-//         time_t timestamp_value;
-//         char *string_value;
-//     };
-//     enum DataType type;
-// };
-
-// struct Value getColumnValue(Column col, int index)
-// {
-//     return ((struct Value *)col.data)[index];
-// }
-
 /**
  * @fn void deleteColumn(DataFrame *df, char *column_name)
  * @brief Fonction de suppression d'une colonne d'un DataFrame à partir de son nom
@@ -887,6 +870,18 @@ void deleteColumn(DataFrame *df, char *column_name)
     df->num_columns--;
 }
 
+/**
+ * @fn struct Value getColumnValue(Column col, int index)
+ * @brief Fonction de récupération d'une valeur d'une colonne à partir de son index
+ * @param[in] col
+ * @param[in] index
+ * @return struct Value
+*/
+struct Value getColumnValue(Column col, int index)
+{
+    return ((struct Value *)col.data)[index];
+}
+
 // int main()
 // {
 
@@ -894,8 +889,6 @@ void deleteColumn(DataFrame *df, char *column_name)
 //     char path[] = "../data/";
 //     strcat(path, filename);
 //     DataFrame *df = createDataFrameFromCsv(path);
-//     printDf(df);
-//     deleteColumn(df, "Nom complet");
 //     printDf(df);
 //     // char column_name[] = "Soumis le :";
 //     // char val[] = "10/09/2023 10:54:53";
@@ -917,12 +910,12 @@ void deleteColumn(DataFrame *df, char *column_name)
 //     // char *nom_complet = selectStringFromSeries(reponse, "Nom complet");
 //     // printf(" %s nom complet : %s\n", val, nom_complet);
 
-//     freeDataFrame(df);
+//     // freeDataFrame(df);
 //     printf("Affichage de la colonne Réponse: \n");
 //     Column reponse_col = dfSelect(df, "Réponse");
 //     for (int i = 0; i < 5; i++)
 //     {
-//         printf("%s\n", ((char **)reponse_col.data)[i]);
+//         printf("%d\n", ((int *)reponse_col.data)[i]);
 //     }
 
 //     printf("DataFrame free\n");
