@@ -224,4 +224,12 @@ time_t selectTimestampFromSeries(Series series, char *label);
  */
 char *selectStringFromSeries(Series series, char *label);
 
+/**
+ * @fn void deleteColumn(DataFrame *df, char *column_name)
+ * @brief Fonction de suppression d'une colonne d'un DataFrame à partir de son nom
+ * @param[in, out] df
+ * @param[in] column_name
+ */
+void deleteColumn(DataFrame *df, char *column_name);
+
 #endif // LECTURE_CSV_H
