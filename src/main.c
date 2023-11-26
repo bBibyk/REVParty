@@ -161,7 +161,7 @@ int main(int argc, char *argv[]){
     DataFrame *df = createDataFrameFromCsv(inputFile);
 
     if(strcmp(method, "uni1") == 0){
-        printResult(voteUninominalUnTour(df, log, debugMode), method, 1);
+        printResult(voteUninominalUnTour(df, log, debugMode, NULL), method, 1);
     }else if(strcmp(method, "uni2") == 0){
         VoteResult result1;
         VoteResult result2;
@@ -178,7 +178,7 @@ int main(int argc, char *argv[]){
         printf("Not implemented yet\n");
     }else{
         if(!duel){
-            printResult(voteUninominalUnTour(df, log, debugMode), "uni1", 1);
+            printResult(voteUninominalUnTour(df, log, debugMode, NULL), "uni1", 1);
             VoteResult result1;
             VoteResult result2;
             voteUninominalDeuxTours(df, log, debugMode, &result1, &result2);
