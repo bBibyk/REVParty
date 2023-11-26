@@ -870,18 +870,6 @@ void deleteColumn(DataFrame *df, char *column_name)
     df->num_columns--;
 }
 
-/**
- * @fn struct Value getColumnValue(Column col, int index)
- * @brief Fonction de récupération d'une valeur d'une colonne à partir de son index
- * @param[in] col
- * @param[in] index
- * @return struct Value
-*/
-struct Value getColumnValue(Column col, int index)
-{
-    return ((struct Value *)col.data)[index];
-}
-
 // int main()
 // {
 
@@ -889,9 +877,9 @@ struct Value getColumnValue(Column col, int index)
 //     char path[] = "../data/";
 //     strcat(path, filename);
 //     DataFrame *df = createDataFrameFromCsv(path);
-//     printDf(df);
-//     // char column_name[] = "Soumis le :";
-//     // char val[] = "10/09/2023 10:54:53";
+//     // printDf(df);
+//     char column_name[] = "Soumis le :";
+//     char val[] = "10/09/2023 10:54:53";
 
 //     // printf("La colonne %s est d'indice : %d\n", column_name, findColumn(df, column_name));
 //     // printf("La valeur \"%s\" est dans la colonne \"%s\" : %s\n", val, column_name, isIn(df, column_name, val) ? "true" : "false");
@@ -906,16 +894,21 @@ struct Value getColumnValue(Column col, int index)
 //     //     printf("%s, ", columns_names[i]);
 //     // printf("\n\n");
 
-//     // Series reponse = getRow(df, column_name, val);
-//     // char *nom_complet = selectStringFromSeries(reponse, "Nom complet");
-//     // printf(" %s nom complet : %s\n", val, nom_complet);
+//     Series reponse = getRow(df, column_name, val);
+//     char *nom_complet = selectStringFromSeries(reponse, "Nom complet");
+//     printf(" %s nom complet : %s\n", val, nom_complet);
 
 //     // freeDataFrame(df);
 //     printf("Affichage de la colonne Réponse: \n");
-//     Column reponse_col = dfSelect(df, "Réponse");
+//     Column reponses = dfSelect(df, "Réponse");
+//     Series row;
 //     for (int i = 0; i < 5; i++)
 //     {
-//         printf("%d\n", ((int *)reponse_col.data)[i]);
+//         char response[5];
+//         sprintf(response, "%d", ((int *)reponses.data)[i]);
+//         Series row = getRow(df, "Réponse", response);
+//         printSeries(row);
+//         // Series row = getRow(df, "Réponse", reponse_str);
 //     }
 
 //     printf("DataFrame free\n");

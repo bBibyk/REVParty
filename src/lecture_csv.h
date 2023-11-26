@@ -102,18 +102,6 @@ typedef struct
     Item *items;
 } Series;
 
-struct Value
-{
-    union
-    {
-        int int_value;
-        double double_value;
-        time_t timestamp_value;
-        char *string_value;
-    };
-    enum DataType type;
-};
-
 ////////////////////////////////////////////
 // -- Fonctions de gestion de DataFrame -- //
 ////////////////////////////////////////////
@@ -127,6 +115,13 @@ struct Value
  * Cette fonction crée un DataFrame à partir d'un fichier CSV situé au chemin spécifié. Elle alloue la mémoire nécessaire, lit les données depuis le fichier CSV et remplit le DataFrame. En cas d'erreur, elle renvoie NULL.
  */
 DataFrame *createDataFrameFromCsv(char *path);
+
+/**
+ * @fn void freeDataFrame(DataFrame *df)
+ * @brief Fonction de libération de la mémoire allouée à un DataFrame et à ses colonnes et données associées
+ * @param[in, out] df DataFrame
+ */
+void freeDataFrame(DataFrame *df);
 
 /**
  * @fn void printDf(DataFrame *df)
