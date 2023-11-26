@@ -36,6 +36,6 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode, char *
  * @param[out] firstTour Résultats du premier tour de vote.
  * @param[out] secondTour Résultats du deuxième tour de vote.
  */
-void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResult *firstTour, VoteResult *secondTour);
+void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResult *firstTourFirstCandidate,VoteResult *firstTourSecondCandidate,  VoteResult *secondTour, bool *majorite);
 
 #endif

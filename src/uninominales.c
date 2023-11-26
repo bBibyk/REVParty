@@ -1,7 +1,7 @@
 #ifndef UNINOMINALES_C
 #define UNINOMINALES_C
 
-#include "uninominale.h"
+#include "uninominales.h"
 
 /**
  * @file uninominales.c
@@ -84,17 +84,8 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode, char *
     result.nb_voters = df->num_rows;            // Nombre d'électeurs
     result.score = nbVotes;                     // score du gagnant
 
-    // Affichage des résultats si le mode débogage est activé
-    if (debugMode)
-    {
-        printf("Résultats du vote uninominal à un tour :\n");
-        printf("Gagnant : %s\n", result.winner);
-        printf("Nombre de candidats : %d\n", result.nb_candidates);
-        printf("Nombre d'électeurs : %d\n", result.nb_voters);
-        printf("Score : %d\n", result.score);
-    }
     // Ecriture des résultats dans le fichier de log
-    if (log != NULL)
+    if (debugMode)
     {
         fprintf(log, "Résultats du vote uninominal à un tour :\n");
         fprintf(log, "Gagnant : %s\n", result.winner);
@@ -157,21 +148,23 @@ char *preferenceCandidat(DataFrame *df, char *firstCandidate, char *secondCandid
 }
 
 // Fonction pour effectuer un vote uninominal à deux tours
-void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResult *firstTour, VoteResult *secondTour)
+void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResult *firstTourFirstCandidate,VoteResult *firstTourSecondCandidate,  VoteResult *secondTour, bool *majorite)
 {
 
-    *firstTour = voteUninominalUnTour(df, log, debugMode, NULL);
+    *firstTourFirstCandidate = voteUninominalUnTour(df, log, debugMode, NULL);
 
     // Vérifiez si le gagnant du premier tour a obtenu la majorité absolue
-    if (firstTour->score > (float)(df->num_rows - 1) / 2.0)
+    if (firstTourFirstCandidate->score > (float)(df->num_rows - 1) / 2.0)
     {
-        *secondTour = *firstTour;
+        *secondTour = *firstTourFirstCandidate;
+        *majorite = true;
     }
     else
     {
         // Création d'un DataFrame temporaire avec seulement les deux candidats les mieux placés
-        char *firstCandidate = firstTour->winner;
-        char *secondCandidate = voteUninominalUnTour(df, log, debugMode, firstCandidate).winner;
+        char *firstCandidate = firstTourFirstCandidate->winner;
+        *firstTourSecondCandidate = voteUninominalUnTour(df, log, debugMode, firstCandidate);
+        char *secondCandidate = firstTourSecondCandidate.winner;
         int nbVotes;
 
         secondTour->nb_candidates = 2;
@@ -179,19 +172,9 @@ void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResul
         strcpy(secondTour->winner, preferenceCandidat(df, firstCandidate, secondCandidate, &nbVotes));
         secondTour->score = nbVotes;
     }
-
-    // Affichage des résultats du deuxième tour si le mode débogage est activé
-    if (debugMode)
-    {
-        printf("\nRésultats du deuxième tour :\n");
-        printf("Gagnant : %s\n", secondTour->winner);
-        printf("Nombre de candidats : %d\n", secondTour->nb_candidates);
-        printf("Nombre d'électeurs : %d\n", secondTour->nb_voters);
-        printf("Score : %d\n", secondTour->score);
-    }
-
+    
     // Ecriture des résultats du deuxième tour dans le fichier de log
-    if (log != NULL)
+    if (debugMode)
     {
         fprintf(log, "\nRésultats du deuxième tour :\n");
         fprintf(log, "Gagnant : %s\n", secondTour->winner);
