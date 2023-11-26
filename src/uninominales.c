@@ -30,13 +30,13 @@ char *gagnantUninominalUnTour(DataFrame *df, int *nbVotes, char *columnToSkip)
         candidats[i] = df->columns[i + 4].name;
     }
 
-    Column reponses = dfSelect(df, "Réponse");
+    Column reponses = df->columns[0];
 
     for (int i = 0; i < df->num_rows; i++)
     {
-        char response[5];
+        char response[30];
         sprintf(response, "%d", ((int *)reponses.data)[i]);
-        Series row = getRow(df, "Réponse", response);
+        Series row = getRow(df, df->columns[0].name, response);
         for (int j = 0; j < df->num_columns; j++)
         {
             Item item = row.items[j];
@@ -91,7 +91,7 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode, char *
         fprintf(log, "Gagnant : %s\n", result.winner);
         fprintf(log, "Nombre de candidats : %d\n", result.nb_candidates);
         fprintf(log, "Nombre d'électeurs : %d\n", result.nb_voters);
-        fprintf(log, "Score : %f\n", (result.score/result.nb_voters)*100);
+        fprintf(log, "Score : %f\n", result.score);
         fprintf(log, "\n");
     }
 
@@ -108,13 +108,13 @@ char *preferenceCandidat(DataFrame *df, char *firstCandidate, char *secondCandid
     int numCandidates = 2;
     int votes[2] = {0, 0};
 
-    Column reponses = dfSelect(df, "Réponse");
+    Column reponses = df->columns[0];
 
     for (int i = 0; i < df->num_rows; i++)
     {
         char response[5];
         sprintf(response, "%d", ((int *)reponses.data)[i]);
-        Series row = getRow(df, "Réponse", response);
+        Series row = getRow(df, df->columns[0].name, response);
         int scoreFirstCandidate = 0;
         int scoreSecondCandidate = 0;
 
@@ -180,7 +180,7 @@ void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResul
         fprintf(log, "Gagnant : %s\n", secondTour->winner);
         fprintf(log, "Nombre de candidats : %d\n", secondTour->nb_candidates);
         fprintf(log, "Nombre d'électeurs : %d\n", secondTour->nb_voters);
-        fprintf(log, "Score : %f\n", ((secondTour->score)/(secondTour->nb_voters))*100);
+        fprintf(log, "Score : %f\n", secondTour->score);
         fprintf(log, "\n");
     }
 }

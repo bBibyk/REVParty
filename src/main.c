@@ -15,8 +15,8 @@
 #include <stdbool.h>
 
 #include "lecture_csv.h"
-#include "condorcet.h"
-#include "jugement_majoritaire.h"
+// #include "condorcet.h"
+// #include "jugement_majoritaire.h"
 #include "uninominales.h"
 #include "utils.h"
 
