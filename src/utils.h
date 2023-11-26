@@ -1,10 +1,10 @@
 /**
  * @file utils.h
- * @brief Fonctions utiles pour les différents systèmes de votes.
- * @author Essengue Matis
+ * @brief Fonctions et structures utiles pour les différents systèmes de votes.
+ * @authors Essengue Matis
  * @date 11 novembre 2023
  *
- * Fichier d'en-tête pour les fonctions utiles pour les différents systèmes de votes.
+ * Fichier avec les utiles pour les différents systèmes de votes.
  *
  */
 
@@ -26,5 +26,20 @@ typedef struct VoteResult
     int score;
     char winner[MAXCHAR];
 } VoteResult;
+
+/////////////////////
+// -- Fonctions -- //
+/////////////////////
+
+/**
+ * @fn void printResult(VoteResult result, char *method, int tour)
+ * @brief Fonction pour afficher les résultats d'un vote.
+ * @param[in] result Structure contenant les données du vote.
+ * @param[in] method Mode de scrutin.
+ * @param[in] tour Tour du vote, si uninominal.
+ * 
+ * @note L'affichage est base sur le mode de scrutin.
+ */
+void printResult(VoteResult result, char *method, int tour);
 
 #endif // UTILS_H
