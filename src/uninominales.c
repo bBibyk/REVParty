@@ -164,7 +164,7 @@ void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResul
         // Création d'un DataFrame temporaire avec seulement les deux candidats les mieux placés
         char *firstCandidate = firstTourFirstCandidate->winner;
         *firstTourSecondCandidate = voteUninominalUnTour(df, log, debugMode, firstCandidate);
-        char *secondCandidate = firstTourSecondCandidate.winner;
+        char *secondCandidate = firstTourSecondCandidate->winner;
         int nbVotes;
 
         secondTour->nb_candidates = 2;
