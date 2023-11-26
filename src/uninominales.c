@@ -38,7 +38,7 @@ char *gagnantUninominalUnTour(DataFrame *df, int *nbVotes) {
             Item item = row.items[j];
             if (item.type == INT && *(item.value.int_value) == 1){
                 votes[j-4] += 1;
-                break;
+                continue;
             }
         }   
     }
@@ -95,11 +95,7 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode) {
 
     return result;
 }
-
-
-
 /*
-
 
 ///====================================================================================
 ///                                 UNINOMINAL 2 TOUR
@@ -126,16 +122,36 @@ DataFrame *createSecondTourDataFrame(DataFrame *df, char *firstCandidate, char *
         newColumns[4].data[i] = df->columns[firstCandidateIndex].data[i];
         newColumns[5].data[i] = df->columns[secondCandidateIndex].data[i];
         }
-
         return newDataFrame;
     
 }
 
- */
+DataFrame *preferenceCandidat(DataFrame *secondTourDataFrame) {
+    // Fonction auxiliaire permettant de regarder la preference de chaque élécteur au deuxième tour
+    int numVoters = secondTourDataFrame->num_rows-1;
+
+    for (int i = 0; i < 2; i++) {
+        int voteCandidate1 = ((int *)secondTourDataFrame->columns[4].data)[i]; // 5ème colonne
+        int voteCandidate2 = ((int *)secondTourDataFrame->columns[5].data)[i]; // 6ème colonne
+
+        // Si l'électeur a voté 1 pour l'un des candidats, ne rien faire
+        if (voteCandidate1 == 1 || voteCandidate2 == 1) {
+            continue;
+        }
+        if (voteCandidate1 < voteCandidate2) {
+            ((int *)secondTourDataFrame->columns[4].data)[i] = 1; // 5ème colonne
+        } else {
+            ((int *)secondTourDataFrame->columns[5].data)[i] = 1; // 6ème colonne
+        }
+    }
+
+    return secondTourDataFrame;
+}
+
 // Fonction pour effectuer un vote uninominal à deux tours
 void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResult *firstTour, VoteResult *secondTour) {
-/*
-    *firstTour = voteUninominalUnTour(df, NULL, false);
+
+    *firstTour = voteUninominalUnTour(df, log, debugMode);
 
     // Vérifiez si le gagnant du premier tour a obtenu la majorité absolue
     if (firstTour->score > (float)(df->num_rows-1) / 2.0) {
@@ -146,29 +162,12 @@ void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResul
         char *firstCandidate = firstTour->winner;
         DataFrame *auxiliaireRecherche = df;
         deleteColumn(auxiliaireRecherche, firstCandidate);
-        char *secondCandidate = voteUninominalUnTour(auxiliaireRecherche, NULL, false).winner;
+        char *secondCandidate = voteUninominalUnTour(auxiliaireRecherche, log, debugMode).winner;
         DataFrame *CandidatsSecond = createSecondTourDataFrame(df, firstCandidate, secondCandidate);
+        preferenceCandidat(CandidatsSecond);
         *secondTour = voteUninominalUnTour(CandidatsSecond, NULL, false);
         // Libération de la mémoire du DataFrame temporaire
         freeDataFrame(CandidatsSecond);  
-    }
-    // Affichage des résultats du deuxième tour si le mode débogage est activé
-     if (debugMode) {
-        printf("\nRésultats du premier tour :\n");
-        printf("Gagnant : %s\n", firstTour->winner);
-        printf("Nombre de candidats : %d\n", firstTour->nb_candidates);
-        printf("Nombre d'électeurs : %d\n", firstTour->nb_voters);
-        printf("Score : %d\n", firstTour->score);
-    }
-
-    // Ecriture des résultats du deuxième tour dans le fichier de log
-    if (log != NULL) {
-        fprintf(log, "\nRésultats du premier tour :\n");
-        fprintf(log, "Gagnant : %s\n", firstTour->winner);
-        fprintf(log, "Nombre de candidats : %d\n", firstTour->nb_candidates);
-        fprintf(log, "Nombre d'électeurs : %d\n", firstTour->nb_voters);
-        fprintf(log, "Score : %d\n", firstTour->score);
-        fprintf(log, "\n");
     }
 
     // Affichage des résultats du deuxième tour si le mode débogage est activé
@@ -189,7 +188,7 @@ void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResul
         fprintf(log, "Score : %d\n", secondTour->score);
         fprintf(log, "\n");
     }
- */
+*/
 }
 int main(int argc, char *argv[]){
     char inputFile[MAXCHAR];
