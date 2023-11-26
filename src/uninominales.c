@@ -31,10 +31,12 @@ char *gagnantUninominalUnTour(DataFrame *df, int *nbVotes) {
     }
     Column reponses = dfSelect(df, "Réponse");
     for (int i = 0; i < df->num_rows; i++){
-        Series row = getRow(df, "Réponse", (int*)reponses.data[i]);
+        char response[5];
+        sprintf(response, "%d", ((int *)reponses.data)[i]);
+        Series row = getRow(df, "Réponse", response);
         for (int j = 0; j < df->num_columns; j++){
             Item item = row.items[j];
-            if (item.type == INT && item.value == 1){
+            if (item.type == INT && *(item.value.int_value) == 1){
                 votes[j-4] += 1;
                 break;
             }
@@ -96,7 +98,7 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode) {
 
 
 
-
+/*
 
 
 ///====================================================================================
@@ -104,25 +106,36 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode) {
 ///====================================================================================
 
 
-// Fonction auxiliaire pour trouver le deuxième candidat le mieux placé
-char *deuxiemeCandidat(DataFrame *df, char *firstCandidate) {
-}
-
-
 // Fonction auxiliaire pour créer un DataFrame temporaire pour le deuxième tour
 DataFrame *createSecondTourDataFrame(DataFrame *df, char *firstCandidate, char *secondCandidate) {
-    char *selectedColumns[] = {};
-    DataFrame *secondTour = df;
+    int firstCandidateIndex = findColumn(df, firstCandidate);
+    int secondCandidateIndex = findColumn(df, secondCandidate);
+    Column *newColumns = (Column *)malloc(6 * sizeof(Column));
+    newColumns[0] = df->columns[0];
+    newColumns[1] = df->columns[1];
+    newColumns[2] = df->columns[2];
+    newColumns[3] = df->columns[3];
+    newColumns[4] = df->columns[firstCandidateIndex];
+    newColumns[5] = df->columns[secondCandidateIndex];
+    DataFrame *newDataFrame;
+    for (int i = 0; i < df->num_rows; i++) {
+        newColumns[0].data[i] = df->columns[0].data[i];
+        newColumns[1].data[i] = df->columns[1].data[i];
+        newColumns[2].data[i] = df->columns[2].data[i];
+        newColumns[3].data[i] = df->columns[3].data[i];
+        newColumns[4].data[i] = df->columns[firstCandidateIndex].data[i];
+        newColumns[5].data[i] = df->columns[secondCandidateIndex].data[i];
+        }
 
-    return secondTour;
-
+        return newDataFrame;
+    
 }
 
-
+ */
 // Fonction pour effectuer un vote uninominal à deux tours
 void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResult *firstTour, VoteResult *secondTour) {
-
-    *firstTour = voteUninominalUnTour(df, log, debugMode);
+/*
+    *firstTour = voteUninominalUnTour(df, NULL, false);
 
     // Vérifiez si le gagnant du premier tour a obtenu la majorité absolue
     if (firstTour->score > (float)(df->num_rows-1) / 2.0) {
@@ -131,18 +144,14 @@ void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResul
     else {
         // Création d'un DataFrame temporaire avec seulement les deux candidats les mieux placés
         char *firstCandidate = firstTour->winner;
-        char *secondCandidate = deuxiemeCandidat(df, firstTour->winner);
-
-        /*
-        DataFrame *secondTour = createSecondTourDataFrame(df, firstCandidate, secondCandidate);
-
-        *secondTour = voteUninominalUnTour(secondTour, log, debugMode);
-
+        DataFrame *auxiliaireRecherche = df;
+        deleteColumn(auxiliaireRecherche, firstCandidate);
+        char *secondCandidate = voteUninominalUnTour(auxiliaireRecherche, NULL, false).winner;
+        DataFrame *CandidatsSecond = createSecondTourDataFrame(df, firstCandidate, secondCandidate);
+        *secondTour = voteUninominalUnTour(CandidatsSecond, NULL, false);
         // Libération de la mémoire du DataFrame temporaire
-        freeDataFrame(secondTour);  
+        freeDataFrame(CandidatsSecond);  
     }
-
-    */
     // Affichage des résultats du deuxième tour si le mode débogage est activé
      if (debugMode) {
         printf("\nRésultats du premier tour :\n");
@@ -180,6 +189,13 @@ void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResul
         fprintf(log, "Score : %d\n", secondTour->score);
         fprintf(log, "\n");
     }
+ */
 }
+int main(int argc, char *argv[]){
+    char inputFile[MAXCHAR];
+    strcpy(inputFile, argv[1]);
+    DataFrame *df = createDataFrameFromCsv(inputFile);
+    voteUninominalUnTour(df, NULL, true);
 
+}
 #endif
