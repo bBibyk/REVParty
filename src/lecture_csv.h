@@ -117,6 +117,13 @@ typedef struct
 DataFrame *createDataFrameFromCsv(char *path);
 
 /**
+ * @fn void freeDataFrame(DataFrame *df)
+ * @brief Fonction de libération de la mémoire allouée à un DataFrame et à ses colonnes et données associées
+ * @param[in, out] df DataFrame
+ */
+void freeDataFrame(DataFrame *df);
+
+/**
  * @fn void printDf(DataFrame *df)
  * @brief Fonction d'affichage d'un DataFrame dans la console.
  * @param[in] df Pointeur vers le DataFrame à afficher.
@@ -223,5 +230,13 @@ time_t selectTimestampFromSeries(Series series, char *label);
  * @return Valeur sélectionnée.
  */
 char *selectStringFromSeries(Series series, char *label);
+
+/**
+ * @fn void deleteColumn(DataFrame *df, char *column_name)
+ * @brief Fonction de suppression d'une colonne d'un DataFrame à partir de son nom
+ * @param[in, out] df
+ * @param[in] column_name
+ */
+void deleteColumn(DataFrame *df, char *column_name);
 
 #endif // LECTURE_CSV_H
