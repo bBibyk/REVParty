@@ -82,7 +82,7 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode, char *
 
     result.nb_candidates = df->num_columns - 4; // Nombre de candidats
     result.nb_voters = df->num_rows;            // Nombre d'électeurs
-    result.score = (nbVotes/result.nb_voters)*10;    // score du gagnant
+    result.score = nbVotes;    // score du gagnant
 
     // Ecriture des résultats dans le fichier de log
     if (debugMode)
@@ -170,7 +170,7 @@ void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResul
         secondTour->nb_candidates = 2;
         secondTour->nb_voters = df->num_rows;
         strcpy(secondTour->winner, preferenceCandidat(df, firstCandidate, secondCandidate, &nbVotes));
-        secondTour->score = (nbVotes / secondTour->nb_voters)*10;
+        secondTour->score = nbVotes;
     }
     
     // Ecriture des résultats du deuxième tour dans le fichier de log
