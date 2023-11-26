@@ -23,7 +23,7 @@ typedef struct VoteResult
 {
     int nb_candidates;
     int nb_voters;
-    int score;
+    float score;
     char winner[MAXCHAR];
 } VoteResult;
 

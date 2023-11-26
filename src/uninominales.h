@@ -23,6 +23,7 @@
  * @param[in] df Pointeur vers le DataFrame contenant les résultats du vote.
  * @param[in] log Pointeur vers le fichier de test des sorties.
  * @param[in] debugMode Indique si le mode débogage est activé.
+ * @param[in] columnToSkip Nom de la colonne à ignorer.
  * @return Structure VoteResult contenant les résultats du vote uninominal à un tour.
  */
 VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode, char *columnToSkip);
@@ -33,9 +34,11 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode, char *
  * @param[in] df Pointeur vers le DataFrame contenant les résultats du vote.
  * @param[in] log Pointeur vers le fichier de test des sorties.
  * @param[in] debugMode Indique si le mode débogage est activé.
- * @param[out] firstTour Résultats du premier tour de vote.
+ * @param[out] firstTourFirstCandidate Résultats du premier tour de vote, concernant le premier candidat.
+ * @param[out] firstTourSecondCandidate Résultats du premier tour de vote, concernant le deuxième candidat.
  * @param[out] secondTour Résultats du deuxième tour de vote.
+ * @param[out] majorite Indique si la majorité est gagnée.
  */
-void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResult *firstTour, VoteResult *secondTour);
+void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResult *firstTourFirstCandidate,VoteResult *firstTourSecondCandidate,  VoteResult *secondTour, bool *majorite);
 
 #endif

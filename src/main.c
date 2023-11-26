@@ -131,6 +131,26 @@ void checkParameters(bool duel, char *methods[], int lenMethods, char *inputFile
     }
 }
 
+////////////////////////////////////////////////////////
+// -- Fonctions de factorisation du code redondant -- //
+////////////////////////////////////////////////////////
+
+void affichageUninominaleDeuxTours(DataFrame *df, FILE *log, bool debugMode){
+    VoteResult firstTourFirstCandidate;
+    VoteResult firstTourSecondCandidate;
+    VoteResult secondTour;
+    bool majorite;
+
+    voteUninominalDeuxTours(df, log, debugMode, &firstTourFirstCandidate, &firstTourSecondCandidate, &secondTour, &majorite);
+
+    printResult(firstTourFirstCandidate, "uni1", 1);
+    if(!majorite){
+        printResult(firstTourSecondCandidate, "uni1", 1);
+    }
+    printResult(secondTour, "uni1", 2);
+
+}
+
 ////////////////
 // -- MAIN -- //
 ////////////////
@@ -163,11 +183,7 @@ int main(int argc, char *argv[]){
     if(strcmp(method, "uni1") == 0){
         printResult(voteUninominalUnTour(df, log, debugMode, NULL), method, 1);
     }else if(strcmp(method, "uni2") == 0){
-        VoteResult result1;
-        VoteResult result2;
-        voteUninominalDeuxTours(df, log, debugMode, &result1, &result2);
-        printResult(result1, method, 1);
-        printResult(result2, method, 2);
+        affichageUninominaleDeuxTours(df, log, debugMode);
     }else if(strcmp(method, "cm") == 0){
         printf("Not implemented yet\n");
     }else if(strcmp(method, "cp") == 0){
@@ -179,11 +195,7 @@ int main(int argc, char *argv[]){
     }else{
         if(!duel){
             printResult(voteUninominalUnTour(df, log, debugMode, NULL), "uni1", 1);
-            VoteResult result1;
-            VoteResult result2;
-            voteUninominalDeuxTours(df, log, debugMode, &result1, &result2);
-            printResult(result1, "uni2", 1);
-            printResult(result2, "uni2", 2);
+            affichageUninominaleDeuxTours(df, log, debugMode);
         }
         printf("and all other methods...\n");
     }
