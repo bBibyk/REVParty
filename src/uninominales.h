@@ -25,7 +25,7 @@
  * @param[in] debugMode Indique si le mode débogage est activé.
  * @return Structure VoteResult contenant les résultats du vote uninominal à un tour.
  */
-VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode);
+VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode, char *columnToSkip);
 
 /**
  * @fn void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResult *firstTour, VoteResult *secondTour);
