@@ -2,6 +2,7 @@
     "files.associations": {
         "stdbool.h": "c",
         "lecture_csv.h": "c",
-        "uninominales.h": "c"
+        "uninominales.h": "c",
+        "jugement_majoritaire.h": "c"
     }
 }
