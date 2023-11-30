@@ -40,13 +40,14 @@ void printResult(VoteResult result, char *method, int tour){
     }else if(strcmp(method, "cs") == 0){
         printf("Condorcet Schulze");
     }else if(strcmp(method, "jm") == 0){
-        printf("Jugement majoritaire");
+        printf("jugement majoritaire");
     }
 
     printf(", %d candidats, %d votants, vainqueur = %s", result.nb_candidates, result.nb_voters, result.winner);
 
     if(strcmp(method, "uni1") == 0 || strcmp(method, "uni2") == 0){
-        printf(", score = %d", result.score);
+        float score_percentage = (result.score/result.nb_voters)*100;
+        printf(", score = %.2f%%", score_percentage);
     }
 
     printf("\n");

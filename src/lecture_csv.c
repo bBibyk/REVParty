@@ -849,32 +849,69 @@ char *selectStringFromSeries(Series series, char *label)
     exit(1);
 }
 
+/**
+ * @fn void deleteColumn(DataFrame *df, char *column_name)
+ * @brief Fonction de suppression d'une colonne d'un DataFrame à partir de son nom
+ * @param[in, out] df
+ * @param[in] column_name
+ */
+void deleteColumn(DataFrame *df, char *column_name)
+{
+    int index = findColumn(df, column_name);
+    if (index == -1)
+    {
+        fprintf(stderr, "La colonne %s n'existe pas\n", column_name);
+        exit(1);
+    }
+    for (int i = index; i < df->num_columns - 1; i++)
+    {
+        df->columns[i] = df->columns[i + 1];
+    }
+    df->num_columns--;
+}
+
 // int main()
 // {
+
 //     char filename[] = "jugement.csv";
 //     char path[] = "../data/";
 //     strcat(path, filename);
 //     DataFrame *df = createDataFrameFromCsv(path);
-//     printDf(df);
+//     // printDf(df);
 //     char column_name[] = "Soumis le :";
 //     char val[] = "10/09/2023 10:54:53";
 
-//     printf("La colonne %s est d'indice : %d\n", column_name, findColumn(df, column_name));
-//     printf("La valeur \"%s\" est dans la colonne \"%s\" : %s\n", val, column_name, isIn(df, column_name, val) ? "true" : "false");
+//     // printf("La colonne %s est d'indice : %d\n", column_name, findColumn(df, column_name));
+//     // printf("La valeur \"%s\" est dans la colonne \"%s\" : %s\n", val, column_name, isIn(df, column_name, val) ? "true" : "false");
 
-//     Column cours = dfSelect(df, "Cours");
-//     char *DataType[] = {"INT", "DOUBLE", "TIMESTAMP", "STRING"};
-//     printf("La colonne %s est de type %s\n", cours.name, DataType[cours.ctype]);
+//     // Column cours = dfSelect(df, "Cours");
+//     // char *DataType[] = {"INT", "DOUBLE", "TIMESTAMP", "STRING"};
+//     // printf("La colonne %s est de type %s\n", cours.name, DataType[cours.ctype]);
 
-//     char *columns_names[df->num_columns];
-//     getColumnsNames(df, columns_names);
-//     for (int i = 0; i < df->num_columns; i++)
-//         printf("%s, ", columns_names[i]);
-//     printf("\n\n");
+//     // char *columns_names[df->num_columns];
+//     // getColumnsNames(df, columns_names);
+//     // for (int i = 0; i < df->num_columns; i++)
+//     //     printf("%s, ", columns_names[i]);
+//     // printf("\n\n");
 
 //     Series reponse = getRow(df, column_name, val);
 //     char *nom_complet = selectStringFromSeries(reponse, "Nom complet");
 //     printf(" %s nom complet : %s\n", val, nom_complet);
+
+//     // freeDataFrame(df);
+//     printf("Affichage de la colonne Réponse: \n");
+//     Column reponses = dfSelect(df, "Réponse");
+//     Series row;
+//     for (int i = 0; i < 5; i++)
+//     {
+//         char response[5];
+//         sprintf(response, "%d", ((int *)reponses.data)[i]);
+//         Series row = getRow(df, "Réponse", response);
+//         printSeries(row);
+//         // Series row = getRow(df, "Réponse", reponse_str);
+//     }
+
+//     printf("DataFrame free\n");
 
 //     return 0;
 // }
