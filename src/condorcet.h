@@ -4,7 +4,7 @@
  * @author Bibyk Bogdan
  * @date 30 novembre 2023
  *
- * //TODO
+ * Ce fichier d'en-tête définit les fonctions pour effectuer des votes Condorcet.
  *
  */
 
