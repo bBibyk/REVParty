@@ -177,12 +177,12 @@ void getColumnsNames(DataFrame *df, char *columns_names[]);
 Column dfSelect(DataFrame *df, char *column_name);
 
 /**
- * @fn DataFrame getRow(DataFrame *df, char *column_name, char *value)
+ * @fn Series getRow(DataFrame *df, char *column_name, char *value)
  * @brief Fonction de récupération d'une ligne dans un DataFrame.
  * @param[in] df Pointeur vers le DataFrame dans lequel effectuer la recherche.
  * @param[in] column_name Nom de la colonne dans laquelle rechercher.
  * @param[in] value Valeur servant à identifier la ligne à récupérer.
- * @return DataFrame contenant la ligne trouvée.
+ * @return Series contenant la ligne trouvée.
  *
  * Cette fonction recherche une valeur donnée dans une colonne d'un DataFrame et renvoie la ligne correspondante sous la forme d'une Series.
  */
