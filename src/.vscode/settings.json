@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "lecture_csv.h": "c",
+        "uninominales.h": "c"
     }
 }

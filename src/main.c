@@ -15,8 +15,8 @@
 #include <stdbool.h>
 
 #include "lecture_csv.h"
-// #include "condorcet.h"
-// #include "jugement_majoritaire.h"
+#include "condorcet.h"
+#include "jugement_majoritaire.h"
 #include "uninominales.h"
 #include "utils.h"
 
@@ -143,11 +143,11 @@ void affichageUninominaleDeuxTours(DataFrame *df, FILE *log, bool debugMode){
 
     voteUninominalDeuxTours(df, log, debugMode, &firstTourFirstCandidate, &firstTourSecondCandidate, &secondTour, &majorite);
 
-    printResult(firstTourFirstCandidate, "uni1", 1);
+    printResult(firstTourFirstCandidate, "uni2", 1);
     if(!majorite){
-        printResult(firstTourSecondCandidate, "uni1", 1);
+        printResult(firstTourSecondCandidate, "uni2", 1);
     }
-    printResult(secondTour, "uni1", 2);
+    printResult(secondTour, "uni2", 2);
 
 }
 
@@ -185,18 +185,21 @@ int main(int argc, char *argv[]){
     }else if(strcmp(method, "uni2") == 0){
         affichageUninominaleDeuxTours(df, log, debugMode);
     }else if(strcmp(method, "cm") == 0){
-        printf("Not implemented yet\n");
+        printResult(voteCondorcetMinimax(df, duel, log, debugMode), method, 1);
     }else if(strcmp(method, "cp") == 0){
-        printf("Not implemented yet\n");
+        printResult(voteCondorcetPaires(df, duel, log, debugMode), method, 1);
     }else if(strcmp(method, "cs") == 0){
-        printf("Not implemented yet\n");
+        printResult(voteCondorcetSchulze(df, duel, log, debugMode), method, 1);
     }else if(strcmp(method, "jm") == 0){
-        printf("Not implemented yet\n");
+        printResult(voteJugementMajoritaire(df, duel, log, debugMode), method, 1);
     }else{
         if(!duel){
             printResult(voteUninominalUnTour(df, log, debugMode, NULL), "uni1", 1);
             affichageUninominaleDeuxTours(df, log, debugMode);
         }
-        printf("and all other methods...\n");
+        printResult(voteCondorcetMinimax(df, duel, log, debugMode), "cm", 1);
+        printResult(voteCondorcetPaires(df, duel, log, debugMode), "cp", 1);
+        printResult(voteCondorcetSchulze(df, duel, log, debugMode), "cs", 1);
+        printResult(voteJugementMajoritaire(df, duel, log, debugMode), "jm", 1);
     }
 }
