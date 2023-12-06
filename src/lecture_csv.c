@@ -79,10 +79,9 @@ static char getDelimiter(FILE *fp)
             return ';';
         else if (row[i] == ',')
             return ',';
-        else if (row[i] == ' ')
-            return ' ';
         i++;
     }
+    return ' ';
 
     // Si on n'a pas trouvé de délimiteur, on affiche un message d'erreur et on quitte le programme
     fprintf(stderr, "Erreur : le fichier ne contient pas de délimiteur.\n");
@@ -877,7 +876,7 @@ void deleteColumn(DataFrame *df, char *column_name)
 //     char path[] = "../data/";
 //     strcat(path, filename);
 //     DataFrame *df = createDataFrameFromCsv(path);
-    
+
 //     printf("colonne 0: %s\n", columns_names[0]);
 
 //     // printDf(df);
