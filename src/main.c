@@ -165,12 +165,12 @@ int main(int argc, char *argv[]){
     getParameters(argc, argv, &duel, inputFile, logFile, &debugMode, method);
     if(duel){
         char *methods[] = {"cm", "cp", "cs", "all"};
-        int lenMethods = 5;
-        checkParameters(duel, methods, 5, inputFile, method);
+        int lenMethods = 4;
+        checkParameters(duel, methods, lenMethods, inputFile, method);
     }else{
         char *methods[] = {"uni1", "uni2", "cm", "cp", "cs", "jm", "all"};
         int lenMethods = 7;
-        checkParameters(duel, methods, 7, inputFile, method);
+        checkParameters(duel, methods, lenMethods, inputFile, method);
     }
 
     FILE *log;
