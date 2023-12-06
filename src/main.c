@@ -164,7 +164,7 @@ int main(int argc, char *argv[]){
 
     getParameters(argc, argv, &duel, inputFile, logFile, &debugMode, method);
     if(duel){
-        char *methods[] = {"cm", "cp", "cs", "jm", "all"};
+        char *methods[] = {"cm", "cp", "cs", "all"};
         int lenMethods = 5;
         checkParameters(duel, methods, 5, inputFile, method);
     }else{
@@ -196,10 +196,10 @@ int main(int argc, char *argv[]){
         if(!duel){
             printResult(voteUninominalUnTour(df, log, debugMode, NULL), "uni1", 1);
             affichageUninominaleDeuxTours(df, log, debugMode);
+            printResult(voteJugementMajoritaire(df, duel, log, debugMode), "jm", 1);
         }
         printResult(voteCondorcetMinimax(df, duel, log, debugMode), "cm", 1);
         printResult(voteCondorcetPaires(df, duel, log, debugMode), "cp", 1);
         printResult(voteCondorcetSchulze(df, duel, log, debugMode), "cs", 1);
-        printResult(voteJugementMajoritaire(df, duel, log, debugMode), "jm", 1);
     }
 }
