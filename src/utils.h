@@ -13,6 +13,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "lecture_csv.h"
 
 /////////////////////////////////
@@ -23,7 +24,7 @@ typedef struct VoteResult
 {
     int nb_candidates;
     int nb_voters;
-    int score;
+    float score;
     char winner[MAXCHAR];
 } VoteResult;
 
