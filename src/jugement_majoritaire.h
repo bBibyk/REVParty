@@ -2,7 +2,7 @@
  * @file jugement_majoritaire.h
  * @brief Gestion de la méthode de jugement majoritaire.
  * @author Pigani Emanuele, Bibyk Bogdan
- * @date 31 octobre 2023
+ * @date 01 décembre 2023
  *
  * Ce fichier d'en-tête définit les fonctions nécessaires pour effectuer un vote
  * selon la méthode de jugement majoritaire et stocker les résultats dans la structure VoteResult.
@@ -27,6 +27,6 @@
  * @param[in] debugMode Indique si le mode débogage est activé.
  * @return Structure VoteResult contenant les résultats du vote selon la méthode de jugement majoritaire.
  */
-VoteResult voteJugementMajoritaire(DataFrame *df, bool duel, FILE *log, bool debugMode);
+VoteResult voteJugementMajoritaire(DataFrame *df, FILE *log, bool debugMode);
 
 #endif
