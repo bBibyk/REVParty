@@ -105,7 +105,6 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode, char *
 char *preferenceCandidat(DataFrame *df, char *firstCandidate, char *secondCandidate, int *nbVotes)
 {
 
-    int numCandidates = 2;
     int votes[2] = {0, 0};
 
     Column reponses = df->columns[0];

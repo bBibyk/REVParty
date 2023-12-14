@@ -20,20 +20,6 @@
 
 #define MAXCHAR 1024
 
-////////////////////////////////////////////
-// -- Fonctions de gestion de fichiers -- //
-////////////////////////////////////////////
-
-/**
- * @fn static FILE *openFile(char *path)
- * @brief Fonction d'ouverture d'un fichier en mode lecture seule.
- * @param[in] path Chemin du fichier à ouvrir.
- * @return Pointeur vers le fichier ouvert.
- *
- * Cette fonction ouvre un fichier en mode lecture seule. En cas d'échec, elle affiche un message d'erreur et termine le programme.
- */
-static FILE *openFile(char *path);
-
 ////////////////////////////////////////////////
 // -- Structures de données pour DataFrame -- //
 ////////////////////////////////////////////////
