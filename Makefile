@@ -5,7 +5,7 @@ TARGET = bin/scrutin
 
 # Creation de liste de fichiers à traiter
 SRCS = $(wildcard src/*.c) # fichiers sources
-OBJS = $(patsubst src/%.c, obj/%.o, $SRCS) # fichiers objets
+OBJS = $(patsubst src/%.c, obj/%.o, $(SRCS)) # fichiers objets
 
 # Règle principale du make et edition des liens 
 $(TARGET) : $(OBJS) | bin
