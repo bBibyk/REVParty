@@ -191,12 +191,12 @@ int main(int argc, char *argv[]){
     }else if(strcmp(method, "cs") == 0){
         printResult(voteCondorcetSchulze(df, duel, log, debugMode), method, 1);
     }else if(strcmp(method, "jm") == 0){
-        printResult(voteJugementMajoritaire(df, duel, log, debugMode), method, 1);
+        printResult(voteJugementMajoritaire(df, log, debugMode), method, 1);
     }else{
         if(!duel){
             printResult(voteUninominalUnTour(df, log, debugMode, NULL), "uni1", 1);
             affichageUninominaleDeuxTours(df, log, debugMode);
-            printResult(voteJugementMajoritaire(df, duel, log, debugMode), "jm", 1);
+            printResult(voteJugementMajoritaire(df, log, debugMode), "jm", 1);
         }
         printResult(voteCondorcetMinimax(df, duel, log, debugMode), "cm", 1);
         printResult(voteCondorcetPaires(df, duel, log, debugMode), "cp", 1);
