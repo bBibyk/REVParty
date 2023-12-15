@@ -4,7 +4,8 @@ FLAGS = -Werror -Wall -pedantic
 TARGET = bin/scrutin
 
 # Creation de liste de fichiers à traiter
-OBJS = $(patsubst src/%.c, obj/%.o, $(wildcard src/*.c)) # fichiers objets
+SRCS = $(wildcard src/*.c) # fichiers sources
+OBJS = $(patsubst src/%.c, obj/%.o, $SRCS) # fichiers objets
 
 # Règle principale du make et edition des liens 
 $(TARGET) : $(OBJS) | bin
@@ -27,16 +28,17 @@ bin :
 
 # Règle secondaire de création de l'éxecutable pour la vérification de vote
 # Cette règle n'est pas généralisée, parce qu'elle reste détachée du programme.
-verify_my_vote : src/verify_my_vote/verify_my_vote.c Sha256/sha256_utils.c Sha256/sha256_utils.c | obj/lecture_csv.o
+verify_my_vote : src/verify_my_vote/verify_my_vote.c Sha256/sha256_utils.c Sha256/sha256_utils.c | bin obj/lecture_csv.o
+	@echo "Compilation et édition des liens pour $@..."
 	@$(CC) $(CFLAGS) -c Sha256/sha256.c -o obj/sha256.o
 	@$(CC) $(CFLAGS) -c Sha256/sha256_utils.c -o obj/sha256_utils.o
 	@$(CC) $(CFLAGS) -c src/$@/$@.c -o obj/$@.o
 	@$(CC) $(CFLAGS) obj/$@.o obj/lecture_csv.o obj/sha256_utils.o obj/sha256.o -o bin/$@
 
 # Règle secondaire de production de la documentation
-docs : 
+documentation : $(SRCS)
 	@echo "Production de la documentation..."
-	@doxygen docs/Doxyfile
+	doxygen docs/Doxyfile
 
 # Règle secondaire de nettoyage
 clean :
