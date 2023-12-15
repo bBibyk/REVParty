@@ -117,6 +117,13 @@ typedef struct
 DataFrame *createDataFrameFromCsv(char *path);
 
 /**
+ * @fn void freeDataFrame(DataFrame *df)
+ * @brief Fonction de libération de la mémoire allouée à un DataFrame et à ses colonnes et données associées
+ * @param[in, out] df DataFrame
+ */
+void freeDataFrame(DataFrame *df);
+
+/**
  * @fn void printDf(DataFrame *df)
  * @brief Fonction d'affichage d'un DataFrame dans la console.
  * @param[in] df Pointeur vers le DataFrame à afficher.
@@ -170,12 +177,12 @@ void getColumnsNames(DataFrame *df, char *columns_names[]);
 Column dfSelect(DataFrame *df, char *column_name);
 
 /**
- * @fn DataFrame getRow(DataFrame *df, char *column_name, char *value)
+ * @fn Series getRow(DataFrame *df, char *column_name, char *value)
  * @brief Fonction de récupération d'une ligne dans un DataFrame.
  * @param[in] df Pointeur vers le DataFrame dans lequel effectuer la recherche.
  * @param[in] column_name Nom de la colonne dans laquelle rechercher.
  * @param[in] value Valeur servant à identifier la ligne à récupérer.
- * @return DataFrame contenant la ligne trouvée.
+ * @return Series contenant la ligne trouvée.
  *
  * Cette fonction recherche une valeur donnée dans une colonne d'un DataFrame et renvoie la ligne correspondante sous la forme d'une Series.
  */
@@ -223,5 +230,13 @@ time_t selectTimestampFromSeries(Series series, char *label);
  * @return Valeur sélectionnée.
  */
 char *selectStringFromSeries(Series series, char *label);
+
+/**
+ * @fn void deleteColumn(DataFrame *df, char *column_name)
+ * @brief Fonction de suppression d'une colonne d'un DataFrame à partir de son nom
+ * @param[in, out] df
+ * @param[in] column_name
+ */
+void deleteColumn(DataFrame *df, char *column_name);
 
 #endif // LECTURE_CSV_H

@@ -1,0 +1,6 @@
+<map id="lecture_csv.h" name="lecture_csv.h">
+<area shape="rect" id="node1" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="113,5,220,32"/>
+<area shape="rect" id="node2" href="$lecture__csv_8c.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV." alt="" coords="5,80,112,107"/>
+<area shape="rect" id="node3" href="$utils_8c.html" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="136,80,197,107"/>
+<area shape="rect" id="node4" href="$verify__my__vote_8c.html" title="Vérification de la présence et du résultat d&#39;un vote dans un fichier CSV pour un nom et un code donné..." alt="" coords="222,80,357,107"/>
+</map>

@@ -22,6 +22,7 @@
  * @fn VoteResult voteJugementMajoritaire(DataFrame *df);
  * @brief Fonction pour effectuer un vote selon la méthode de jugement majoritaire.
  * @param[in] df Pointeur vers le DataFrame contenant les résultats du vote.
+ * @param[in] duel Indique si le DataFrame est en un fichier de duels.
  * @param[in] log Pointeur vers le fichier journal des sorties.
  * @param[in] debugMode Indique si le mode débogage est activé.
  * @return Structure VoteResult contenant les résultats du vote selon la méthode de jugement majoritaire.
