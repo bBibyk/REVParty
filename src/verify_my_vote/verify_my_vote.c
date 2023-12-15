@@ -10,8 +10,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "lecture_csv.h"
-#include "../Sha256/sha256_utils.h"
+#include "../lecture_csv.h"
+#include "../../Sha256/sha256_utils.h"
 
 /**
  * @fn void toUpperCase(char *str)
