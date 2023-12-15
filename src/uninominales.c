@@ -36,9 +36,8 @@ char *gagnantUninominalUnTour(DataFrame *df, int *nbVotes, char *columnToSkip)
     Column reponses = dfSelect(df, columns_names[0]);
     for (int i = 0; i < df->num_rows; i++)
     {
-        char response[5];
+        char response[100];
         sprintf(response, "%d", ((int *)reponses.data)[i]);
-        printf("%s", response);
         Series row = getRow(df, columns_names[0], response);
         for (int j = 0; j < df->num_columns; j++)
         {
