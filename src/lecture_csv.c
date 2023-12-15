@@ -880,7 +880,7 @@ void deleteColumn(DataFrame *df, char *column_name)
 //     printf("colonne 0: %s\n", columns_names[0]);
 
 //     // printDf(df);
-//     //     char column_name[] = "Soumis le :";
+//     //     char column_name[] = "Soumis le :";
 //     //     char val[] = "10/09/2023 10:54:53";
 
 //     //     // printf("La colonne %s est d'indice : %d\n", column_name, findColumn(df, column_name));

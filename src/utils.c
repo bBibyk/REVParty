@@ -40,7 +40,7 @@ void printResult(VoteResult result, char *method, int tour){
     }else if(strcmp(method, "cs") == 0){
         printf("Condorcet Schulze");
     }else if(strcmp(method, "jm") == 0){
-        printf("Jugement majoritaire");
+        printf("jugement majoritaire");
     }
 
     printf(", %d candidats, %d votants, vainqueur = %s", result.nb_candidates, result.nb_voters, result.winner);
