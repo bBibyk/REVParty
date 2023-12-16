@@ -319,7 +319,7 @@ VoteResult voteCondorcetMinimax(DataFrame *df, bool duel, FILE *log, bool debugM
 
     // On crée le résultat du vote et on l'affiche
     VoteResult res = createVoteResult(nb_candidates, df->num_rows, score, minimax_vainqueur);
-    printResult(res, "cm", 1);
+    // printResult(res, "cm", 1);
 
     // On libère la mémoire et on retourne le résultat
     free(minimax_vainqueur);
@@ -403,7 +403,7 @@ VoteResult voteCondorcetPaires(DataFrame *df, bool duel, FILE *log, bool debugMo
     res.nb_candidates = nb_candidates;
     res.nb_voters = df->num_rows;
     strcpy(res.winner, winner);
-    printResult(res, "cp", 1);
+    // printResult(res, "cp", 1);
 
     free(sortedValues);
     free(coordinates);
@@ -531,7 +531,7 @@ VoteResult voteCondorcetSchulze(DataFrame *df, bool duel, FILE *log, bool debugM
         free(chemins[i]);
     free(chemins);
     VoteResult res = createVoteResult(nb_candidates, df->num_rows, 0, vainqueur); // Score peut être 0 ou une autre valeur pertinente
-    printResult(res, "cs", 1);
+    // printResult(res, "cs", 1);
 
     return res;
 }
