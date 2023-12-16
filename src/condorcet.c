@@ -1,8 +1,8 @@
 /**
  * @file condorcet.c
  * @brief //TODO
- * @author Wassim Chenouf
- * @date 31 octobre 2023
+ * @author Essengue Matis
+ * @date 16 décembre 2023
  *
  * //TODO
  *
@@ -12,7 +12,7 @@
 #define CONDORCET_C
 
 #include "condorcet.h"
-//TODO : includes
+
 VoteResult voteCondorcetMinimax(DataFrame *df, bool duel, FILE *log, bool debugMode){
     VoteResult res;
     res.nb_candidates = 4;
