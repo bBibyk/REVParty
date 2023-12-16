@@ -23,20 +23,22 @@ char *gagnantUninominalUnTour(DataFrame *df, int *nbVotes, char *columnToSkip)
     int numCandidates = df->num_columns - 4;
     int *votes = (int *)malloc(numCandidates * sizeof(int));
     char **candidats = (char **)malloc(numCandidates * sizeof(char *));
-
+    
     for (int i = 0; i < numCandidates; i++)
     {
         votes[i] = 0;
         candidats[i] = df->columns[i + 4].name;
     }
-
-    Column reponses = df->columns[0];
-
+   
+    char *columns_names[df->num_columns];
+    getColumnsNames(df, columns_names);
+    
+    Column reponses = dfSelect(df, columns_names[0]);
     for (int i = 0; i < df->num_rows; i++)
     {
-        char response[30];
+        char response[100];
         sprintf(response, "%d", ((int *)reponses.data)[i]);
-        Series row = getRow(df, df->columns[0].name, response);
+        Series row = getRow(df, columns_names[0], response);
         for (int j = 0; j < df->num_columns; j++)
         {
             Item item = row.items[j];
@@ -91,7 +93,7 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode, char *
         fprintf(log, "Gagnant : %s\n", result.winner);
         fprintf(log, "Nombre de candidats : %d\n", result.nb_candidates);
         fprintf(log, "Nombre d'électeurs : %d\n", result.nb_voters);
-        fprintf(log, "Score : %f\n", result.score);
+        fprintf(log, "Score : %f\n", (result.score/result.nb_voters)*100);
         fprintf(log, "\n");
     }
 
@@ -105,15 +107,18 @@ VoteResult voteUninominalUnTour(DataFrame *df, FILE *log, bool debugMode, char *
 char *preferenceCandidat(DataFrame *df, char *firstCandidate, char *secondCandidate, int *nbVotes)
 {
 
+    int numCandidates = 2;
     int votes[2] = {0, 0};
 
-    Column reponses = df->columns[0];
+    char *columns_names[df->num_columns];
+    getColumnsNames(df, columns_names);
+    Column reponses = dfSelect(df, columns_names[0]);
 
     for (int i = 0; i < df->num_rows; i++)
     {
         char response[5];
         sprintf(response, "%d", ((int *)reponses.data)[i]);
-        Series row = getRow(df, df->columns[0].name, response);
+        Series row = getRow(df, columns_names[0], response);
         int scoreFirstCandidate = 0;
         int scoreSecondCandidate = 0;
 
@@ -179,7 +184,7 @@ void voteUninominalDeuxTours(DataFrame *df, FILE *log, bool debugMode, VoteResul
         fprintf(log, "Gagnant : %s\n", secondTour->winner);
         fprintf(log, "Nombre de candidats : %d\n", secondTour->nb_candidates);
         fprintf(log, "Nombre d'électeurs : %d\n", secondTour->nb_voters);
-        fprintf(log, "Score : %f\n", secondTour->score);
+        fprintf(log, "Score : %f\n", ((secondTour->score)/(secondTour->nb_voters))*100);
         fprintf(log, "\n");
     }
 }
