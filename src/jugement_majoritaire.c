@@ -20,12 +20,6 @@ typedef struct {
     int mentionMajoritaire;
 } Candidat;
 
-int max(int a, int b) {
-    if (a>=b){
-        return a;
-    }
-    return b;
-}
 
 bool csvIsCondorcet(DataFrame *df) {
     for (int i = 4; i < df->num_columns; i++) {
