@@ -536,13 +536,13 @@ VoteResult voteCondorcetSchulze(DataFrame *df, bool duel, FILE *log, bool debugM
     return res;
 }
 
-int main(void)
-{
-    DataFrame *df = createDataFrameFromCsv("data/VoteCondorcet.csv");
-    FILE *log = fopen("log", "w");
-    VoteResult res = voteCondorcetMinimax(df, false, log, true);
-    VoteResult res2 = voteCondorcetPaires(df, false, log, true);
-    VoteResult res3 = voteCondorcetSchulze(df, false, log, true);
-}
+//int main(void)
+//{
+//    DataFrame *df = createDataFrameFromCsv("data/VoteCondorcet.csv");
+//    FILE *log = fopen("log", "w");
+//    VoteResult res = voteCondorcetMinimax(df, false, log, true);
+//    VoteResult res2 = voteCondorcetPaires(df, false, log, true);
+//    VoteResult res3 = voteCondorcetSchulze(df, false, log, true);
+//}
 
 #endif
