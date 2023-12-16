@@ -105,12 +105,15 @@ bool isIsolated(Graph *graph, char *node);
  */
 int removeNode(Graph *graph, char *node);
 
+void copyGraph(Graph *dest, Graph *src);
+
 /**
  * @fn void deleteCycles(Graph *graph)
  * @brief Suppression des liens cycliques.
- * @param[in] graph Structure graph à modifier.
+ * @param[in] graph Structure graph à vérifier.
+ * @return Vrai si le graphe est cyclique.
  */
-void deleteCycles(Graph *graph);
+bool isCycled(Graph *graph);
 
 /**
  * @fn void deleteGraph(Graph *graph)

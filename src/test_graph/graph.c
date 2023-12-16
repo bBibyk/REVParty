@@ -109,9 +109,83 @@ int removeNode(Graph *graph, char *node){
     return graph->nb_nodes--;
 }
 
-void deleteCycles(Graph *graph){
-    //TODO
+void copyGraph(Graph *dest, Graph *src){
+    dest->nb_nodes = src->nb_nodes;
+    for (int i = 0; i < dest->nb_nodes; i++){
+        strcpy(dest->nodes[i], src->nodes[i]);
+    }
+    for (int i = 0; i < dest->nb_nodes; i++){
+        for (int j = 0; j < dest->nb_nodes; j++){
+            dest->matrix[i][j] = src->matrix[i][j];
+        }
+    }
 }
+
+static bool isCycledUtil(Graph *graph, int v, bool visited[], bool *recStack) {
+    if (visited[v] == false) {
+        visited[v] = true;
+        recStack[v] = true;
+
+        for (int i = 0; i < graph->nb_nodes; i++) {
+            if (graph->matrix[v][i] != 0) {
+                if (!visited[i] && isCycledUtil(graph, i, visited, recStack))
+                    return true;
+                else if (recStack[i])
+                    return true;
+            }
+        }
+    }
+    recStack[v] = false;
+    return false;
+}
+
+bool isCycled(Graph *graph) {
+    bool *visited = malloc(graph->nb_nodes * sizeof(bool));
+    bool *recStack = malloc(graph->nb_nodes * sizeof(bool));
+
+    for (int i = 0; i < graph->nb_nodes; i++) {
+        visited[i] = false;
+        recStack[i] = false;
+    }
+
+    for (int i = 0; i < graph->nb_nodes; i++) {
+        if (isCycledUtil(graph, i, visited, recStack))
+            return true;
+    }
+
+    free(visited);
+    free(recStack);
+    return false;
+}
+
+// Fonction utilitaire pour deleteCycles
+// static void deleteCyclesUtil(Graph *graph, int v, bool visited[]) {
+//     visited[v] = true;
+
+//     for (int i = 0; i < graph->nb_nodes; i++) {
+//         if (graph->matrix[v][i] != 0 && !visited[i]) {
+//             deleteCyclesUtil(graph, i, visited);
+//             graph->matrix[v][i] = 0;  // Supprimer le cycle
+//         }
+//     }
+// }
+
+// void deleteCycles(Graph *graph) {
+//     bool *visited = malloc(graph->nb_nodes * sizeof(bool));
+
+//     for (int i = 0; i < graph->nb_nodes; i++) {
+//         visited[i] = false;
+//     }
+
+//     for (int i = 0; i < graph->nb_nodes; i++) {
+//         if (!visited[i]) {
+//             deleteCyclesUtil(graph, i, visited);
+//         }
+//     }
+
+//     free(visited);
+// }
+
 
 void deleteGraph(Graph *graph){
     free(graph);
