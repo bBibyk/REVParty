@@ -52,6 +52,109 @@ static int calculerScoreDuel(DataFrame *df, char *candidat, char *adversaire, FI
     return score;
 }
 
+/**
+ * @fn Graph *initGraphNodeFromDf(DataFrame *df, int *idxs_candidats, int nb_candidates)
+ * @brief Initialise un graphe à partir d'un DataFrame.
+ * @param[in] df Le DataFrame contenant les données de vote.
+ * @param[in] idxs_candidats Les indices des candidats.
+ * @param[in] nb_candidates Le nombre de candidats.
+ * @return Le graphe initialisé.
+ */
+static Graph *initGraphNodeFromDf(DataFrame *df, int *idxs_candidats, int nb_candidates, bool duel)
+{
+    Graph *graph = createGraph();
+    for (int i = 0; i < nb_candidates; i++)
+    {
+        char *candidat;
+        // Si le df est une matrice de duel, on récupère le nom des candidats
+        // directement à partir de l'indice 0.
+        // Sinon, on récupère le nom des candidats à partir des indices
+        // des candidats dans le df global (trouvés precedemment).
+        int idx_candidat = idxs_candidats[i];
+        candidat = df->columns[duel ? i : idx_candidat].name;
+        addNode(graph, candidat);
+    }
+    return graph;
+}
+
+/**
+ * @fn void addEdge(Graph *graph, int j, int *idxs_candidats, DataFrame *df, FILE *log, bool debugMode, int idx_candidat, char *candidat)
+ * @brief Ajoute une arête au graphe.
+ * @param[in,out] graph Le graphe.
+ * @param[in] j L'indice du candidat à affronter.
+ * @param[in] idxs_candidats Les indices des candidats.
+ * @param[in] df Le DataFrame contenant les données de vote.
+ * @param[in] log Le fichier de log.
+ * @param[in] debugMode Le mode debug.
+ * @param[in] idx_candidat L'indice du candidat.
+ * @param[in] candidat Le nom du candidat.
+ */
+static void addEdge(Graph *graph, int j, int *idxs_candidats, DataFrame *df, FILE *log, bool debugMode, int idx_candidat, char *candidat, bool duel)
+{
+    // on récupère l'indice de l'adversaire (dans le df global) et son nom
+    int idx_adversaire = idxs_candidats[j];
+    char *adversaire = df->columns[idx_adversaire].name;
+    int score = duel ? ((int *)df->columns[j].data)[idx_candidat]
+                     : calculerScoreDuel(df, candidat, adversaire, log, debugMode);
+
+    // si le score est positif, on ajoute une arête
+    if (score > 0)
+        setEdge(graph, candidat, adversaire, score);
+}
+
+/**
+ * @fn Graph *fillGraphFromDf(DataFrame *df, int *idxs_candidats, int nb_candidates, FILE *log, bool debugMode)
+ * @brief Remplit un graphe à partir d'un DataFrame.
+ * @param[in] df Le DataFrame contenant les données de vote.
+ * @param[in] idxs_candidats Les indices des candidats.
+ * @param[in] nb_candidates Le nombre de candidats.
+ * @param[in] log Le fichier de log.
+ * @param[in] debugMode Le mode debug.
+ * @return Le graphe rempli.
+ */
+static Graph *fillGraphFromDf(DataFrame *df, int *idxs_candidats, int nb_candidates, FILE *log, bool debugMode, bool duel)
+{
+    char *index_name = df->columns[0].name;
+    Graph *graph = initGraphNodeFromDf(df, idxs_candidats, nb_candidates, duel);
+
+    // On fait affronter chaque candidat à tous les autres candidats
+    for (int i = 0; i < nb_candidates; i++)
+    {
+        int idx_candidat = duel ? i : idxs_candidats[i];
+        char *candidat = df->columns[idx_candidat].name;
+        for (int j = 0; j < nb_candidates; j++)
+        {
+            if (i != j)
+                addEdge(graph, j, idxs_candidats, df, log, debugMode, idx_candidat, candidat, duel);
+        }
+    }
+    return graph;
+}
+
+/**
+ * @fn char *trouverVainqueurCondorcet(DataFrame *df, int *idxs_candidats, int nb_candidates, FILE *log, bool debugMode)
+ * @brief Trouve le vainqueur d'un vote Condorcet.
+ * @param[in] df Le DataFrame contenant les données de vote.
+ * @param[in] idxs_candidats Les indices des candidats.
+ * @param[in] nb_candidates Le nombre de candidats.
+ * @param[in] log Le fichier de log.
+ * @param[in] debugMode Le mode debug.
+ * @return Le nom du vainqueur.
+ */
+static char *trouverVainqueurCondorcet(DataFrame *df, int *idxs_candidats, int nb_candidates, FILE *log, bool debugMode, bool duel)
+{
+    Graph *graph = createGraph();
+    graph = initGraphNodeFromDf(df, idxs_candidats, nb_candidates, duel);
+    graph = fillGraphFromDf(df, idxs_candidats, nb_candidates, log, debugMode, duel);
+    for (int i = 0; i < nb_candidates; i++)
+    {
+        char *candidat = df->columns[idxs_candidats[i]].name;
+        if (isDominant(graph, candidat))
+            return candidat;
+    }
+    return NULL;
+}
+
 ///////////////////////////
 // -- Méthode MiniMax -- //
 ///////////////////////////
@@ -196,10 +299,19 @@ static char *trouverMiniMax(DataFrame *df, int *idxs_candidats, int nb_candidate
 VoteResult voteCondorcetMinimax(DataFrame *df, bool duel, FILE *log, bool debugMode)
 {
     // On récupère les candidats
-    int nb_candidates = getNbCandidat(df);
+    int nb_candidates = duel ? df->num_columns : getNbCandidat(df);
     int idxs_candidats[nb_candidates];
     char *index_name = df->columns[0].name;
     getIdxsCandidats(df, nb_candidates, idxs_candidats);
+
+    char *vainqueur_condorcet = trouverVainqueurCondorcet(df, idxs_candidats, nb_candidates, log, debugMode, duel);
+    if (vainqueur_condorcet != NULL)
+    {
+        logprintf(log, debugMode, "Vainqueur CONDORCET: %s\n", vainqueur_condorcet);
+        VoteResult res = createVoteResult(nb_candidates, df->num_rows, 0, vainqueur_condorcet);
+        printResult(res, "cm", 1);
+        return res;
+    }
 
     // On trouve le vainqueur et son score
     int score;
@@ -218,62 +330,45 @@ VoteResult voteCondorcetMinimax(DataFrame *df, bool duel, FILE *log, bool debugM
 // -- Méthode Des Paires -- //
 //////////////////////////////
 
-static void addEdge(Graph *graph, int j, int *idxs_candidats, DataFrame *df, FILE *log, bool debugMode, int idx_candidat, char *candidat)
-{
-    int idx_adversaire = idxs_candidats[j];
-    char *adversaire = df->columns[idx_adversaire].name;
-    int score = calculerScoreDuel(df, candidat, adversaire, log, debugMode);
-    if (score > 0)
-        setEdge(graph, candidat, adversaire, score);
-}
-
-static Graph *initGraphNodeFromDf(DataFrame *df, int *idxs_candidats, int nb_candidates)
-{
-    Graph *graph = createGraph();
-    for (int i = 0; i < nb_candidates; i++)
-    {
-        int idx_candidat = idxs_candidats[i];
-        char *candidat = df->columns[idx_candidat].name;
-        addNode(graph, candidat);
-    }
-    return graph;
-}
-
-static Graph *fillGraphFromDf(DataFrame *df, int *idxs_candidats, int nb_candidates, FILE *log, bool debugMode)
-{
-    char *index_name = df->columns[0].name;
-    Graph *graph = initGraphNodeFromDf(df, idxs_candidats, nb_candidates);
-
-    for (int i = 0; i < nb_candidates; i++)
-    {
-        int idx_candidat = idxs_candidats[i];
-        char *candidat = df->columns[idx_candidat].name;
-        for (int j = 0; j < nb_candidates; j++)
-        {
-            if (i != j)
-                addEdge(graph, j, idxs_candidats, df, log, debugMode, idx_candidat, candidat);
-        }
-    }
-    return graph;
-}
-
+/**
+ * @fn VoteResult voteCondorcetPaires(DataFrame *df, bool duel, FILE *log, bool debugMode)
+ * @brief Vote Condorcet par la méthode Des Paires.
+ * @param[in] df Le DataFrame contenant les données de vote.
+ * @param[in] duel Si vrai, le df est une matrice de duel.
+ * @param[in] log Le fichier de log.
+ * @param[in] debugMode Le mode debug.
+ * @return Le résultat du vote.
+ */
 VoteResult voteCondorcetPaires(DataFrame *df, bool duel, FILE *log, bool debugMode)
 {
-    int nb_candidates = getNbCandidat(df);
+    int nb_candidates = duel ? df->num_columns : getNbCandidat(df);
     char *candidates_names[nb_candidates];
     int idxs_candidats[nb_candidates];
     getIdxsCandidats(df, nb_candidates, idxs_candidats);
     for (int i = 0; i < nb_candidates; i++)
         candidates_names[i] = df->columns[idxs_candidats[i]].name;
 
-    Graph *graph = fillGraphFromDf(df, idxs_candidats, nb_candidates, log, debugMode);
+    char *vainqueur_condorcet = trouverVainqueurCondorcet(df, idxs_candidats, nb_candidates, log, debugMode, duel);
+    if (vainqueur_condorcet != NULL)
+    {
+        logprintf(log, debugMode, "Vainqueur CONDORCET: %s\n", vainqueur_condorcet);
+        VoteResult res = createVoteResult(nb_candidates, df->num_rows, 0, vainqueur_condorcet);
+        printResult(res, "cm", 1);
+        return res;
+    }
+
+    Graph *graph = fillGraphFromDf(df, idxs_candidats, nb_candidates, log, debugMode, duel);
     printGraph(graph, log);
 
+    // On trie les valeurs du graphe par ordre décroissant
     int *sortedValues;
     int *coordinates;
     sortedMatrixValues(graph, &sortedValues, &coordinates);
 
-    Graph *uncycledGraph = initGraphNodeFromDf(df, idxs_candidats, nb_candidates);
+    // On crée un nouveau graphe vierge
+    // On ajoute les arêtes du graphe initial une par une
+    // Si une arête crée un cycle, on la supprime
+    Graph *uncycledGraph = initGraphNodeFromDf(df, idxs_candidats, nb_candidates, duel);
     for (int i = 0; i < graph->nb_nodes * graph->nb_nodes; i++)
     {
         int value = sortedValues[i];
@@ -294,6 +389,7 @@ VoteResult voteCondorcetPaires(DataFrame *df, bool duel, FILE *log, bool debugMo
         }
     }
 
+    // A partir du graphe sans cycle, on supprime les candidats non dominants
     for (int i = 0; i < nb_candidates; i++)
     {
         char *candidat = candidates_names[i];
@@ -302,12 +398,15 @@ VoteResult voteCondorcetPaires(DataFrame *df, bool duel, FILE *log, bool debugMo
     }
     char *winner = uncycledGraph->nodes[0];
 
+    // On libère la mémoire et on retourne le résultat
     VoteResult res;
     res.nb_candidates = nb_candidates;
     res.nb_voters = df->num_rows;
     strcpy(res.winner, winner);
     printResult(res, "cp", 1);
 
+    free(sortedValues);
+    free(coordinates);
     return res;
 }
 
@@ -315,8 +414,16 @@ VoteResult voteCondorcetPaires(DataFrame *df, bool duel, FILE *log, bool debugMo
 // -- Méthode De Schulze -- //
 //////////////////////////////
 
-// -- Méthode de Schulze -- //
-
+/**
+ * @fn void calculerCheminsFort(DataFrame *df, int **chemins, int *idxs_candidats, int nb_candidates, FILE *log, bool debugMode)
+ * @brief Calcule les chemins les plus forts entre chaque paire de candidats.
+ * @param[in] df Le DataFrame contenant les données de vote.
+ * @param[in,out] chemins Les chemins les plus forts.
+ * @param[in] idxs_candidats Les indices des candidats.
+ * @param[in] nb_candidates Le nombre de candidats.
+ * @param[in] log Le fichier de log.
+ * @param[in] debugMode Le mode debug.
+ */
 static void calculerCheminsFort(DataFrame *df, int **chemins, int *idxs_candidats, int nb_candidates, FILE *log, bool debugMode)
 {
     // Initialiser les chemins à 0
@@ -345,6 +452,17 @@ static void calculerCheminsFort(DataFrame *df, int **chemins, int *idxs_candidat
                     chemins[i][j] = max(chemins[i][j], min(chemins[i][k], chemins[k][j]));
 }
 
+/**
+ * @fn char *trouverVainqueurSchulze(DataFrame *df, int *idxs_candidats, int nb_candidates, int **chemins, FILE *log, bool debugMode)
+ * @brief Trouve le vainqueur de la méthode Schulze.
+ * @param[in] df Le DataFrame contenant les données de vote.
+ * @param[in] idxs_candidats Les indices des candidats.
+ * @param[in] nb_candidates Le nombre de candidats.
+ * @param[in] chemins Les chemins les plus forts.
+ * @param[in] log Le fichier de log.
+ * @param[in] debugMode Le mode debug.
+ * @return Le nom du vainqueur.
+ */
 static char *trouverVainqueurSchulze(DataFrame *df, int *idxs_candidats, int nb_candidates, int **chemins, FILE *log, bool debugMode)
 {
     char *winner = NULL;
@@ -368,23 +486,50 @@ static char *trouverVainqueurSchulze(DataFrame *df, int *idxs_candidats, int nb_
     return winner;
 }
 
+/**
+ * @fn VoteResult voteCondorcetSchulze(DataFrame *df, bool duel, FILE *log, bool debugMode)
+ * @brief Vote Condorcet par la méthode De Schulze.
+ * @param[in] df Le DataFrame contenant les données de vote.
+ * @param[in] duel Si vrai, le df est une matrice de duel.
+ * @param[in] log Le fichier de log.
+ * @param[in] debugMode Le mode debug.
+ */
 VoteResult voteCondorcetSchulze(DataFrame *df, bool duel, FILE *log, bool debugMode)
 {
-    int nb_candidates = getNbCandidat(df);
+    // On récupère les candidats
+    int nb_candidates = duel ? df->num_columns : getNbCandidat(df);
     int idxs_candidats[nb_candidates];
-    getIdxsCandidats(df, nb_candidates, idxs_candidats);
+    if (duel)
+    {
+        for (int i = 0; i < nb_candidates; i++)
+            idxs_candidats[i] = i;
+    }
+    else
+    {
+        getIdxsCandidats(df, nb_candidates, idxs_candidats);
+    }
+    char *vainqueur_condorcet = trouverVainqueurCondorcet(df, idxs_candidats, nb_candidates, log, debugMode, duel);
+    if (vainqueur_condorcet != NULL)
+    {
+        logprintf(log, debugMode, "Vainqueur CONDORCET: %s\n", vainqueur_condorcet);
+        VoteResult res = createVoteResult(nb_candidates, df->num_rows, 0, vainqueur_condorcet);
+        printResult(res, "cm", 1);
+        return res;
+    }
 
+    // On calcule les chemins les plus forts
     int **chemins = malloc(nb_candidates * sizeof(int *));
     for (int i = 0; i < nb_candidates; i++)
         chemins[i] = malloc(nb_candidates * sizeof(int));
-
     calculerCheminsFort(df, chemins, idxs_candidats, nb_candidates, log, debugMode);
+
+    // On trouve le vainqueur
     char *vainqueur = trouverVainqueurSchulze(df, idxs_candidats, nb_candidates, chemins, log, debugMode);
 
+    // On libère la mémoire et on retourne le résultat
     for (int i = 0; i < nb_candidates; i++)
         free(chemins[i]);
     free(chemins);
-
     VoteResult res = createVoteResult(nb_candidates, df->num_rows, 0, vainqueur); // Score peut être 0 ou une autre valeur pertinente
     printResult(res, "cs", 1);
 
@@ -393,11 +538,11 @@ VoteResult voteCondorcetSchulze(DataFrame *df, bool duel, FILE *log, bool debugM
 
 int main(void)
 {
-    DataFrame *df = createDataFrameFromCsv("data/calcul1.csv");
+    DataFrame *df = createDataFrameFromCsv("data/VoteCondorcet.csv");
     FILE *log = fopen("log", "w");
-    VoteResult res = voteCondorcetMinimax(df, true, log, true);
-    // VoteResult res2 = voteCondorcetPaires(df, false, log, true);
-    // VoteResult res3 = voteCondorcetSchulze(df, false, log, true);
+    VoteResult res = voteCondorcetMinimax(df, false, log, true);
+    VoteResult res2 = voteCondorcetPaires(df, false, log, true);
+    VoteResult res3 = voteCondorcetSchulze(df, false, log, true);
 }
 
 #endif
