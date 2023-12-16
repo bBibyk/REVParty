@@ -169,8 +169,7 @@ static void getRowElem(char row[MAXCHAR], char delimiter, char *data[])
  *
  * @details Cette fonction permet d'identifier le type de données d'une colonne parmis INT, DOUBLE, TIMESTAMP, STRING, en fonction de son premier élément.
  */
-static enum DataType
-getColumnType(char *data)
+DataType getColumnType(char *data)
 {
     char *endptr;
     long int_value = strtol(data, &endptr, 10);
@@ -200,7 +199,7 @@ getColumnType(char *data)
  *
  * @details Cette fonction permet de récupérer les types de données des colonnes d'un fichier CSV, à partir d'une ligne de ce fichier.
  */
-static void getColumnsType(char *data[], int num_columns, enum DataType columns_type[num_columns])
+static void getColumnsType(char *data[], int num_columns, DataType columns_type[num_columns])
 {
     for (int i = 0; i < num_columns; i++)
         columns_type[i] = getColumnType(data[i]);
@@ -372,6 +371,29 @@ static void nextRow(DataFrame *df, FILE *fp, char delimiter, char *row, char **d
 }
 
 /**
+ * @fn
+ * @brief Fonction qui retourne une sous-chaîne d'une chaîne de caractères
+ * @param[in] str char*
+ * @param[in] start int
+ * @param[in] end int
+ * @return char*
+ */
+static char *substr(char *str, int start, int end)
+{
+    char *sub_str = (char *)malloc(sizeof(char) * (end - start + 1));
+    int i = 0;
+    for (int j = start; j < end; j++)
+    {
+        if (str[j] == ' ' && j == start)
+            continue;
+        sub_str[i] = str[j];
+        i++;
+    }
+    sub_str[i] = '\0';
+    return sub_str;
+}
+
+/**
  * @fn static void addColumnsName(DataFrame *df, char **data)
  * @brief Fonction d'ajout des noms des colonnes d'un DataFrame à partir d'un tableau de chaînes de caractères
  * @param[in, out] df DataFrame
@@ -380,7 +402,22 @@ static void nextRow(DataFrame *df, FILE *fp, char delimiter, char *row, char **d
 static void addColumnsName(DataFrame *df, char **data)
 {
     for (int j = 0; j < df->num_columns; j++)
-        df->columns[j].name = strdup(data[j]);
+    {
+        if (strstr(data[j], "Q01->") != NULL)
+        {
+            char *sub_str = substr(data[j], 9, strlen(data[j]));
+            df->columns[j].name = strdup(sub_str);
+        }
+        else if (strstr(data[j], "Q00_") != NULL)
+        {
+            char *sub_str = substr(data[j], 14, strlen(data[j]));
+            df->columns[j].name = strdup(sub_str);
+        }
+        else
+        {
+            df->columns[j].name = strdup(data[j]);
+        }
+    }
 }
 
 /**
@@ -393,7 +430,7 @@ static void addColumnsName(DataFrame *df, char **data)
  */
 static void allocDataMem(DataFrame *df, char **data)
 {
-    enum DataType columns_type[df->num_columns];
+    DataType columns_type[df->num_columns];
     getColumnsType(data, df->num_columns, columns_type);
 
     for (int j = 0; j < df->num_columns; j++)

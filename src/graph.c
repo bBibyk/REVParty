@@ -158,6 +158,71 @@ bool isCycled(Graph *graph) {
     return false;
 }
 
+static void swap(MatrixValue *a, MatrixValue *b)
+{
+    MatrixValue t = *a;
+    *a = *b;
+    *b = t;
+}
+
+static int partition(MatrixValue *arr, int low, int high)
+{
+    int pivot = arr[high].value;
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++)
+    {
+        if (arr[j].value > pivot)
+        {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
+}
+
+static void quickSort(MatrixValue *arr, int low, int high)
+{
+    if (low < high)
+    {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+void sortedMatrixValues(Graph *graph, int **sortedValues, int **coordinates)
+{
+    int n = graph->nb_nodes;
+    MatrixValue *arr = (MatrixValue *)malloc(n * n * sizeof(MatrixValue));
+    *sortedValues = (int *)malloc(n * n * sizeof(int));
+    *coordinates = (int *)malloc(n * n * 2 * sizeof(int)); // *2 car on stocke deux coordonnées par valeur
+
+    int index = 0;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            arr[index] = (MatrixValue){graph->matrix[i][j], i, j};
+            index++;
+        }
+    }
+
+    quickSort(arr, 0, n * n - 1);
+
+    for (int i = 0; i < n * n; i++)
+    {
+        (*sortedValues)[i] = arr[i].value;
+        (*coordinates)[i * 2] = arr[i].row;
+        (*coordinates)[i * 2 + 1] = arr[i].col;
+    }
+
+    free(arr);
+}
+
+
+
 // Fonction utilitaire pour deleteCycles
 // static void deleteCyclesUtil(Graph *graph, int v, bool visited[]) {
 //     visited[v] = true;

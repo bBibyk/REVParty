@@ -3,11 +3,11 @@
  * @brief Définitionon des graphes adaptés pour la représentation des duels lors des votes Condorcet.
  * @author Bibyk Bogdan
  * @date 07 décembre 2022
- * 
+ *
  * Ce fichier d'en-tete contient la structure des graphes statiques
  * et définit des fonctions pour les manipuler.
- * 
-*/
+ *
+ */
 
 #ifndef GRAPH_H
 #define GRAPH_H
@@ -21,11 +21,19 @@
 #define MAXNODES 10 // Eviter d'allet au-delà de 26 pour l'alphabet qui sert à l'affichage
 #define ALPHABET "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-typedef struct Graph {
+typedef struct Graph
+{
     int matrix[MAXNODES][MAXNODES];
     char nodes[MAXNODES][MAXCHAR];
     int nb_nodes;
 } Graph;
+
+typedef struct
+{
+    int value;
+    int row;
+    int col;
+} MatrixValue;
 
 /**
  * @fn Graph *createGraph()
@@ -121,5 +129,14 @@ bool isCycled(Graph *graph);
  * @param[in] graph Structure graph à supprimer.
  */
 void deleteGraph(Graph *graph);
+
+/**
+ * @fn void sortedMatrixValues(Graph *graph, int **sortedValues, int **coordinates)
+ * @brief Tri des valeurs de la matrice du graphe.
+ * @param[in] graph Structure graph à trier.
+ * @param[out] sortedValues Tableau des valeurs triées.
+ * @param[out] coordinates Tableau des coordonnées des valeurs triées.
+ */
+void sortedMatrixValues(Graph *graph, int **sortedValues, int **coordinates);
 
 #endif

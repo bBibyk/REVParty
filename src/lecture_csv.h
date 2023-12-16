@@ -42,13 +42,13 @@ static FILE *openFile(char *path);
  * @enum DataType
  * @brief Énumération représentant les types de données des colonnes d'un DataFrame.
  */
-enum DataType
+typedef enum
 {
     INT,       ///< Entier.
     DOUBLE,    ///< Nombre à virgule flottante.
     TIMESTAMP, ///< Horodatage (timestamp).
     STRING     ///< Chaîne de caractères.
-};
+} DataType;
 
 /**
  * @struct Column
@@ -61,7 +61,7 @@ typedef struct
     /// @brief Nom de la colonne
     char *name;
     /// @brief Type de données de la colonne
-    enum DataType ctype;
+    DataType ctype;
     /// @brief Tableau de données de la colonne, de type void pour pouvoir stocker des données de différents types
     void *data;
 } Column;
@@ -86,7 +86,7 @@ typedef struct
 typedef struct
 {
     char *label;
-    enum DataType type;
+    DataType type;
     union
     {
         int *int_value;
@@ -164,6 +164,16 @@ int isIn(DataFrame *df, char *column_name, char *value);
  * Cette fonction récupère les noms des colonnes d'un DataFrame et les stocke dans un tableau de chaînes de caractères.
  */
 void getColumnsNames(DataFrame *df, char *columns_names[]);
+
+/**
+ * @fn static enum DataType getColumnType(char *data)
+ * @brief Fonction d'identification du type de données d'une colonne
+ * @param[in] data Tableau contenant les éléments d'une colonne
+ * @return Type de données de la colonne
+ *
+ * @details Cette fonction permet d'identifier le type de données d'une colonne parmis INT, DOUBLE, TIMESTAMP, STRING, en fonction de son premier élément.
+ */
+DataType getColumnType(char *data);
 
 /**
  * @fn Column dfSelect(DataFrame *df, char *column_name)
