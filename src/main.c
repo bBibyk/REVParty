@@ -155,51 +155,78 @@ void affichageUninominaleDeuxTours(DataFrame *df, FILE *log, bool debugMode){
 // -- MAIN -- //
 ////////////////
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
+    // Variables pour les paramètres de ligne de commande
     bool duel = false;
     char inputFile[MAXCHAR];
     char logFile[MAXCHAR];
     char method[MAXCHAR];
     bool debugMode = false;
 
+    // Récupérer les paramètres de la ligne de commande
     getParameters(argc, argv, &duel, inputFile, logFile, &debugMode, method);
-    if(duel){
+
+    // Vérifier les paramètres en fonction du mode (duel ou non)
+    if (duel) {
         char *methods[] = {"cm", "cp", "cs", "all"};
         int lenMethods = 4;
         checkParameters(duel, methods, lenMethods, inputFile, method);
-    }else{
+    } else {
         char *methods[] = {"uni1", "uni2", "cm", "cp", "cs", "jm", "all"};
         int lenMethods = 7;
         checkParameters(duel, methods, lenMethods, inputFile, method);
     }
 
+    // Ouvrir le fichier journal en mode écriture si le mode de débogage est activé
     FILE *log;
-    if(debugMode){
+    if (debugMode) {
         log = openFileWrite(logFile);
     }
 
+    // Créer une structure de données DataFrame à partir du fichier CSV passé
     DataFrame *df = createDataFrameFromCsv(inputFile);
 
-    if(strcmp(method, "uni1") == 0){
+    // Exécuter le système de vote en fonction de la méthode spécifiée
+    if (strcmp(method, "uni1") == 0) {
+        // Exécuter le vote uninominal à un tour
         printResult(voteUninominalUnTour(df, log, debugMode, NULL), method, 1);
-    }else if(strcmp(method, "uni2") == 0){
+    } else if (strcmp(method, "uni2") == 0) {
+        // Exécuter le vote uninominal à deux tours
         affichageUninominaleDeuxTours(df, log, debugMode);
-    }else if(strcmp(method, "cm") == 0){
+    } else if (strcmp(method, "cm") == 0) {
+        // Exécuter le vote Condorcet Minimax
         printResult(voteCondorcetMinimax(df, duel, log, debugMode), method, 1);
-    }else if(strcmp(method, "cp") == 0){
+    } else if (strcmp(method, "cp") == 0) {
+        // Exécuter le vote Condorcet Paires
         printResult(voteCondorcetPaires(df, duel, log, debugMode), method, 1);
-    }else if(strcmp(method, "cs") == 0){
+    } else if (strcmp(method, "cs") == 0) {
+        // Exécuter le vote Condorcet Schulze
         printResult(voteCondorcetSchulze(df, duel, log, debugMode), method, 1);
-    }else if(strcmp(method, "jm") == 0){
+    } else if (strcmp(method, "jm") == 0) {
+        // Exécuter le vote Jugement Majoritaire
         printResult(voteJugementMajoritaire(df, log, debugMode), method, 1);
-    }else{
-        if(!duel){
+    } else {
+        // Exécuter toutes les méthodes si la méthode spécifiée est "all"
+        if (!duel) {
+            // Exécuter le vote uninominal à un tour
             printResult(voteUninominalUnTour(df, log, debugMode, NULL), "uni1", 1);
+            // Exécuter le vote uninominal à deux tours
             affichageUninominaleDeuxTours(df, log, debugMode);
+            // Exécuter le vote Jugement Majoritaire
             printResult(voteJugementMajoritaire(df, log, debugMode), "jm", 1);
         }
+        // Exécuter le vote Condorcet Minimax
         printResult(voteCondorcetMinimax(df, duel, log, debugMode), "cm", 1);
+        // Exécuter le vote Condorcet Paires
         printResult(voteCondorcetPaires(df, duel, log, debugMode), "cp", 1);
+        // Exécuter le vote Condorcet Schulze
         printResult(voteCondorcetSchulze(df, duel, log, debugMode), "cs", 1);
     }
+
+    // Libérer la mémoire et fermer le fichier journal s'il est ouvert
+    if(debugMode){
+        fclose(log);
+    }
+
+    return 0;
 }
