@@ -309,7 +309,7 @@ VoteResult voteCondorcetMinimax(DataFrame *df, bool duel, FILE *log, bool debugM
     {
         logprintf(log, debugMode, "Vainqueur CONDORCET: %s\n", vainqueur_condorcet);
         VoteResult res = createVoteResult(nb_candidates, df->num_rows, 0, vainqueur_condorcet);
-        printResult(res, "cm", 1);
+        //printResult(res, "cm", 1);
         return res;
     }
 
@@ -353,7 +353,7 @@ VoteResult voteCondorcetPaires(DataFrame *df, bool duel, FILE *log, bool debugMo
     {
         logprintf(log, debugMode, "Vainqueur CONDORCET: %s\n", vainqueur_condorcet);
         VoteResult res = createVoteResult(nb_candidates, df->num_rows, 0, vainqueur_condorcet);
-        printResult(res, "cm", 1);
+        //printResult(res, "cm", 1);
         return res;
     }
 
@@ -513,7 +513,7 @@ VoteResult voteCondorcetSchulze(DataFrame *df, bool duel, FILE *log, bool debugM
     {
         logprintf(log, debugMode, "Vainqueur CONDORCET: %s\n", vainqueur_condorcet);
         VoteResult res = createVoteResult(nb_candidates, df->num_rows, 0, vainqueur_condorcet);
-        printResult(res, "cm", 1);
+        //printResult(res, "cm", 1);
         return res;
     }
 
