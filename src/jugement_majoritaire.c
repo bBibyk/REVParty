@@ -13,7 +13,7 @@
 
 #include "jugement_majoritaire.h"
 
-// Structure pour stocker les Candidats et leur mention majoritaire (Pour départage)
+// Structure pour stocker les Candidats, la liste avec les votes de chacune des mentions et leur mention majoritaire (Pour départage)
 typedef struct {
     char *nom;
     int votesMention[6];
@@ -22,6 +22,7 @@ typedef struct {
 
 
 bool csvIsCondorcet(DataFrame *df) {
+    // Fonciton permettant de savoir si on doit convertir les notes des electeurs en mentions ou pas
     for (int i = 4; i < df->num_columns; i++) {
         for (int j = 0; j < df->num_rows; j++) {
             int note = ((int *)df->columns[i].data)[j];
@@ -34,6 +35,7 @@ bool csvIsCondorcet(DataFrame *df) {
 }
 
 int convertirReponseEnNote(int reponse){
+    // Cette fonction permet de convertir les notes attribuées par les électeurs en mentions
     if (reponse == 1) return 1; //TB
     if (reponse >= 2 && reponse <= 3) return 2; //B
     if (reponse >= 4 && reponse <= 5) return 3; //AB
@@ -45,11 +47,13 @@ int convertirReponseEnNote(int reponse){
 
 
 void MentionMajoritaireCandidats(Candidat *candidats, int nombreCandidats, DataFrame *df,bool isCondorcet) {
+    // Cette fonction initialise les compteurs des mentions de chaque candidat et calcule leur mention majoritaire
     for (int i = 0; i < nombreCandidats; i++) {
         int compteurTB = 0, compteurB = 0, compteurAB = 0, compteurP = 0, compteurM = 0, compteurAFuir = 0;
         for (int j = 0; j < df->num_rows; j++) {
             int note;
             if (isCondorcet){
+                // Convertir les notes en mentions
                 note = convertirReponseEnNote(((int *)df->columns[i + 4].data)[j]);
             }
             else{
@@ -77,12 +81,15 @@ void MentionMajoritaireCandidats(Candidat *candidats, int nombreCandidats, DataF
                 continue;
             }
         }
+
+        // Mise à jour de la liste des mentions du Candidat 
         candidats[i].votesMention[0] = compteurTB;
         candidats[i].votesMention[1] = compteurB;
         candidats[i].votesMention[2] = compteurAB;
         candidats[i].votesMention[3] = compteurP;
         candidats[i].votesMention[4] = compteurM;
         candidats[i].votesMention[5] = compteurAFuir;
+        
         // Recherche par médiane du jugement majoritaire du candidat
         if (compteurTB > (df->num_rows / 2)) {
             candidats[i].mentionMajoritaire = 1;
@@ -103,6 +110,7 @@ void MentionMajoritaireCandidats(Candidat *candidats, int nombreCandidats, DataF
 
 
 VoteResult voteJugementMajoritaire(DataFrame *df, FILE *log, bool debugMode){
+    // Fonction de calcul du gagnant par la méthode de jugement majoritaire
     bool isCondorcet = csvIsCondorcet(df);
     VoteResult result;
     int nombreCandidats = df->num_columns - 4;
@@ -112,15 +120,18 @@ VoteResult voteJugementMajoritaire(DataFrame *df, FILE *log, bool debugMode){
     for (int i = 0; i < nombreCandidats; i++) {
         candidats[i].nom = columns_names[i + 4];
     }
+    // Calcul des mentions majoritaires de chaque candidat
     MentionMajoritaireCandidats(candidats, nombreCandidats, df, isCondorcet);
     int gagnantIndex = 0;
     int mentionMax = candidats[gagnantIndex].mentionMajoritaire;
     for (int i = 1; i < nombreCandidats; i++) {
         if (candidats[i].mentionMajoritaire < mentionMax) {
+            // Nouvelle meilleure mentionMajoritaire
             gagnantIndex = i;
             mentionMax = candidats[gagnantIndex].mentionMajoritaire;
         }
         else if (candidats[i].mentionMajoritaire == mentionMax) {
+            // Départage des possibles gagnants en utilisant la méthode des groupes d'insatisfaits
             int partisansGagnant1 = 0;
             int opposantsGagnant1 = 0;
             int partisansGagnant2 = 0;
@@ -137,6 +148,8 @@ VoteResult voteJugementMajoritaire(DataFrame *df, FILE *log, bool debugMode){
             }
             int poidsMax = max(max(partisansGagnant1,partisansGagnant2),max(opposantsGagnant1,opposantsGagnant2));
             if (poidsMax==partisansGagnant2 || poidsMax == opposantsGagnant1){
+                // Si la valeur de poids maximum est le nombre d'opposants du gagnant actuel ou bien des partisans
+                // du deuxième candidat alors on modifie le gagnant.
                 gagnantIndex = i;
                 mentionMax = candidats[gagnantIndex].mentionMajoritaire;
             };
