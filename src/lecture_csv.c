@@ -372,6 +372,29 @@ static void nextRow(DataFrame *df, FILE *fp, char delimiter, char *row, char **d
 }
 
 /**
+ * @fn
+ * @brief Fonction qui retourne une sous-chaîne d'une chaîne de caractères
+ * @param[in] str char*
+ * @param[in] start int
+ * @param[in] end int
+ * @return char*
+ */
+static char *substr(char *str, int start, int end)
+{
+    char *sub_str = (char *)malloc(sizeof(char) * (end - start + 1));
+    int i = 0;
+    for (int j = start; j < end; j++)
+    {
+        if (str[j] == ' ' && j == start)
+            continue;
+        sub_str[i] = str[j];
+        i++;
+    }
+    sub_str[i] = '\0';
+    return sub_str;
+}
+
+/**
  * @fn static void addColumnsName(DataFrame *df, char **data)
  * @brief Fonction d'ajout des noms des colonnes d'un DataFrame à partir d'un tableau de chaînes de caractères
  * @param[in, out] df DataFrame

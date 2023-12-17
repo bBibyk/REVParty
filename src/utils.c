@@ -77,6 +77,7 @@ void printResult(VoteResult result, char *method, int tour)
  */
 void logprintf(FILE *log, bool debugMode, char *message, ...)
 {
+    if (debugMode)
     {
         va_list args;
         va_start(args, message);
