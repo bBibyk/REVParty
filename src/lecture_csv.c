@@ -380,7 +380,22 @@ static void nextRow(DataFrame *df, FILE *fp, char delimiter, char *row, char **d
 static void addColumnsName(DataFrame *df, char **data)
 {
     for (int j = 0; j < df->num_columns; j++)
-        df->columns[j].name = strdup(data[j]);
+    {
+        if (strstr(data[j], "Q01->") != NULL)
+        {
+            char *sub_str = substr(data[j], 9, strlen(data[j]));
+            df->columns[j].name = strdup(sub_str);
+        }
+        else if (strstr(data[j], "Q00_") != NULL)
+        {
+            char *sub_str = substr(data[j], 14, strlen(data[j]));
+            df->columns[j].name = strdup(sub_str);
+        }
+        else
+        {
+            df->columns[j].name = strdup(data[j]);
+        }
+    }
 }
 
 /**
