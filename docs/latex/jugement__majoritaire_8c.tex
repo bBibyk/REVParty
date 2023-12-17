@@ -1,0 +1,47 @@
+\hypertarget{jugement__majoritaire_8c}{}\doxysection{Référence du fichier src/jugement\+\_\+majoritaire.c}
+\label{jugement__majoritaire_8c}\index{src/jugement\_majoritaire.c@{src/jugement\_majoritaire.c}}
+
+
+Implémentation de la méthode de vote par jugement majoritaire, avec stockage des résultats dans une structure \mbox{\hyperlink{structVoteResult}{Vote\+Result}}.  
+
+
+{\ttfamily \#include \char`\"{}jugement\+\_\+majoritaire.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de jugement\+\_\+majoritaire.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jugement__majoritaire_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCandidat}{Candidat}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{jugement__majoritaire_8c_ac91daaf8a30c522573581c6d4760c9d0}\label{jugement__majoritaire_8c_ac91daaf8a30c522573581c6d4760c9d0}} 
+bool {\bfseries csv\+Is\+Condorcet} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df)
+\item 
+\mbox{\Hypertarget{jugement__majoritaire_8c_a3266a1581f0134100e11177dba9069e5}\label{jugement__majoritaire_8c_a3266a1581f0134100e11177dba9069e5}} 
+int {\bfseries convertir\+Reponse\+En\+Note} (int reponse)
+\item 
+\mbox{\Hypertarget{jugement__majoritaire_8c_aca1b6f3e28dcd6e0c8f99be4f528005f}\label{jugement__majoritaire_8c_aca1b6f3e28dcd6e0c8f99be4f528005f}} 
+void {\bfseries Mention\+Majoritaire\+Candidats} (\mbox{\hyperlink{structCandidat}{Candidat}} $\ast$candidats, int nombre\+Candidats, \mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, bool is\+Condorcet)
+\item 
+\mbox{\Hypertarget{jugement__majoritaire_8c_acc9c15a04150c580dd7d46bca80814a8}\label{jugement__majoritaire_8c_acc9c15a04150c580dd7d46bca80814a8}} 
+\mbox{\hyperlink{structVoteResult}{Vote\+Result}} {\bfseries vote\+Jugement\+Majoritaire} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, FILE $\ast$log, bool debug\+Mode)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation de la méthode de vote par jugement majoritaire, avec stockage des résultats dans une structure \mbox{\hyperlink{structVoteResult}{Vote\+Result}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Pigani Emanuele 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+01 décembre 2023
+\end{DoxyDate}
+Ce fichier contient l\textquotesingle{}implémentation de la méthode de jugement majoritaire ainsi que les fonctions auxiliaires au développement de la methode. Les résultats du vote sont stockés dans une structure \mbox{\hyperlink{structVoteResult}{Vote\+Result}}. 

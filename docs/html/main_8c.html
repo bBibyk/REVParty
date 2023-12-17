@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Election Burger Supreme: Référence du fichier src/main.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Election Burger Supreme
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier main.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;getopt.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="lecture__csv_8h_source.html">lecture_csv.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="condorcet_8h_source.html">condorcet.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="jugement__majoritaire_8h_source.html">jugement_majoritaire.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="uninominales_8h_source.html">uninominales.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de main.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c__incl.png" border="0" usemap="#asrc_2main_8c" alt=""/></div>
+<map name="asrc_2main_8c" id="asrc_2main_8c">
+<area shape="rect" title="Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties." alt="" coords="291,5,380,32"/>
+<area shape="rect" title=" " alt="" coords="429,304,495,331"/>
+<area shape="rect" title=" " alt="" coords="233,304,304,331"/>
+<area shape="rect" title=" " alt="" coords="55,80,131,107"/>
+<area shape="rect" title=" " alt="" coords="708,304,779,331"/>
+<area shape="rect" title=" " alt="" coords="90,304,173,331"/>
+<area shape="rect" href="lecture__csv_8h.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="550,229,657,256"/>
+<area shape="rect" href="condorcet_8h.html" title="Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d&#39;égalité." alt="" coords="206,80,305,107"/>
+<area shape="rect" href="utils_8h.html" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="524,155,587,181"/>
+<area shape="rect" href="jugement__majoritaire_8h.html" title="Gestion de la méthode de jugement majoritaire." alt="" coords="329,80,504,107"/>
+<area shape="rect" href="uninominales_8h.html" title="Gestion des méthodes de vote uninominales à un et deux tours." alt="" coords="579,80,702,107"/>
+<area shape="rect" title=" " alt="" coords="609,304,683,331"/>
+<area shape="rect" title=" " alt="" coords="521,304,585,331"/>
+<area shape="rect" href="graph_8h.html" title="Définitionon des graphes adaptés pour la représentation des duels lors des votes Condorcet." alt="" coords="201,229,272,256"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a6e404613fac5e05d262cd02b04bc197e"><td class="memItemLeft" align="right" valign="top"><a id="a6e404613fac5e05d262cd02b04bc197e"></a>
+FILE *&#160;</td><td class="memItemRight" valign="bottom"><b>openFileWrite</b> (char *path)</td></tr>
+<tr class="separator:a6e404613fac5e05d262cd02b04bc197e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf9c105c878e03bad8bbf5036ea36a73"><td class="memItemLeft" align="right" valign="top"><a id="adf9c105c878e03bad8bbf5036ea36a73"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>stringInArray</b> (char *string, char *tab[], int lenTab)</td></tr>
+<tr class="separator:adf9c105c878e03bad8bbf5036ea36a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92cb5683a3c644024e5385fabe5a966e"><td class="memItemLeft" align="right" valign="top"><a id="a92cb5683a3c644024e5385fabe5a966e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>getParameters</b> (int argc, char *argv[], bool *duel, char *inputFile, char *logFile, bool *debugMode, char *method)</td></tr>
+<tr class="separator:a92cb5683a3c644024e5385fabe5a966e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6d3e28dfe2b1e23814e7b59e88b9c7c"><td class="memItemLeft" align="right" valign="top"><a id="ac6d3e28dfe2b1e23814e7b59e88b9c7c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>checkParameters</b> (bool duel, char *methods[], int lenMethods, char *inputFile, char *method)</td></tr>
+<tr class="separator:ac6d3e28dfe2b1e23814e7b59e88b9c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94aa0f006f10d6570e8bf1c826225e86"><td class="memItemLeft" align="right" valign="top"><a id="a94aa0f006f10d6570e8bf1c826225e86"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>affichageUninominaleDeuxTours</b> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, FILE *log, bool debugMode)</td></tr>
+<tr class="separator:a94aa0f006f10d6570e8bf1c826225e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="memdesc:a0ddf1224851353fc92bfbff6f499fa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale.  <a href="main_8c.html#a0ddf1224851353fc92bfbff6f499fa97">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Bibyk Bogdan </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>31 octobre 2023</dd></dl>
+<p>Fonctions de gestion de la ligne de commande et du noyau fonctionnel. </p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction principale. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">argc</td><td>Nombre d'arguments. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">argv</td><td>Arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si tout s'est bien passé, 1 si le nombre d'arguments est incorrect, 2 si le numéro d'étudiant n'est pas un nombre.</dd></dl>
+<p>Une fonction qui récupère le nom, le prénom et le numéro d'étudiant, puis elle récupère le hash du vote correspondant. Enfin, elle vérifie si le hash est présent dans le fichier des résultats des votes. Si c'est le cas, elle affiche les détails du vote, sinon elle affiche un message d'erreur. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<map id="src/jugement_majoritaire.h" name="src/jugement_majoritaire.h">
+<area shape="rect" id="node1" title="Gestion de la méthode de jugement majoritaire." alt="" coords="89,5,287,32"/>
+<area shape="rect" id="node2" href="$jugement__majoritaire_8c.html" title="Implémentation de la méthode de vote par jugement majoritaire, avec stockage des résultats dans une s..." alt="" coords="5,80,203,107"/>
+<area shape="rect" id="node3" href="$main_8c.html" title="Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties." alt="" coords="227,80,317,107"/>
+</map>

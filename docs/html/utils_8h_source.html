@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Election Burger Supreme:  Fichier source de utils.h</title>
+<title>Election Burger Supreme:  Fichier source de src/utils.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,6 +59,11 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">utils.h</div>  </div>
@@ -71,21 +75,46 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="lecture__csv_8h.html">lecture_csv.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// -- Structures de données -- //</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structVoteResult.html">   22</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structVoteResult.html">VoteResult</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> nb_candidates;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> nb_voters;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> score;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">char</span> winner[MAXCHAR];</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;} <a class="code" href="structVoteResult.html">VoteResult</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// UTILS_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="lecture__csv_8h.html">lecture_csv.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// -- Structures de données -- //</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structVoteResult.html">   23</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structVoteResult.html">VoteResult</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">int</span> nb_candidates;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> nb_voters;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">float</span> score;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">char</span> winner[MAXCHAR];</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <a class="code" href="structVoteResult.html">VoteResult</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// -- Fonctions -- //</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="utils_8h.html#a1e813d88e4c48ce1b6b178cbe21faea3">printResult</a>(<a class="code" href="structVoteResult.html">VoteResult</a> result, <span class="keywordtype">char</span> *method, <span class="keywordtype">int</span> tour);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">void</span> <a class="code" href="utils_8h.html#a866b9651a68898a719e72610b14db9a5">logprintf</a>(FILE *log, <span class="keywordtype">bool</span> debugMode, <span class="keywordtype">char</span> *message, ...);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">int</span> <a class="code" href="utils_8h.html#ac9bf17fcc32db07d51f66e1ab89737ba">getNbCandidat</a>(<a class="code" href="structDataFrame.html">DataFrame</a> *df);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">void</span> <a class="code" href="utils_8h.html#a5ccf6548fe7ca54ff7127ee3e2f759d9">getIdxsCandidats</a>(<a class="code" href="structDataFrame.html">DataFrame</a> *df, <span class="keywordtype">int</span> nb_candidates, <span class="keywordtype">int</span> *idxs_candidats);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<a class="code" href="structVoteResult.html">VoteResult</a> <a class="code" href="utils_8h.html#a22137b5971e84cb7d43f7a965c789564">createVoteResult</a>(<span class="keywordtype">int</span> nb_candidates, <span class="keywordtype">int</span> nb_voters, <span class="keywordtype">int</span> score, <span class="keywordtype">char</span> *winner);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">int</span> <a class="code" href="utils_8h.html#af082905f7eac6d03e92015146bbc1925">max</a>(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">int</span> <a class="code" href="utils_8h.html#abd8bbcfabb3ddef2ccaafb9928a37b95">min</a>(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// UTILS_H</span></div>
 <div class="ttc" id="alecture__csv_8h_html"><div class="ttname"><a href="lecture__csv_8h.html">lecture_csv.h</a></div><div class="ttdoc">Gestion et création des structures de données DataFrame à partir de fichiers CSV (en-tête).</div></div>
-<div class="ttc" id="astructVoteResult_html"><div class="ttname"><a href="structVoteResult.html">VoteResult</a></div><div class="ttdef"><b>Definition:</b> utils.h:23</div></div>
+<div class="ttc" id="astructDataFrame_html"><div class="ttname"><a href="structDataFrame.html">DataFrame</a></div><div class="ttdoc">Structure de données d'un DataFrame.</div><div class="ttdef"><b>Definition:</b> lecture_csv.h:78</div></div>
+<div class="ttc" id="astructVoteResult_html"><div class="ttname"><a href="structVoteResult.html">VoteResult</a></div><div class="ttdef"><b>Definition:</b> utils.h:24</div></div>
+<div class="ttc" id="autils_8h_html_a1e813d88e4c48ce1b6b178cbe21faea3"><div class="ttname"><a href="utils_8h.html#a1e813d88e4c48ce1b6b178cbe21faea3">printResult</a></div><div class="ttdeci">void printResult(VoteResult result, char *method, int tour)</div><div class="ttdoc">Fonction pour afficher les résultats d'un vote.</div><div class="ttdef"><b>Definition:</b> utils.c:30</div></div>
+<div class="ttc" id="autils_8h_html_a22137b5971e84cb7d43f7a965c789564"><div class="ttname"><a href="utils_8h.html#a22137b5971e84cb7d43f7a965c789564">createVoteResult</a></div><div class="ttdeci">VoteResult createVoteResult(int nb_candidates, int nb_voters, int score, char *winner)</div><div class="ttdoc">Fonction pour créer une structure VoteResult.</div><div class="ttdef"><b>Definition:</b> utils.c:134</div></div>
+<div class="ttc" id="autils_8h_html_a5ccf6548fe7ca54ff7127ee3e2f759d9"><div class="ttname"><a href="utils_8h.html#a5ccf6548fe7ca54ff7127ee3e2f759d9">getIdxsCandidats</a></div><div class="ttdeci">void getIdxsCandidats(DataFrame *df, int nb_candidates, int *idxs_candidats)</div><div class="ttdoc">Fonction pour obtenir les index des candidats.</div><div class="ttdef"><b>Definition:</b> utils.c:117</div></div>
+<div class="ttc" id="autils_8h_html_a866b9651a68898a719e72610b14db9a5"><div class="ttname"><a href="utils_8h.html#a866b9651a68898a719e72610b14db9a5">logprintf</a></div><div class="ttdeci">void logprintf(FILE *log, bool debugMode, char *message,...)</div><div class="ttdoc">Fonction pour afficher les messages de debug.</div><div class="ttdef"><b>Definition:</b> utils.c:78</div></div>
+<div class="ttc" id="autils_8h_html_abd8bbcfabb3ddef2ccaafb9928a37b95"><div class="ttname"><a href="utils_8h.html#abd8bbcfabb3ddef2ccaafb9928a37b95">min</a></div><div class="ttdeci">int min(int a, int b)</div><div class="ttdoc">Fonction pour obtenir le minimum entre deux entiers.</div><div class="ttdef"><b>Definition:</b> utils.c:163</div></div>
+<div class="ttc" id="autils_8h_html_ac9bf17fcc32db07d51f66e1ab89737ba"><div class="ttname"><a href="utils_8h.html#ac9bf17fcc32db07d51f66e1ab89737ba">getNbCandidat</a></div><div class="ttdeci">int getNbCandidat(DataFrame *df)</div><div class="ttdoc">Fonction pour obtenir le nombre de candidats.</div><div class="ttdef"><b>Definition:</b> utils.c:95</div></div>
+<div class="ttc" id="autils_8h_html_af082905f7eac6d03e92015146bbc1925"><div class="ttname"><a href="utils_8h.html#af082905f7eac6d03e92015146bbc1925">max</a></div><div class="ttdeci">int max(int a, int b)</div><div class="ttdoc">Fonction pour obtenir le maximum entre deux entiers.</div><div class="ttdef"><b>Definition:</b> utils.c:151</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

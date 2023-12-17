@@ -1,47 +1,191 @@
-\hypertarget{utils_8c}{}\doxysection{Référence du fichier utils.\+c}
-\label{utils_8c}\index{utils.c@{utils.c}}
+\hypertarget{utils_8c}{}\doxysection{Référence du fichier src/utils.c}
+\label{utils_8c}\index{src/utils.c@{src/utils.c}}
 
 
 Fonctions et structures utiles pour les différents systèmes de votes.  
 
 
-{\ttfamily \#include $<$stdio.\+h$>$}\newline
-{\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}lecture\+\_\+csv.\+h\char`\"{}}\newline
-Graphe des dépendances par inclusion de utils.\+c\+:
-\nopagebreak
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+Graphe des dépendances par inclusion de utils.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=292pt]{utils_8c__incl}
+\includegraphics[width=350pt]{utils_8c__incl}
 \end{center}
 \end{figure}
-\doxysubsection*{Structures de données}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{structVoteResult}{Vote\+Result}}
-\end{DoxyCompactItemize}
-\doxysubsection*{Définitions de type}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{utils_8c_abd9327b20e9045e810940392c869d326}\label{utils_8c_abd9327b20e9045e810940392c869d326}} 
-typedef struct \mbox{\hyperlink{structVoteResult}{Vote\+Result}} {\bfseries Vote\+Result}
-\end{DoxyCompactItemize}
 \doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{utils_8c_a1e813d88e4c48ce1b6b178cbe21faea3}\label{utils_8c_a1e813d88e4c48ce1b6b178cbe21faea3}} 
-void {\bfseries print\+Result} (\mbox{\hyperlink{structVoteResult}{Vote\+Result}} result, char $\ast$method, int tour)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{utils_8c_a1e813d88e4c48ce1b6b178cbe21faea3}{print\+Result}} (\mbox{\hyperlink{structVoteResult}{Vote\+Result}} result, char $\ast$method, int tour)
+\begin{DoxyCompactList}\small\item\em Fonction pour afficher les résultats d\textquotesingle{}un vote. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8c_a866b9651a68898a719e72610b14db9a5}{logprintf}} (FILE $\ast$log, bool debug\+Mode, char $\ast$message,...)
+\begin{DoxyCompactList}\small\item\em Fonction pour afficher les messages de debug. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8c_a6f8d5f54c5222f2bc07ba437330c3b9f}{get\+Nb\+Candidat}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df)
+\begin{DoxyCompactList}\small\item\em Fonction pour obtenir le nombre de candidats. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utils_8c_ab7fa4ee167020d38320c5cfe81094ad1}{get\+Idxs\+Candidats}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, int nb\+\_\+candidates, int $\ast$idxs\+\_\+candidats)
+\begin{DoxyCompactList}\small\item\em Fonction pour obtenir les index des candidats. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structVoteResult}{Vote\+Result}} \mbox{\hyperlink{utils_8c_ac27aea7fd3428f91f77ab55e17d9f375}{create\+Vote\+Result}} (int nb\+\_\+candidates, int nb\+\_\+voters, int score, char $\ast$winner)
+\begin{DoxyCompactList}\small\item\em Fonction pour créer une structure \mbox{\hyperlink{structVoteResult}{Vote\+Result}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8c_ae792e8d29ad3d1a2e4b323f194d3be95}{max}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Fonction pour obtenir le maximum entre deux entiers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{utils_8c_a3ca300acc4eba7ce18f0f83169c92868}{min}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Fonction pour obtenir le minimum entre deux entiers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
 Fonctions et structures utiles pour les différents systèmes de votes. 
 
 \begin{DoxyAuthor}{Auteurs}
-Essengue Matis, Bibyk Bogdan 
+Bibyk Bogdan 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
 11 novembre 2023
 \end{DoxyDate}
 Fichier avec les utiles pour les différents systèmes de votes. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{utils_8c_ac27aea7fd3428f91f77ab55e17d9f375}\label{utils_8c_ac27aea7fd3428f91f77ab55e17d9f375}} 
+\index{utils.c@{utils.c}!createVoteResult@{createVoteResult}}
+\index{createVoteResult@{createVoteResult}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{createVoteResult()}{createVoteResult()}}
+{\footnotesize\ttfamily create\+Vote\+Result (\begin{DoxyParamCaption}\item[{int}]{nb\+\_\+candidates,  }\item[{int}]{nb\+\_\+voters,  }\item[{int}]{score,  }\item[{char $\ast$}]{winner }\end{DoxyParamCaption})}
+
+
+
+Fonction pour créer une structure \mbox{\hyperlink{structVoteResult}{Vote\+Result}}. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em nb\+\_\+candidates} & Nombre de candidats. \\
+\hline
+\mbox{\texttt{ in}}  & {\em nb\+\_\+voters} & Nombre de votants. \\
+\hline
+\mbox{\texttt{ in}}  & {\em score} & Score du vainqueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em winner} & Vainqueur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Structure \mbox{\hyperlink{structVoteResult}{Vote\+Result}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8c_ab7fa4ee167020d38320c5cfe81094ad1}\label{utils_8c_ab7fa4ee167020d38320c5cfe81094ad1}} 
+\index{utils.c@{utils.c}!getIdxsCandidats@{getIdxsCandidats}}
+\index{getIdxsCandidats@{getIdxsCandidats}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{getIdxsCandidats()}{getIdxsCandidats()}}
+{\footnotesize\ttfamily get\+Idxs\+Candidats (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{int}]{nb\+\_\+candidates,  }\item[{int $\ast$}]{idxs\+\_\+candidats }\end{DoxyParamCaption})}
+
+
+
+Fonction pour obtenir les index des candidats. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em df} & \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. \\
+\hline
+\mbox{\texttt{ in}}  & {\em nb\+\_\+candidates} & Nombre de candidats. \\
+\hline
+\mbox{\texttt{ out}}  & {\em idxs\+\_\+candidats} & Index des candidats. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utils_8c_a6f8d5f54c5222f2bc07ba437330c3b9f}\label{utils_8c_a6f8d5f54c5222f2bc07ba437330c3b9f}} 
+\index{utils.c@{utils.c}!getNbCandidat@{getNbCandidat}}
+\index{getNbCandidat@{getNbCandidat}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{getNbCandidat()}{getNbCandidat()}}
+{\footnotesize\ttfamily get\+Nb\+Candidat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df }\end{DoxyParamCaption})}
+
+
+
+Fonction pour obtenir le nombre de candidats. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em df} & \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Nombre de candidats. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8c_a866b9651a68898a719e72610b14db9a5}\label{utils_8c_a866b9651a68898a719e72610b14db9a5}} 
+\index{utils.c@{utils.c}!logprintf@{logprintf}}
+\index{logprintf@{logprintf}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{logprintf()}{logprintf()}}
+{\footnotesize\ttfamily void logprintf (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{log,  }\item[{bool}]{debug\+Mode,  }\item[{char $\ast$}]{message,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Fonction pour afficher les messages de debug. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em log} & Fichier de log. \\
+\hline
+\mbox{\texttt{ in}}  & {\em debug\+Mode} & Mode de debug. \\
+\hline
+\mbox{\texttt{ in}}  & {\em message} & Message à afficher. \\
+\hline
+\mbox{\texttt{ in}}  & {\em ...} & Arguments du message. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utils_8c_ae792e8d29ad3d1a2e4b323f194d3be95}\label{utils_8c_ae792e8d29ad3d1a2e4b323f194d3be95}} 
+\index{utils.c@{utils.c}!max@{max}}
+\index{max@{max}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily max (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Fonction pour obtenir le maximum entre deux entiers. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em a} & Entier a. \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Entier b. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Maximum entre a et b. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8c_a3ca300acc4eba7ce18f0f83169c92868}\label{utils_8c_a3ca300acc4eba7ce18f0f83169c92868}} 
+\index{utils.c@{utils.c}!min@{min}}
+\index{min@{min}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily min (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Fonction pour obtenir le minimum entre deux entiers. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em a} & Entier a. \\
+\hline
+\mbox{\texttt{ in}}  & {\em b} & Entier b. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Minimum entre a et b. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8c_a1e813d88e4c48ce1b6b178cbe21faea3}\label{utils_8c_a1e813d88e4c48ce1b6b178cbe21faea3}} 
+\index{utils.c@{utils.c}!printResult@{printResult}}
+\index{printResult@{printResult}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{printResult()}{printResult()}}
+{\footnotesize\ttfamily void print\+Result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structVoteResult}{Vote\+Result}}}]{result,  }\item[{char $\ast$}]{method,  }\item[{int}]{tour }\end{DoxyParamCaption})}
+
+
+
+Fonction pour afficher les résultats d\textquotesingle{}un vote. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em result} & Structure contenant les données du vote. \\
+\hline
+\mbox{\texttt{ in}}  & {\em method} & Mode de scrutin. \\
+\hline
+\mbox{\texttt{ in}}  & {\em tour} & Tour du vote, si uninominal.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+L\textquotesingle{}affichage est base sur le mode de scrutin. 
+\end{DoxyNote}

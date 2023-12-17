@@ -1,0 +1,7 @@
+<map id="src/graph.h" name="src/graph.h">
+<area shape="rect" id="node1" title="Définitionon des graphes adaptés pour la représentation des duels lors des votes Condorcet." alt="" coords="147,5,242,32"/>
+<area shape="rect" id="node2" href="$condorcet_8h.html" title="Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d&#39;égalité." alt="" coords="69,80,190,107"/>
+<area shape="rect" id="node5" href="$graph_8c.html" title="Gestion des graphes adaptés pour la représentation des duels lors des votes Condorcet." alt="" coords="215,80,308,107"/>
+<area shape="rect" id="node3" href="$condorcet_8c.html" title="Méthodes de vote Condorcet." alt="" coords="5,155,125,181"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties." alt="" coords="150,155,239,181"/>
+</map>

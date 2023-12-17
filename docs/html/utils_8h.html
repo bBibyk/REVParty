@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Election Burger Supreme: Référence du fichier utils.h</title>
+<title>Election Burger Supreme: Référence du fichier src/utils.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -59,32 +59,56 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Structures de données</a> &#124;
-<a href="#typedef-members">Définitions de type</a>  </div>
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
 <div class="title">Référence du fichier utils.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Fonctions utiles pour les différents systèmes de votes.  
+<p>Fonctions et structures utiles pour les différents systèmes de votes.  
 <a href="#details">Plus de détails...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="lecture__csv_8h_source.html">lecture_csv.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de utils.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="utils_8h__incl.png" border="0" usemap="#autils_8h" alt=""/></div>
-<map name="autils_8h" id="autils_8h">
-<area shape="rect" title="Fonctions utiles pour les différents systèmes de votes." alt="" coords="37,5,99,32"/>
+<div class="center"><img src="utils_8h__incl.png" border="0" usemap="#asrc_2utils_8h" alt=""/></div>
+<map name="asrc_2utils_8h" id="asrc_2utils_8h">
+<area shape="rect" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="115,5,200,32"/>
 <area shape="rect" title=" " alt="" coords="5,155,72,181"/>
-<area shape="rect" title=" " alt="" coords="33,80,103,107"/>
-<area shape="rect" href="lecture__csv_8h.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="128,80,235,107"/>
-<area shape="rect" title=" " alt="" coords="117,155,200,181"/>
-<area shape="rect" title=" " alt="" coords="224,155,288,181"/>
+<area shape="rect" title=" " alt="" coords="97,155,167,181"/>
+<area shape="rect" title=" " alt="" coords="191,155,262,181"/>
+<area shape="rect" href="lecture__csv_8h.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="220,80,327,107"/>
+<area shape="rect" title=" " alt="" coords="287,155,361,181"/>
+<area shape="rect" title=" " alt="" coords="385,155,468,181"/>
+<area shape="rect" title=" " alt="" coords="492,155,556,181"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="utils_8h__dep__incl.png" border="0" usemap="#asrc_2utils_8hdep" alt=""/></div>
+<map name="asrc_2utils_8hdep" id="asrc_2utils_8hdep">
+<area shape="rect" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="288,5,373,32"/>
+<area shape="rect" href="condorcet_8h.html" title="Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d&#39;égalité." alt="" coords="35,80,157,107"/>
+<area shape="rect" href="main_8c.html" title="Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties." alt="" coords="150,155,239,181"/>
+<area shape="rect" href="jugement__majoritaire_8h.html" title="Gestion de la méthode de jugement majoritaire." alt="" coords="231,80,430,107"/>
+<area shape="rect" href="uninominales_8h.html" title="Gestion des méthodes de vote uninominales à un et deux tours." alt="" coords="454,80,599,107"/>
+<area shape="rect" href="utils_8c.html" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="623,80,707,107"/>
+<area shape="rect" href="condorcet_8c.html" title="Méthodes de vote Condorcet." alt="" coords="5,155,125,181"/>
+<area shape="rect" href="jugement__majoritaire_8c.html" title="Implémentation de la méthode de vote par jugement majoritaire, avec stockage des résultats dans une s..." alt="" coords="264,155,461,181"/>
+<area shape="rect" href="uninominales_8c.html" title="Implémentation des méthodes de vote uninominales à un et deux tours, avec stockage des résultats dans..." alt="" coords="485,155,629,181"/>
 </map>
 </div>
 </div>
@@ -100,13 +124,333 @@ Définitions de type</h2></td></tr>
 <tr class="memitem:abd9327b20e9045e810940392c869d326"><td class="memItemLeft" align="right" valign="top"><a id="abd9327b20e9045e810940392c869d326"></a>
 typedef struct <a class="el" href="structVoteResult.html">VoteResult</a>&#160;</td><td class="memItemRight" valign="bottom"><b>VoteResult</b></td></tr>
 <tr class="separator:abd9327b20e9045e810940392c869d326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a1e813d88e4c48ce1b6b178cbe21faea3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a1e813d88e4c48ce1b6b178cbe21faea3">printResult</a> (<a class="el" href="structVoteResult.html">VoteResult</a> result, char *method, int tour)</td></tr>
+<tr class="memdesc:a1e813d88e4c48ce1b6b178cbe21faea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour afficher les résultats d'un vote.  <a href="utils_8h.html#a1e813d88e4c48ce1b6b178cbe21faea3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1e813d88e4c48ce1b6b178cbe21faea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a866b9651a68898a719e72610b14db9a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a866b9651a68898a719e72610b14db9a5">logprintf</a> (FILE *log, bool debugMode, char *message,...)</td></tr>
+<tr class="memdesc:a866b9651a68898a719e72610b14db9a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour afficher les messages de debug.  <a href="utils_8h.html#a866b9651a68898a719e72610b14db9a5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a866b9651a68898a719e72610b14db9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bf17fcc32db07d51f66e1ab89737ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#ac9bf17fcc32db07d51f66e1ab89737ba">getNbCandidat</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df)</td></tr>
+<tr class="memdesc:ac9bf17fcc32db07d51f66e1ab89737ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour obtenir le nombre de candidats.  <a href="utils_8h.html#ac9bf17fcc32db07d51f66e1ab89737ba">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac9bf17fcc32db07d51f66e1ab89737ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ccf6548fe7ca54ff7127ee3e2f759d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a5ccf6548fe7ca54ff7127ee3e2f759d9">getIdxsCandidats</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, int nb_candidates, int *idxs_candidats)</td></tr>
+<tr class="memdesc:a5ccf6548fe7ca54ff7127ee3e2f759d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour obtenir les index des candidats.  <a href="utils_8h.html#a5ccf6548fe7ca54ff7127ee3e2f759d9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5ccf6548fe7ca54ff7127ee3e2f759d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22137b5971e84cb7d43f7a965c789564"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structVoteResult.html">VoteResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#a22137b5971e84cb7d43f7a965c789564">createVoteResult</a> (int nb_candidates, int nb_voters, int score, char *winner)</td></tr>
+<tr class="memdesc:a22137b5971e84cb7d43f7a965c789564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour créer une structure <a class="el" href="structVoteResult.html">VoteResult</a>.  <a href="utils_8h.html#a22137b5971e84cb7d43f7a965c789564">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a22137b5971e84cb7d43f7a965c789564"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af082905f7eac6d03e92015146bbc1925"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#af082905f7eac6d03e92015146bbc1925">max</a> (int a, int b)</td></tr>
+<tr class="memdesc:af082905f7eac6d03e92015146bbc1925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour obtenir le maximum entre deux entiers.  <a href="utils_8h.html#af082905f7eac6d03e92015146bbc1925">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af082905f7eac6d03e92015146bbc1925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd8bbcfabb3ddef2ccaafb9928a37b95"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utils_8h.html#abd8bbcfabb3ddef2ccaafb9928a37b95">min</a> (int a, int b)</td></tr>
+<tr class="memdesc:abd8bbcfabb3ddef2ccaafb9928a37b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction pour obtenir le minimum entre deux entiers.  <a href="utils_8h.html#abd8bbcfabb3ddef2ccaafb9928a37b95">Plus de détails...</a><br /></td></tr>
+<tr class="separator:abd8bbcfabb3ddef2ccaafb9928a37b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Fonctions utiles pour les différents systèmes de votes. </p>
-<dl class="section author"><dt>Auteur</dt><dd>Essengue Matis </dd></dl>
+<div class="textblock"><p>Fonctions et structures utiles pour les différents systèmes de votes. </p>
+<dl class="section author"><dt>Auteurs</dt><dd>Essengue Matis </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>11 novembre 2023</dd></dl>
-<p>Fichier d'en-tête pour les fonctions utiles pour les différents systèmes de votes. </p>
-</div></div><!-- contents -->
+<p>Fichier avec les utiles pour les différents systèmes de votes. </p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a22137b5971e84cb7d43f7a965c789564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22137b5971e84cb7d43f7a965c789564">&#9670;&nbsp;</a></span>createVoteResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structVoteResult.html">VoteResult</a> createVoteResult </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_candidates</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_voters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>score</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>winner</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction pour créer une structure <a class="el" href="structVoteResult.html">VoteResult</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">nb_candidates</td><td>Nombre de candidats. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nb_voters</td><td>Nombre de votants. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">score</td><td>Score du vainqueur. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">winner</td><td>Vainqueur. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Structure <a class="el" href="structVoteResult.html">VoteResult</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a5ccf6548fe7ca54ff7127ee3e2f759d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ccf6548fe7ca54ff7127ee3e2f759d9">&#9670;&nbsp;</a></span>getIdxsCandidats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void getIdxsCandidats </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_candidates</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>idxs_candidats</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction pour obtenir les index des candidats. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td><a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nb_candidates</td><td>Nombre de candidats. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">idxs_candidats</td><td>Index des candidats. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac9bf17fcc32db07d51f66e1ab89737ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9bf17fcc32db07d51f66e1ab89737ba">&#9670;&nbsp;</a></span>getNbCandidat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getNbCandidat </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction pour obtenir le nombre de candidats. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td><a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de candidats. </dd></dl>
+
+</div>
+</div>
+<a id="a866b9651a68898a719e72610b14db9a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a866b9651a68898a719e72610b14db9a5">&#9670;&nbsp;</a></span>logprintf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void logprintf </td>
+          <td>(</td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debugMode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction pour afficher les messages de debug. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">log</td><td>Fichier de log. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">debugMode</td><td>Mode de debug. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">message</td><td>Message à afficher. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">...</td><td>Arguments du message. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af082905f7eac6d03e92015146bbc1925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af082905f7eac6d03e92015146bbc1925">&#9670;&nbsp;</a></span>max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int max </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction pour obtenir le maximum entre deux entiers. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Entier a. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Entier b. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Maximum entre a et b. </dd></dl>
+
+</div>
+</div>
+<a id="abd8bbcfabb3ddef2ccaafb9928a37b95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd8bbcfabb3ddef2ccaafb9928a37b95">&#9670;&nbsp;</a></span>min()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int min </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction pour obtenir le minimum entre deux entiers. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Entier a. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Entier b. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Minimum entre a et b. </dd></dl>
+
+</div>
+</div>
+<a id="a1e813d88e4c48ce1b6b178cbe21faea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e813d88e4c48ce1b6b178cbe21faea3">&#9670;&nbsp;</a></span>printResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printResult </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structVoteResult.html">VoteResult</a>&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>method</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tour</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction pour afficher les résultats d'un vote. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">result</td><td>Structure contenant les données du vote. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">method</td><td>Mode de scrutin. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tour</td><td>Tour du vote, si uninominal.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>L'affichage est base sur le mode de scrutin. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

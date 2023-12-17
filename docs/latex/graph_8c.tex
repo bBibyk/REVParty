@@ -1,0 +1,273 @@
+\hypertarget{graph_8c}{}\doxysection{Référence du fichier src/graph.c}
+\label{graph_8c}\index{src/graph.c@{src/graph.c}}
+
+
+Gestion des graphes adaptés pour la représentation des duels lors des votes Condorcet.  
+
+
+{\ttfamily \#include \char`\"{}graph.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de graph.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graph_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structGraph}{Graph}} $\ast$ \mbox{\hyperlink{graph_8c_a7665daed45cec3b84a6f34684e5d63d9}{create\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}initialisation d\textquotesingle{}un graphe. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graph_8c_a84201ba87b68377365560134e65943c1}{add\+Node}} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph, char $\ast$node)
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un noe dans le graphe. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graph_8c_a27da6d180e144793c900bd248b6317c9}{get\+Node\+Index}} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph, char $\ast$node)
+\begin{DoxyCompactList}\small\item\em Retourne l\textquotesingle{}indice d\textquotesingle{}un noeud dans le graphe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8c_afb9b5fa602c370d6e49b4ea407276398}{set\+Edge}} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph, char $\ast$from, char $\ast$to, int weight)
+\begin{DoxyCompactList}\small\item\em Ajout d\textquotesingle{}un lien entre deux noeuds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8c_a76cadbb2105d1372f7c5e406d1ad3a8a}{print\+Graph}} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph, FILE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Affichage du graphe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8c_ab2b36616d21e8aaeb040e23153249bec}{remove\+Edge}} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph, char $\ast$from, char $\ast$to)
+\begin{DoxyCompactList}\small\item\em Suppression d\textquotesingle{}un lien entre deux noeuds. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{graph_8c_a68b849a2dedfd2a071b79bc530146cb3}{is\+Dominant}} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph, char $\ast$node)
+\begin{DoxyCompactList}\small\item\em Indique si un noeud est dominant. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{graph_8c_a5dc84387c80c15e952d309beffef2d12}{is\+Isolated}} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph, char $\ast$node)
+\begin{DoxyCompactList}\small\item\em Indique si un noeud est isole. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graph_8c_aeaea4f29e97d2420e090a03d639b7f72}{remove\+Node}} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph, char $\ast$node)
+\begin{DoxyCompactList}\small\item\em Suppression d\textquotesingle{}un noeud. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{graph_8c_a404c8e3c18985722e28b9f3d5ad6606f}\label{graph_8c_a404c8e3c18985722e28b9f3d5ad6606f}} 
+void {\bfseries copy\+Graph} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$dest, \mbox{\hyperlink{structGraph}{Graph}} $\ast$src)
+\item 
+\mbox{\Hypertarget{graph_8c_a1621e8124463c737577f3d5fd03f9d2c}\label{graph_8c_a1621e8124463c737577f3d5fd03f9d2c}} 
+static bool {\bfseries is\+Cycled\+Util} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph, int v, bool visited\mbox{[}$\,$\mbox{]}, bool $\ast$rec\+Stack)
+\item 
+\mbox{\Hypertarget{graph_8c_a89e28a1ed783a1b8c7c42d600c9b6260}\label{graph_8c_a89e28a1ed783a1b8c7c42d600c9b6260}} 
+bool {\bfseries is\+Cycled} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph)
+\item 
+\mbox{\Hypertarget{graph_8c_aed50f07f23a15436c8cbf04ac9dbf18a}\label{graph_8c_aed50f07f23a15436c8cbf04ac9dbf18a}} 
+static void {\bfseries swap} (\mbox{\hyperlink{structMatrixValue}{Matrix\+Value}} $\ast$a, \mbox{\hyperlink{structMatrixValue}{Matrix\+Value}} $\ast$b)
+\item 
+\mbox{\Hypertarget{graph_8c_a586cd2f0180538da6790d4762c76e839}\label{graph_8c_a586cd2f0180538da6790d4762c76e839}} 
+static int {\bfseries partition} (\mbox{\hyperlink{structMatrixValue}{Matrix\+Value}} $\ast$arr, int low, int high)
+\item 
+\mbox{\Hypertarget{graph_8c_acd7571de43506adcbf054edf6b3a6757}\label{graph_8c_acd7571de43506adcbf054edf6b3a6757}} 
+static void {\bfseries quick\+Sort} (\mbox{\hyperlink{structMatrixValue}{Matrix\+Value}} $\ast$arr, int low, int high)
+\item 
+void \mbox{\hyperlink{graph_8c_a08fb5a6adb1e1741ce900bbb2feca45b}{sorted\+Matrix\+Values}} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph, int $\ast$$\ast$sorted\+Values, int $\ast$$\ast$coordinates)
+\begin{DoxyCompactList}\small\item\em Tri des valeurs de la matrice du graphe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8c_afbc14e3ed676d822d4d6acb0dba38ba1}{delete\+Graph}} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph)
+\begin{DoxyCompactList}\small\item\em Suppression du graphe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestion des graphes adaptés pour la représentation des duels lors des votes Condorcet. 
+
+\begin{DoxyAuthor}{Auteur}
+Bibyk Bogdan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+07 décembre 2022
+\end{DoxyDate}
+Ce fichier contient l\textquotesingle{}implémentation des fonctions pour l\textquotesingle{}utilisation des graphes statiques. Les graphes sont orientés et pondérés positivement. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{graph_8c_a84201ba87b68377365560134e65943c1}\label{graph_8c_a84201ba87b68377365560134e65943c1}} 
+\index{graph.c@{graph.c}!addNode@{addNode}}
+\index{addNode@{addNode}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{addNode()}{addNode()}}
+{\footnotesize\ttfamily int add\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} $\ast$}]{graph,  }\item[{char $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Ajout d\textquotesingle{}un noe dans le graphe. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em graph} & Structure graph à modifier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em node} & Nom du noeud à ajouter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}indice du nom du noeud. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{graph_8c_a7665daed45cec3b84a6f34684e5d63d9}\label{graph_8c_a7665daed45cec3b84a6f34684e5d63d9}} 
+\index{graph.c@{graph.c}!createGraph@{createGraph}}
+\index{createGraph@{createGraph}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{createGraph()}{createGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGraph}{Graph}} $\ast$ create\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fonction d\textquotesingle{}initialisation d\textquotesingle{}un graphe. 
+
+\begin{DoxyReturn}{Renvoie}
+Structure représentat le graphe vide. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{graph_8c_afbc14e3ed676d822d4d6acb0dba38ba1}\label{graph_8c_afbc14e3ed676d822d4d6acb0dba38ba1}} 
+\index{graph.c@{graph.c}!deleteGraph@{deleteGraph}}
+\index{deleteGraph@{deleteGraph}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{deleteGraph()}{deleteGraph()}}
+{\footnotesize\ttfamily void delete\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} $\ast$}]{graph }\end{DoxyParamCaption})}
+
+
+
+Suppression du graphe. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em graph} & Structure graph à supprimer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graph_8c_a27da6d180e144793c900bd248b6317c9}\label{graph_8c_a27da6d180e144793c900bd248b6317c9}} 
+\index{graph.c@{graph.c}!getNodeIndex@{getNodeIndex}}
+\index{getNodeIndex@{getNodeIndex}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{getNodeIndex()}{getNodeIndex()}}
+{\footnotesize\ttfamily int get\+Node\+Index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} $\ast$}]{graph,  }\item[{char $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Retourne l\textquotesingle{}indice d\textquotesingle{}un noeud dans le graphe. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em graph} & Structure graph. \\
+\hline
+\mbox{\texttt{ in}}  & {\em node} & Nom du noeud à trouver. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graph_8c_a68b849a2dedfd2a071b79bc530146cb3}\label{graph_8c_a68b849a2dedfd2a071b79bc530146cb3}} 
+\index{graph.c@{graph.c}!isDominant@{isDominant}}
+\index{isDominant@{isDominant}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{isDominant()}{isDominant()}}
+{\footnotesize\ttfamily bool is\+Dominant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} $\ast$}]{graph,  }\item[{char $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Indique si un noeud est dominant. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em graph} & Structure graph. \\
+\hline
+\mbox{\texttt{ in}}  & {\em node} & Nom du noeud à tester. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Vrai si le noeud est dominant. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{graph_8c_a5dc84387c80c15e952d309beffef2d12}\label{graph_8c_a5dc84387c80c15e952d309beffef2d12}} 
+\index{graph.c@{graph.c}!isIsolated@{isIsolated}}
+\index{isIsolated@{isIsolated}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{isIsolated()}{isIsolated()}}
+{\footnotesize\ttfamily bool is\+Isolated (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} $\ast$}]{graph,  }\item[{char $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Indique si un noeud est isole. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em graph} & Structure graph. \\
+\hline
+\mbox{\texttt{ in}}  & {\em node} & Nom du noeud à tester. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Vrai si le noeud est isole. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{graph_8c_a76cadbb2105d1372f7c5e406d1ad3a8a}\label{graph_8c_a76cadbb2105d1372f7c5e406d1ad3a8a}} 
+\index{graph.c@{graph.c}!printGraph@{printGraph}}
+\index{printGraph@{printGraph}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{printGraph()}{printGraph()}}
+{\footnotesize\ttfamily void print\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} $\ast$}]{graph,  }\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+Affichage du graphe. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em graph} & Structure graph à afficher. \\
+\hline
+\mbox{\texttt{ out}}  & {\em file} & Fichier de sortie. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graph_8c_ab2b36616d21e8aaeb040e23153249bec}\label{graph_8c_ab2b36616d21e8aaeb040e23153249bec}} 
+\index{graph.c@{graph.c}!removeEdge@{removeEdge}}
+\index{removeEdge@{removeEdge}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}}
+{\footnotesize\ttfamily void remove\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} $\ast$}]{graph,  }\item[{char $\ast$}]{from,  }\item[{char $\ast$}]{to }\end{DoxyParamCaption})}
+
+
+
+Suppression d\textquotesingle{}un lien entre deux noeuds. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em graph} & Structure graph à modifier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em from} & Nom du noeud de depart. \\
+\hline
+\mbox{\texttt{ in}}  & {\em to} & Nom du noeud d\textquotesingle{}arrivé. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graph_8c_aeaea4f29e97d2420e090a03d639b7f72}\label{graph_8c_aeaea4f29e97d2420e090a03d639b7f72}} 
+\index{graph.c@{graph.c}!removeNode@{removeNode}}
+\index{removeNode@{removeNode}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{removeNode()}{removeNode()}}
+{\footnotesize\ttfamily int remove\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} $\ast$}]{graph,  }\item[{char $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Suppression d\textquotesingle{}un noeud. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em graph} & Structure graph à modifier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em node} & Nom du noeud à supprimer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+L\textquotesingle{}indice du noeud supprimé. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{graph_8c_afb9b5fa602c370d6e49b4ea407276398}\label{graph_8c_afb9b5fa602c370d6e49b4ea407276398}} 
+\index{graph.c@{graph.c}!setEdge@{setEdge}}
+\index{setEdge@{setEdge}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{setEdge()}{setEdge()}}
+{\footnotesize\ttfamily void set\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} $\ast$}]{graph,  }\item[{char $\ast$}]{from,  }\item[{char $\ast$}]{to,  }\item[{int}]{weight }\end{DoxyParamCaption})}
+
+
+
+Ajout d\textquotesingle{}un lien entre deux noeuds. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em graph} & Structure graph à modifier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em from} & Nom du noeud de depart. \\
+\hline
+\mbox{\texttt{ in}}  & {\em to} & Nom du noeud d\textquotesingle{}arrivé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em weight} & Poids du lien. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{graph_8c_a08fb5a6adb1e1741ce900bbb2feca45b}\label{graph_8c_a08fb5a6adb1e1741ce900bbb2feca45b}} 
+\index{graph.c@{graph.c}!sortedMatrixValues@{sortedMatrixValues}}
+\index{sortedMatrixValues@{sortedMatrixValues}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{sortedMatrixValues()}{sortedMatrixValues()}}
+{\footnotesize\ttfamily void sorted\+Matrix\+Values (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} $\ast$}]{graph,  }\item[{int $\ast$$\ast$}]{sorted\+Values,  }\item[{int $\ast$$\ast$}]{coordinates }\end{DoxyParamCaption})}
+
+
+
+Tri des valeurs de la matrice du graphe. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em graph} & Structure graph à trier. \\
+\hline
+\mbox{\texttt{ out}}  & {\em sorted\+Values} & Tableau des valeurs triées. \\
+\hline
+\mbox{\texttt{ out}}  & {\em coordinates} & Tableau des coordonnées des valeurs triées. \\
+\hline
+\end{DoxyParams}

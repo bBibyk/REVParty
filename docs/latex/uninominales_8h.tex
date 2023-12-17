@@ -1,0 +1,48 @@
+\hypertarget{uninominales_8h}{}\doxysection{Référence du fichier src/uninominales.h}
+\label{uninominales_8h}\index{src/uninominales.h@{src/uninominales.h}}
+
+
+Gestion des méthodes de vote uninominales à un et deux tours.  
+
+
+{\ttfamily \#include \char`\"{}lecture\+\_\+csv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Graphe des dépendances par inclusion de uninominales.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{uninominales_8h__incl}
+\end{center}
+\end{figure}
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{uninominales_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{uninominales_8h_a6d53e45e640c64e7a1707cb824938305}\label{uninominales_8h_a6d53e45e640c64e7a1707cb824938305}} 
+\mbox{\hyperlink{structVoteResult}{Vote\+Result}} {\bfseries vote\+Uninominal\+Un\+Tour} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, FILE $\ast$log, bool debug\+Mode, char $\ast$column\+To\+Skip)
+\item 
+\mbox{\Hypertarget{uninominales_8h_a5e9821a82e2a8727d9ac431833864d7a}\label{uninominales_8h_a5e9821a82e2a8727d9ac431833864d7a}} 
+void {\bfseries vote\+Uninominal\+Deux\+Tours} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, FILE $\ast$log, bool debug\+Mode, \mbox{\hyperlink{structVoteResult}{Vote\+Result}} $\ast$first\+Tour\+First\+Candidate, \mbox{\hyperlink{structVoteResult}{Vote\+Result}} $\ast$first\+Tour\+Second\+Candidate, \mbox{\hyperlink{structVoteResult}{Vote\+Result}} $\ast$second\+Tour, bool $\ast$majorite)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Gestion des méthodes de vote uninominales à un et deux tours. 
+
+\begin{DoxyAuthor}{Auteur}
+Pigani Emanuele 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+31 octobre 2023
+\end{DoxyDate}
+Ce fichier d\textquotesingle{}en-\/tête définit les fonctions nécessaires pour effectuer des votes uninominaux à un et deux tours et stocker les résultats dans la structure \mbox{\hyperlink{structVoteResult}{Vote\+Result}}. 

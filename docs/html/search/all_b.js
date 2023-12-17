@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['selectdoublefromseries_43',['selectDoubleFromSeries',['../lecture__csv_8c.html#a85c7d7e264e60501f1a3324f53ff2730',1,'selectDoubleFromSeries(Series series, char *label):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a85c7d7e264e60501f1a3324f53ff2730',1,'selectDoubleFromSeries(Series series, char *label):&#160;lecture_csv.c']]],
-  ['selectintfromseries_44',['selectIntFromSeries',['../lecture__csv_8c.html#af170b20115557987410479026218b37c',1,'selectIntFromSeries(Series series, char *label):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a71cc83fa2006a9dff2ae46965ca79772',1,'selectIntFromSeries(Series series, char *label):&#160;lecture_csv.c']]],
-  ['selectstringfromseries_45',['selectStringFromSeries',['../lecture__csv_8c.html#ae9481d361c4a66f4b3b1c1d60b766731',1,'selectStringFromSeries(Series series, char *label):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a84b0078fd28834bd7c8163efdde3ed9b',1,'selectStringFromSeries(Series series, char *label):&#160;lecture_csv.c']]],
-  ['selecttimestampfromseries_46',['selectTimestampFromSeries',['../lecture__csv_8c.html#a4732bbd81b92f058e8175b9f8246b540',1,'selectTimestampFromSeries(Series series, char *label):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a4732bbd81b92f058e8175b9f8246b540',1,'selectTimestampFromSeries(Series series, char *label):&#160;lecture_csv.c']]],
-  ['series_47',['Series',['../structSeries.html',1,'']]],
-  ['string_48',['STRING',['../lecture__csv_8h.html#ad8ed01ff3ff33333d8e19db4d2818bb6aee847e634a4297b274316de8a8ca9921',1,'lecture_csv.h']]],
-  ['strtotimestamp_49',['strToTimestamp',['../lecture__csv_8c.html#ace49710155ee1e8b11bdce8f11182288',1,'lecture_csv.c']]]
+  ['preferencecandidat_65',['preferenceCandidat',['../uninominales_8c.html#a1be06178d22005c1475c11227245fae6',1,'uninominales.c']]],
+  ['printdf_66',['printDf',['../lecture__csv_8c.html#a726a973dd81e2eabf386cdd9946bb01d',1,'printDf(DataFrame *df):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a726a973dd81e2eabf386cdd9946bb01d',1,'printDf(DataFrame *df):&#160;lecture_csv.c']]],
+  ['printgraph_67',['printGraph',['../graph_8c.html#a76cadbb2105d1372f7c5e406d1ad3a8a',1,'printGraph(Graph *graph, FILE *file):&#160;graph.c'],['../graph_8h.html#a76cadbb2105d1372f7c5e406d1ad3a8a',1,'printGraph(Graph *graph, FILE *file):&#160;graph.c']]],
+  ['printresult_68',['printResult',['../utils_8c.html#a1e813d88e4c48ce1b6b178cbe21faea3',1,'printResult(VoteResult result, char *method, int tour):&#160;utils.c'],['../utils_8h.html#a1e813d88e4c48ce1b6b178cbe21faea3',1,'printResult(VoteResult result, char *method, int tour):&#160;utils.c']]],
+  ['printseries_69',['printSeries',['../lecture__csv_8c.html#a4aea6d3f0104c4f9e8f9ae5d152f23d7',1,'printSeries(Series series):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a4aea6d3f0104c4f9e8f9ae5d152f23d7',1,'printSeries(Series series):&#160;lecture_csv.c']]]
 ];

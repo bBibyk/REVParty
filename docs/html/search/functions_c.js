@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['throwallocationerror_99',['throwAllocationError',['../lecture__csv_8c.html#ab9c9b5ee723956fb972232601a0ee4d2',1,'lecture_csv.c']]],
-  ['timestamptostr_100',['timestampToStr',['../lecture__csv_8c.html#abffa2fbff22251ee156153ee2fbe3f78',1,'lecture_csv.c']]],
-  ['tocamelcase_101',['toCamelCase',['../verify__my__vote_8c.html#a5e7b14c76a5505c643d8f1484f38442a',1,'verify_my_vote.c']]],
-  ['touppercase_102',['toUpperCase',['../verify__my__vote_8c.html#ab0e3f1e3e94294defad81ae2479615da',1,'verify_my_vote.c']]]
+  ['selectdoublefromseries_166',['selectDoubleFromSeries',['../lecture__csv_8c.html#a85c7d7e264e60501f1a3324f53ff2730',1,'selectDoubleFromSeries(Series series, char *label):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a85c7d7e264e60501f1a3324f53ff2730',1,'selectDoubleFromSeries(Series series, char *label):&#160;lecture_csv.c']]],
+  ['selectintfromseries_167',['selectIntFromSeries',['../lecture__csv_8c.html#af170b20115557987410479026218b37c',1,'selectIntFromSeries(Series series, char *label):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a71cc83fa2006a9dff2ae46965ca79772',1,'selectIntFromSeries(Series series, char *label):&#160;lecture_csv.c']]],
+  ['selectstringfromseries_168',['selectStringFromSeries',['../lecture__csv_8c.html#ae9481d361c4a66f4b3b1c1d60b766731',1,'selectStringFromSeries(Series series, char *label):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a84b0078fd28834bd7c8163efdde3ed9b',1,'selectStringFromSeries(Series series, char *label):&#160;lecture_csv.c']]],
+  ['selecttimestampfromseries_169',['selectTimestampFromSeries',['../lecture__csv_8c.html#a4732bbd81b92f058e8175b9f8246b540',1,'selectTimestampFromSeries(Series series, char *label):&#160;lecture_csv.c'],['../lecture__csv_8h.html#a4732bbd81b92f058e8175b9f8246b540',1,'selectTimestampFromSeries(Series series, char *label):&#160;lecture_csv.c']]],
+  ['setedge_170',['setEdge',['../graph_8c.html#afb9b5fa602c370d6e49b4ea407276398',1,'setEdge(Graph *graph, char *from, char *to, int weight):&#160;graph.c'],['../graph_8h.html#afb9b5fa602c370d6e49b4ea407276398',1,'setEdge(Graph *graph, char *from, char *to, int weight):&#160;graph.c']]],
+  ['sortedmatrixvalues_171',['sortedMatrixValues',['../graph_8c.html#a08fb5a6adb1e1741ce900bbb2feca45b',1,'sortedMatrixValues(Graph *graph, int **sortedValues, int **coordinates):&#160;graph.c'],['../graph_8h.html#a08fb5a6adb1e1741ce900bbb2feca45b',1,'sortedMatrixValues(Graph *graph, int **sortedValues, int **coordinates):&#160;graph.c']]],
+  ['strtotimestamp_172',['strToTimestamp',['../lecture__csv_8c.html#ace49710155ee1e8b11bdce8f11182288',1,'lecture_csv.c']]]
 ];

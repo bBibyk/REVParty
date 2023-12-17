@@ -1,0 +1,239 @@
+\hypertarget{condorcet_8c}{}\doxysection{Référence du fichier src/condorcet.c}
+\label{condorcet_8c}\index{src/condorcet.c@{src/condorcet.c}}
+
+
+Méthodes de vote Condorcet.  
+
+
+{\ttfamily \#include \char`\"{}condorcet.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de condorcet.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{condorcet_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{condorcet_8c_a50815790fa784a112dcb33795153f60f}\label{condorcet_8c_a50815790fa784a112dcb33795153f60f}} 
+static int {\bfseries calculer\+Score\+Duel} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$candidat, char $\ast$adversaire, FILE $\ast$log, bool debug\+Mode)
+\item 
+\mbox{\Hypertarget{condorcet_8c_aaa2787662b6ef101ab13df5506fa8d3d}\label{condorcet_8c_aaa2787662b6ef101ab13df5506fa8d3d}} 
+static \mbox{\hyperlink{structGraph}{Graph}} $\ast$ {\bfseries init\+Graph\+Node\+From\+Df} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, int $\ast$idxs\+\_\+candidats, int nb\+\_\+candidates, bool duel)
+\item 
+\mbox{\Hypertarget{condorcet_8c_afed43718a7f69398bbaeb800f3d749cd}\label{condorcet_8c_afed43718a7f69398bbaeb800f3d749cd}} 
+static void {\bfseries add\+Edge} (\mbox{\hyperlink{structGraph}{Graph}} $\ast$graph, int j, int $\ast$idxs\+\_\+candidats, \mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, FILE $\ast$log, bool debug\+Mode, int idx\+\_\+candidat, char $\ast$candidat, bool duel)
+\item 
+\mbox{\Hypertarget{condorcet_8c_aaa44d3392b82b09a6996e05aa564a311}\label{condorcet_8c_aaa44d3392b82b09a6996e05aa564a311}} 
+static \mbox{\hyperlink{structGraph}{Graph}} $\ast$ {\bfseries fill\+Graph\+From\+Df} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, int $\ast$idxs\+\_\+candidats, int nb\+\_\+candidates, FILE $\ast$log, bool debug\+Mode, bool duel)
+\item 
+\mbox{\Hypertarget{condorcet_8c_a14c3aee83979b9a771e1b5fb7d54117b}\label{condorcet_8c_a14c3aee83979b9a771e1b5fb7d54117b}} 
+static char $\ast$ {\bfseries trouver\+Vainqueur\+Condorcet} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, int $\ast$idxs\+\_\+candidats, int nb\+\_\+candidates, FILE $\ast$log, bool debug\+Mode, bool duel)
+\item 
+static void \mbox{\hyperlink{condorcet_8c_a69b0f598e279dd2022b223cd84b7bf02}{update\+Winner}} (char $\ast$$\ast$winner, int $\ast$winner\+\_\+score, char $\ast$candidat, int candidat\+\_\+score)
+\begin{DoxyCompactList}\small\item\em Met à jour le vainqueur. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{condorcet_8c_a41716537cad47250bb4a50c023a99338}\label{condorcet_8c_a41716537cad47250bb4a50c023a99338}} 
+static void {\bfseries affronter} (int j, int $\ast$idxs\+\_\+candidats, \mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, FILE $\ast$log, bool debug\+Mode, char $\ast$candidat, int $\ast$mini)
+\item 
+static char $\ast$ \mbox{\hyperlink{condorcet_8c_ac4f2ad13feabc8406aa43f41708bbe47}{trouver\+Mini\+Max\+Duel}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, FILE $\ast$log, bool debug\+Mode, int $\ast$score)
+\begin{DoxyCompactList}\small\item\em Trouve le vainqueur de la méthode Mini\+Max pour un duel. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{condorcet_8c_aa3a3d18a281fea0dbdc8e771e23216e7}\label{condorcet_8c_aa3a3d18a281fea0dbdc8e771e23216e7}} 
+static char $\ast$ {\bfseries trouver\+Mini\+Max} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, int $\ast$idxs\+\_\+candidats, int nb\+\_\+candidates, FILE $\ast$log, bool debug\+Mode, int $\ast$score, bool duel)
+\item 
+\mbox{\hyperlink{structVoteResult}{Vote\+Result}} \mbox{\hyperlink{condorcet_8c_aaa6d6324ca58f645c57ce055a0ee1696}{vote\+Condorcet\+Minimax}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, bool duel, FILE $\ast$log, bool debug\+Mode)
+\begin{DoxyCompactList}\small\item\em Vote Condorcet par la méthode Mini\+Max. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structVoteResult}{Vote\+Result}} \mbox{\hyperlink{condorcet_8c_a3c6acfac6111ff3585043181c8ee4292}{vote\+Condorcet\+Paires}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, bool duel, FILE $\ast$log, bool debug\+Mode)
+\begin{DoxyCompactList}\small\item\em Vote Condorcet par la méthode Des Paires. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{condorcet_8c_ac3e9d0f56fc9482d0ad0d7eedb60969d}{calculer\+Chemins\+Fort}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, int $\ast$$\ast$chemins, int $\ast$idxs\+\_\+candidats, int nb\+\_\+candidates, FILE $\ast$log, bool debug\+Mode)
+\begin{DoxyCompactList}\small\item\em Calcule les chemins les plus forts entre chaque paire de candidats. \end{DoxyCompactList}\item 
+static char $\ast$ \mbox{\hyperlink{condorcet_8c_a411a80412d9157ba62ac24afbfb780f2}{trouver\+Vainqueur\+Schulze}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, int $\ast$idxs\+\_\+candidats, int nb\+\_\+candidates, int $\ast$$\ast$chemins, FILE $\ast$log, bool debug\+Mode)
+\begin{DoxyCompactList}\small\item\em Trouve le vainqueur de la méthode Schulze. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structVoteResult}{Vote\+Result}} \mbox{\hyperlink{condorcet_8c_a75ff970fabbe5708743ef914846715dd}{vote\+Condorcet\+Schulze}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, bool duel, FILE $\ast$log, bool debug\+Mode)
+\begin{DoxyCompactList}\small\item\em Vote Condorcet par la méthode De Schulze. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Méthodes de vote Condorcet. 
+
+\begin{DoxyAuthor}{Auteur}
+Essengue Matis 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+16 décembre 2023
+\end{DoxyDate}
+Ce fichier contient les implémentations des méthodes de vote Condorcet. Les méthodes implémentées sont \+:
+\begin{DoxyItemize}
+\item Minimax
+\item Des Paires
+\item Schulze 
+\end{DoxyItemize}
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{condorcet_8c_ac3e9d0f56fc9482d0ad0d7eedb60969d}\label{condorcet_8c_ac3e9d0f56fc9482d0ad0d7eedb60969d}} 
+\index{condorcet.c@{condorcet.c}!calculerCheminsFort@{calculerCheminsFort}}
+\index{calculerCheminsFort@{calculerCheminsFort}!condorcet.c@{condorcet.c}}
+\doxysubsubsection{\texorpdfstring{calculerCheminsFort()}{calculerCheminsFort()}}
+{\footnotesize\ttfamily void calculer\+Chemins\+Fort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{int $\ast$$\ast$}]{chemins,  }\item[{int $\ast$}]{idxs\+\_\+candidats,  }\item[{int}]{nb\+\_\+candidates,  }\item[{FILE $\ast$}]{log,  }\item[{bool}]{debug\+Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calcule les chemins les plus forts entre chaque paire de candidats. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em df} & Le \mbox{\hyperlink{structDataFrame}{Data\+Frame}} contenant les données de vote. \\
+\hline
+\mbox{\texttt{ in,out}}  & {\em chemins} & Les chemins les plus forts. \\
+\hline
+\mbox{\texttt{ in}}  & {\em idxs\+\_\+candidats} & Les indices des candidats. \\
+\hline
+\mbox{\texttt{ in}}  & {\em nb\+\_\+candidates} & Le nombre de candidats. \\
+\hline
+\mbox{\texttt{ in}}  & {\em log} & Le fichier de log. \\
+\hline
+\mbox{\texttt{ in}}  & {\em debug\+Mode} & Le mode debug. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{condorcet_8c_ac4f2ad13feabc8406aa43f41708bbe47}\label{condorcet_8c_ac4f2ad13feabc8406aa43f41708bbe47}} 
+\index{condorcet.c@{condorcet.c}!trouverMiniMaxDuel@{trouverMiniMaxDuel}}
+\index{trouverMiniMaxDuel@{trouverMiniMaxDuel}!condorcet.c@{condorcet.c}}
+\doxysubsubsection{\texorpdfstring{trouverMiniMaxDuel()}{trouverMiniMaxDuel()}}
+{\footnotesize\ttfamily char $\ast$ trouver\+Mini\+Max\+Duel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{FILE $\ast$}]{log,  }\item[{bool}]{debug\+Mode,  }\item[{int $\ast$}]{score }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Trouve le vainqueur de la méthode Mini\+Max pour un duel. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em df} & Le \mbox{\hyperlink{structDataFrame}{Data\+Frame}} contenant les données de vote. \\
+\hline
+\mbox{\texttt{ in}}  & {\em log} & Le fichier de log. \\
+\hline
+\mbox{\texttt{ in}}  & {\em debug\+Mode} & Le mode debug. \\
+\hline
+\mbox{\texttt{ out}}  & {\em score} & Le score du vainqueur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le nom du vainqueur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{condorcet_8c_a411a80412d9157ba62ac24afbfb780f2}\label{condorcet_8c_a411a80412d9157ba62ac24afbfb780f2}} 
+\index{condorcet.c@{condorcet.c}!trouverVainqueurSchulze@{trouverVainqueurSchulze}}
+\index{trouverVainqueurSchulze@{trouverVainqueurSchulze}!condorcet.c@{condorcet.c}}
+\doxysubsubsection{\texorpdfstring{trouverVainqueurSchulze()}{trouverVainqueurSchulze()}}
+{\footnotesize\ttfamily char $\ast$ trouver\+Vainqueur\+Schulze (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{int $\ast$}]{idxs\+\_\+candidats,  }\item[{int}]{nb\+\_\+candidates,  }\item[{int $\ast$$\ast$}]{chemins,  }\item[{FILE $\ast$}]{log,  }\item[{bool}]{debug\+Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Trouve le vainqueur de la méthode Schulze. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em df} & Le \mbox{\hyperlink{structDataFrame}{Data\+Frame}} contenant les données de vote. \\
+\hline
+\mbox{\texttt{ in}}  & {\em idxs\+\_\+candidats} & Les indices des candidats. \\
+\hline
+\mbox{\texttt{ in}}  & {\em nb\+\_\+candidates} & Le nombre de candidats. \\
+\hline
+\mbox{\texttt{ in}}  & {\em chemins} & Les chemins les plus forts. \\
+\hline
+\mbox{\texttt{ in}}  & {\em log} & Le fichier de log. \\
+\hline
+\mbox{\texttt{ in}}  & {\em debug\+Mode} & Le mode debug. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le nom du vainqueur. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{condorcet_8c_a69b0f598e279dd2022b223cd84b7bf02}\label{condorcet_8c_a69b0f598e279dd2022b223cd84b7bf02}} 
+\index{condorcet.c@{condorcet.c}!updateWinner@{updateWinner}}
+\index{updateWinner@{updateWinner}!condorcet.c@{condorcet.c}}
+\doxysubsubsection{\texorpdfstring{updateWinner()}{updateWinner()}}
+{\footnotesize\ttfamily void update\+Winner (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{winner,  }\item[{int $\ast$}]{winner\+\_\+score,  }\item[{char $\ast$}]{candidat,  }\item[{int}]{candidat\+\_\+score }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Met à jour le vainqueur. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em winner} & Le vainqueur actuel. \\
+\hline
+\mbox{\texttt{ in}}  & {\em winner\+\_\+score} & Le score du vainqueur actuel. \\
+\hline
+\mbox{\texttt{ in}}  & {\em candidat} & Le candidat à comparer. \\
+\hline
+\mbox{\texttt{ in}}  & {\em candidat\+\_\+score} & Le score du candidat à comparer.\\
+\hline
+\end{DoxyParams}
+Si le score du candidat est supérieur au score du vainqueur, le vainqueur est mis à jour. \mbox{\Hypertarget{condorcet_8c_aaa6d6324ca58f645c57ce055a0ee1696}\label{condorcet_8c_aaa6d6324ca58f645c57ce055a0ee1696}} 
+\index{condorcet.c@{condorcet.c}!voteCondorcetMinimax@{voteCondorcetMinimax}}
+\index{voteCondorcetMinimax@{voteCondorcetMinimax}!condorcet.c@{condorcet.c}}
+\doxysubsubsection{\texorpdfstring{voteCondorcetMinimax()}{voteCondorcetMinimax()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structVoteResult}{Vote\+Result}} vote\+Condorcet\+Minimax (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{bool}]{duel,  }\item[{FILE $\ast$}]{log,  }\item[{bool}]{debug\+Mode }\end{DoxyParamCaption})}
+
+
+
+Vote Condorcet par la méthode Mini\+Max. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em df} & Le \mbox{\hyperlink{structDataFrame}{Data\+Frame}} contenant les données de vote. \\
+\hline
+\mbox{\texttt{ in}}  & {\em duel} & Si vrai, le df est une matrice de duel. \\
+\hline
+\mbox{\texttt{ in}}  & {\em log} & Le fichier de log. \\
+\hline
+\mbox{\texttt{ in}}  & {\em debug\+Mode} & Le mode debug. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le résultat du vote. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{condorcet_8c_a3c6acfac6111ff3585043181c8ee4292}\label{condorcet_8c_a3c6acfac6111ff3585043181c8ee4292}} 
+\index{condorcet.c@{condorcet.c}!voteCondorcetPaires@{voteCondorcetPaires}}
+\index{voteCondorcetPaires@{voteCondorcetPaires}!condorcet.c@{condorcet.c}}
+\doxysubsubsection{\texorpdfstring{voteCondorcetPaires()}{voteCondorcetPaires()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structVoteResult}{Vote\+Result}} vote\+Condorcet\+Paires (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{bool}]{duel,  }\item[{FILE $\ast$}]{log,  }\item[{bool}]{debug\+Mode }\end{DoxyParamCaption})}
+
+
+
+Vote Condorcet par la méthode Des Paires. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em df} & Le \mbox{\hyperlink{structDataFrame}{Data\+Frame}} contenant les données de vote. \\
+\hline
+\mbox{\texttt{ in}}  & {\em duel} & Si vrai, le df est une matrice de duel. \\
+\hline
+\mbox{\texttt{ in}}  & {\em log} & Le fichier de log. \\
+\hline
+\mbox{\texttt{ in}}  & {\em debug\+Mode} & Le mode debug. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Le résultat du vote. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{condorcet_8c_a75ff970fabbe5708743ef914846715dd}\label{condorcet_8c_a75ff970fabbe5708743ef914846715dd}} 
+\index{condorcet.c@{condorcet.c}!voteCondorcetSchulze@{voteCondorcetSchulze}}
+\index{voteCondorcetSchulze@{voteCondorcetSchulze}!condorcet.c@{condorcet.c}}
+\doxysubsubsection{\texorpdfstring{voteCondorcetSchulze()}{voteCondorcetSchulze()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structVoteResult}{Vote\+Result}} vote\+Condorcet\+Schulze (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{bool}]{duel,  }\item[{FILE $\ast$}]{log,  }\item[{bool}]{debug\+Mode }\end{DoxyParamCaption})}
+
+
+
+Vote Condorcet par la méthode De Schulze. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em df} & Le \mbox{\hyperlink{structDataFrame}{Data\+Frame}} contenant les données de vote. \\
+\hline
+\mbox{\texttt{ in}}  & {\em duel} & Si vrai, le df est une matrice de duel. \\
+\hline
+\mbox{\texttt{ in}}  & {\em log} & Le fichier de log. \\
+\hline
+\mbox{\texttt{ in}}  & {\em debug\+Mode} & Le mode debug. \\
+\hline
+\end{DoxyParams}

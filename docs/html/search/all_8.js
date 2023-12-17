@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['name_36',['name',['../structColumn.html#abb47c8d92b4fd7a6c12f4a71b4b4dfef',1,'Column']]],
-  ['nextrow_37',['nextRow',['../lecture__csv_8c.html#ada9f638f478dc98dfdb38b7ed4859808',1,'lecture_csv.c']]],
-  ['num_5fcolumns_38',['num_columns',['../structDataFrame.html#ae54fa5e2df2613f9f8c5e34a0724217d',1,'DataFrame']]],
-  ['num_5frows_39',['num_rows',['../structDataFrame.html#a38291090a3784a76ae1b111935ba8ca2',1,'DataFrame']]]
+  ['main_55',['main',['../main_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.c']]],
+  ['main_2ec_56',['main.c',['../main_8c.html',1,'']]],
+  ['matrixvalue_57',['MatrixValue',['../structMatrixValue.html',1,'']]],
+  ['max_58',['max',['../utils_8c.html#ae792e8d29ad3d1a2e4b323f194d3be95',1,'max(int a, int b):&#160;utils.c'],['../utils_8h.html#af082905f7eac6d03e92015146bbc1925',1,'max(int a, int b):&#160;utils.c']]],
+  ['min_59',['min',['../utils_8c.html#a3ca300acc4eba7ce18f0f83169c92868',1,'min(int a, int b):&#160;utils.c'],['../utils_8h.html#abd8bbcfabb3ddef2ccaafb9928a37b95',1,'min(int a, int b):&#160;utils.c']]]
 ];

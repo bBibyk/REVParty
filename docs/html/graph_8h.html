@@ -1,0 +1,601 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Election Burger Supreme: Référence du fichier src/graph.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Election Burger Supreme
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier graph.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Définitionon des graphes adaptés pour la représentation des duels lors des votes Condorcet.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de graph.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="graph_8h__incl.png" border="0" usemap="#asrc_2graph_8h" alt=""/></div>
+<map name="asrc_2graph_8h" id="asrc_2graph_8h">
+<area shape="rect" title="Définitionon des graphes adaptés pour la représentation des duels lors des votes Condorcet." alt="" coords="133,5,228,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,76,107"/>
+<area shape="rect" title=" " alt="" coords="101,80,167,107"/>
+<area shape="rect" title=" " alt="" coords="192,80,263,107"/>
+<area shape="rect" title=" " alt="" coords="287,80,370,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="graph_8h__dep__incl.png" border="0" usemap="#asrc_2graph_8hdep" alt=""/></div>
+<map name="asrc_2graph_8hdep" id="asrc_2graph_8hdep">
+<area shape="rect" title="Définitionon des graphes adaptés pour la représentation des duels lors des votes Condorcet." alt="" coords="147,5,242,32"/>
+<area shape="rect" href="condorcet_8h.html" title="Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d&#39;égalité." alt="" coords="69,80,190,107"/>
+<area shape="rect" href="graph_8c.html" title="Gestion des graphes adaptés pour la représentation des duels lors des votes Condorcet." alt="" coords="215,80,308,107"/>
+<area shape="rect" href="condorcet_8c.html" title="Méthodes de vote Condorcet." alt="" coords="5,155,125,181"/>
+<area shape="rect" href="main_8c.html" title="Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties." alt="" coords="150,155,239,181"/>
+</map>
+</div>
+</div>
+<p><a href="graph_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGraph.html">Graph</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMatrixValue.html">MatrixValue</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ac1535592e39e7edf0cafbd5e695ea622"><td class="memItemLeft" align="right" valign="top"><a id="ac1535592e39e7edf0cafbd5e695ea622"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAXCHAR</b>&#160;&#160;&#160;1024</td></tr>
+<tr class="separator:ac1535592e39e7edf0cafbd5e695ea622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3863e37f00f4da9de7455066a83b335"><td class="memItemLeft" align="right" valign="top"><a id="aa3863e37f00f4da9de7455066a83b335"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAXNODES</b>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:aa3863e37f00f4da9de7455066a83b335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05631a36f382242d1f52d5e9fe06735e"><td class="memItemLeft" align="right" valign="top"><a id="a05631a36f382242d1f52d5e9fe06735e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ALPHABET</b>&#160;&#160;&#160;&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</td></tr>
+<tr class="separator:a05631a36f382242d1f52d5e9fe06735e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a0c94bbeb31bba748d2897a168f62e9bc"><td class="memItemLeft" align="right" valign="top"><a id="a0c94bbeb31bba748d2897a168f62e9bc"></a>
+typedef struct <a class="el" href="structGraph.html">Graph</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Graph</b></td></tr>
+<tr class="separator:a0c94bbeb31bba748d2897a168f62e9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ae0d20497e886cccb8e9a76f658ca35cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structGraph.html">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graph_8h.html#ae0d20497e886cccb8e9a76f658ca35cb">createGraph</a> ()</td></tr>
+<tr class="memdesc:ae0d20497e886cccb8e9a76f658ca35cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction d'initialisation d'un graphe.  <a href="graph_8h.html#ae0d20497e886cccb8e9a76f658ca35cb">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ae0d20497e886cccb8e9a76f658ca35cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84201ba87b68377365560134e65943c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graph_8h.html#a84201ba87b68377365560134e65943c1">addNode</a> (<a class="el" href="structGraph.html">Graph</a> *graph, char *node)</td></tr>
+<tr class="memdesc:a84201ba87b68377365560134e65943c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajout d'un noe dans le graphe.  <a href="graph_8h.html#a84201ba87b68377365560134e65943c1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a84201ba87b68377365560134e65943c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27da6d180e144793c900bd248b6317c9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graph_8h.html#a27da6d180e144793c900bd248b6317c9">getNodeIndex</a> (<a class="el" href="structGraph.html">Graph</a> *graph, char *node)</td></tr>
+<tr class="memdesc:a27da6d180e144793c900bd248b6317c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retourne l'indice d'un noeud dans le graphe.  <a href="graph_8h.html#a27da6d180e144793c900bd248b6317c9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a27da6d180e144793c900bd248b6317c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb9b5fa602c370d6e49b4ea407276398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graph_8h.html#afb9b5fa602c370d6e49b4ea407276398">setEdge</a> (<a class="el" href="structGraph.html">Graph</a> *graph, char *from, char *to, int weight)</td></tr>
+<tr class="memdesc:afb9b5fa602c370d6e49b4ea407276398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ajout d'un lien entre deux noeuds.  <a href="graph_8h.html#afb9b5fa602c370d6e49b4ea407276398">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afb9b5fa602c370d6e49b4ea407276398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76cadbb2105d1372f7c5e406d1ad3a8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graph_8h.html#a76cadbb2105d1372f7c5e406d1ad3a8a">printGraph</a> (<a class="el" href="structGraph.html">Graph</a> *graph, FILE *file)</td></tr>
+<tr class="memdesc:a76cadbb2105d1372f7c5e406d1ad3a8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affichage du graphe.  <a href="graph_8h.html#a76cadbb2105d1372f7c5e406d1ad3a8a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a76cadbb2105d1372f7c5e406d1ad3a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b36616d21e8aaeb040e23153249bec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graph_8h.html#ab2b36616d21e8aaeb040e23153249bec">removeEdge</a> (<a class="el" href="structGraph.html">Graph</a> *graph, char *from, char *to)</td></tr>
+<tr class="memdesc:ab2b36616d21e8aaeb040e23153249bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression d'un lien entre deux noeuds.  <a href="graph_8h.html#ab2b36616d21e8aaeb040e23153249bec">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab2b36616d21e8aaeb040e23153249bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68b849a2dedfd2a071b79bc530146cb3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graph_8h.html#a68b849a2dedfd2a071b79bc530146cb3">isDominant</a> (<a class="el" href="structGraph.html">Graph</a> *graph, char *node)</td></tr>
+<tr class="memdesc:a68b849a2dedfd2a071b79bc530146cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si un noeud est dominant.  <a href="graph_8h.html#a68b849a2dedfd2a071b79bc530146cb3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a68b849a2dedfd2a071b79bc530146cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dc84387c80c15e952d309beffef2d12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graph_8h.html#a5dc84387c80c15e952d309beffef2d12">isIsolated</a> (<a class="el" href="structGraph.html">Graph</a> *graph, char *node)</td></tr>
+<tr class="memdesc:a5dc84387c80c15e952d309beffef2d12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si un noeud est isole.  <a href="graph_8h.html#a5dc84387c80c15e952d309beffef2d12">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5dc84387c80c15e952d309beffef2d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaea4f29e97d2420e090a03d639b7f72"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graph_8h.html#aeaea4f29e97d2420e090a03d639b7f72">removeNode</a> (<a class="el" href="structGraph.html">Graph</a> *graph, char *node)</td></tr>
+<tr class="memdesc:aeaea4f29e97d2420e090a03d639b7f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression d'un noeud.  <a href="graph_8h.html#aeaea4f29e97d2420e090a03d639b7f72">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aeaea4f29e97d2420e090a03d639b7f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a404c8e3c18985722e28b9f3d5ad6606f"><td class="memItemLeft" align="right" valign="top"><a id="a404c8e3c18985722e28b9f3d5ad6606f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>copyGraph</b> (<a class="el" href="structGraph.html">Graph</a> *dest, <a class="el" href="structGraph.html">Graph</a> *src)</td></tr>
+<tr class="separator:a404c8e3c18985722e28b9f3d5ad6606f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89e28a1ed783a1b8c7c42d600c9b6260"><td class="memItemLeft" align="right" valign="top"><a id="a89e28a1ed783a1b8c7c42d600c9b6260"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isCycled</b> (<a class="el" href="structGraph.html">Graph</a> *graph)</td></tr>
+<tr class="separator:a89e28a1ed783a1b8c7c42d600c9b6260"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbc14e3ed676d822d4d6acb0dba38ba1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graph_8h.html#afbc14e3ed676d822d4d6acb0dba38ba1">deleteGraph</a> (<a class="el" href="structGraph.html">Graph</a> *graph)</td></tr>
+<tr class="memdesc:afbc14e3ed676d822d4d6acb0dba38ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suppression du graphe.  <a href="graph_8h.html#afbc14e3ed676d822d4d6acb0dba38ba1">Plus de détails...</a><br /></td></tr>
+<tr class="separator:afbc14e3ed676d822d4d6acb0dba38ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08fb5a6adb1e1741ce900bbb2feca45b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graph_8h.html#a08fb5a6adb1e1741ce900bbb2feca45b">sortedMatrixValues</a> (<a class="el" href="structGraph.html">Graph</a> *graph, int **sortedValues, int **coordinates)</td></tr>
+<tr class="memdesc:a08fb5a6adb1e1741ce900bbb2feca45b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tri des valeurs de la matrice du graphe.  <a href="graph_8h.html#a08fb5a6adb1e1741ce900bbb2feca45b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a08fb5a6adb1e1741ce900bbb2feca45b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Définitionon des graphes adaptés pour la représentation des duels lors des votes Condorcet. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Bibyk Bogdan </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>07 décembre 2022</dd></dl>
+<p>Ce fichier d'en-tete contient la structure des graphes statiques et définit des fonctions pour les manipuler. </p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a84201ba87b68377365560134e65943c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84201ba87b68377365560134e65943c1">&#9670;&nbsp;</a></span>addNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int addNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajout d'un noe dans le graphe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">graph</td><td>Structure graph à modifier. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>Nom du noeud à ajouter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'indice du nom du noeud. </dd></dl>
+
+</div>
+</div>
+<a id="ae0d20497e886cccb8e9a76f658ca35cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0d20497e886cccb8e9a76f658ca35cb">&#9670;&nbsp;</a></span>createGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structGraph.html">Graph</a>* createGraph </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction d'initialisation d'un graphe. </p>
+<dl class="section return"><dt>Renvoie</dt><dd>Structure représentat le graphe vide. </dd></dl>
+
+</div>
+</div>
+<a id="afbc14e3ed676d822d4d6acb0dba38ba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbc14e3ed676d822d4d6acb0dba38ba1">&#9670;&nbsp;</a></span>deleteGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deleteGraph </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Suppression du graphe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">graph</td><td>Structure graph à supprimer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a27da6d180e144793c900bd248b6317c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27da6d180e144793c900bd248b6317c9">&#9670;&nbsp;</a></span>getNodeIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getNodeIndex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retourne l'indice d'un noeud dans le graphe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">graph</td><td>Structure graph. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>Nom du noeud à trouver. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a68b849a2dedfd2a071b79bc530146cb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b849a2dedfd2a071b79bc530146cb3">&#9670;&nbsp;</a></span>isDominant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isDominant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indique si un noeud est dominant. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">graph</td><td>Structure graph. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>Nom du noeud à tester. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Vrai si le noeud est dominant. </dd></dl>
+
+</div>
+</div>
+<a id="a5dc84387c80c15e952d309beffef2d12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc84387c80c15e952d309beffef2d12">&#9670;&nbsp;</a></span>isIsolated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isIsolated </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indique si un noeud est isole. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">graph</td><td>Structure graph. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>Nom du noeud à tester. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Vrai si le noeud est isole. </dd></dl>
+
+</div>
+</div>
+<a id="a76cadbb2105d1372f7c5e406d1ad3a8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76cadbb2105d1372f7c5e406d1ad3a8a">&#9670;&nbsp;</a></span>printGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printGraph </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>file</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Affichage du graphe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">graph</td><td>Structure graph à afficher. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">file</td><td>Fichier de sortie. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab2b36616d21e8aaeb040e23153249bec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b36616d21e8aaeb040e23153249bec">&#9670;&nbsp;</a></span>removeEdge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void removeEdge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Suppression d'un lien entre deux noeuds. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">graph</td><td>Structure graph à modifier. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>Nom du noeud de depart. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>Nom du noeud d'arrivé. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeaea4f29e97d2420e090a03d639b7f72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaea4f29e97d2420e090a03d639b7f72">&#9670;&nbsp;</a></span>removeNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int removeNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Suppression d'un noeud. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">graph</td><td>Structure graph à modifier. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">node</td><td>Nom du noeud à supprimer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>L'indice du noeud supprimé. </dd></dl>
+
+</div>
+</div>
+<a id="afb9b5fa602c370d6e49b4ea407276398"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb9b5fa602c370d6e49b4ea407276398">&#9670;&nbsp;</a></span>setEdge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setEdge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ajout d'un lien entre deux noeuds. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">graph</td><td>Structure graph à modifier. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>Nom du noeud de depart. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>Nom du noeud d'arrivé. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">weight</td><td>Poids du lien. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a08fb5a6adb1e1741ce900bbb2feca45b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08fb5a6adb1e1741ce900bbb2feca45b">&#9670;&nbsp;</a></span>sortedMatrixValues()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sortedMatrixValues </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>sortedValues</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>coordinates</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tri des valeurs de la matrice du graphe. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">graph</td><td>Structure graph à trier. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sortedValues</td><td>Tableau des valeurs triées. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">coordinates</td><td>Tableau des coordonnées des valeurs triées. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

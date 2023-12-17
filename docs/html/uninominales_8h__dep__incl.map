@@ -1,0 +1,5 @@
+<map id="src/uninominales.h" name="src/uninominales.h">
+<area shape="rect" id="node1" title="Gestion des méthodes de vote uninominales à un et deux tours." alt="" coords="48,5,193,32"/>
+<area shape="rect" id="node2" href="$main_8c.html" title="Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties." alt="" coords="5,80,95,107"/>
+<area shape="rect" id="node3" href="$uninominales_8c.html" title="Implémentation des méthodes de vote uninominales à un et deux tours, avec stockage des résultats dans..." alt="" coords="119,80,263,107"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['voteresult_62',['VoteResult',['../structVoteResult.html',1,'']]]
+  ['matrixvalue_103',['MatrixValue',['../structMatrixValue.html',1,'']]]
 ];

@@ -1,0 +1,79 @@
+\hypertarget{main_8c}{}\doxysection{Référence du fichier src/main.c}
+\label{main_8c}\index{src/main.c@{src/main.c}}
+
+
+Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$getopt.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}lecture\+\_\+csv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}condorcet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}jugement\+\_\+majoritaire.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}uninominales.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de main.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a6e404613fac5e05d262cd02b04bc197e}\label{main_8c_a6e404613fac5e05d262cd02b04bc197e}} 
+FILE $\ast$ {\bfseries open\+File\+Write} (char $\ast$path)
+\item 
+\mbox{\Hypertarget{main_8c_adf9c105c878e03bad8bbf5036ea36a73}\label{main_8c_adf9c105c878e03bad8bbf5036ea36a73}} 
+bool {\bfseries string\+In\+Array} (char $\ast$string, char $\ast$tab\mbox{[}$\,$\mbox{]}, int len\+Tab)
+\item 
+\mbox{\Hypertarget{main_8c_a92cb5683a3c644024e5385fabe5a966e}\label{main_8c_a92cb5683a3c644024e5385fabe5a966e}} 
+void {\bfseries get\+Parameters} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, bool $\ast$duel, char $\ast$input\+File, char $\ast$log\+File, bool $\ast$debug\+Mode, char $\ast$method)
+\item 
+\mbox{\Hypertarget{main_8c_ac6d3e28dfe2b1e23814e7b59e88b9c7c}\label{main_8c_ac6d3e28dfe2b1e23814e7b59e88b9c7c}} 
+void {\bfseries check\+Parameters} (bool duel, char $\ast$methods\mbox{[}$\,$\mbox{]}, int len\+Methods, char $\ast$input\+File, char $\ast$method)
+\item 
+\mbox{\Hypertarget{main_8c_a94aa0f006f10d6570e8bf1c826225e86}\label{main_8c_a94aa0f006f10d6570e8bf1c826225e86}} 
+void {\bfseries affichage\+Uninominale\+Deux\+Tours} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, FILE $\ast$log, bool debug\+Mode)
+\item 
+int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction principale. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties. 
+
+\begin{DoxyAuthor}{Auteur}
+Bibyk Bogdan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+31 octobre 2023
+\end{DoxyDate}
+Fonctions de gestion de la ligne de commande et du noyau fonctionnel. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction principale. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em argc} & Nombre d\textquotesingle{}arguments. \\
+\hline
+\mbox{\texttt{ in}}  & {\em argv} & Arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si tout s\textquotesingle{}est bien passé, 1 si le nombre d\textquotesingle{}arguments est incorrect, 2 si le numéro d\textquotesingle{}étudiant n\textquotesingle{}est pas un nombre.
+\end{DoxyReturn}
+Une fonction qui récupère le nom, le prénom et le numéro d\textquotesingle{}étudiant, puis elle récupère le hash du vote correspondant. Enfin, elle vérifie si le hash est présent dans le fichier des résultats des votes. Si c\textquotesingle{}est le cas, elle affiche les détails du vote, sinon elle affiche un message d\textquotesingle{}erreur. 

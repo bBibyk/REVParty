@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Election Burger Supreme: Référence du fichier src/condorcet.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Election Burger Supreme
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier condorcet.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Méthodes de vote Condorcet.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="condorcet_8h_source.html">condorcet.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de condorcet.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="condorcet_8c__incl.png" border="0" usemap="#asrc_2condorcet_8c" alt=""/></div>
+<map name="asrc_2condorcet_8c" id="asrc_2condorcet_8c">
+<area shape="rect" title="Méthodes de vote Condorcet." alt="" coords="220,5,340,32"/>
+<area shape="rect" href="condorcet_8h.html" title="Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d&#39;égalité." alt="" coords="231,80,329,107"/>
+<area shape="rect" href="lecture__csv_8h.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="272,229,379,256"/>
+<area shape="rect" title=" " alt="" coords="385,304,468,331"/>
+<area shape="rect" href="utils_8h.html" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="203,155,266,181"/>
+<area shape="rect" href="graph_8h.html" title="Définitionon des graphes adaptés pour la représentation des duels lors des votes Condorcet." alt="" coords="75,229,146,256"/>
+<area shape="rect" title=" " alt="" coords="97,304,167,331"/>
+<area shape="rect" title=" " alt="" coords="5,304,72,331"/>
+<area shape="rect" title=" " alt="" coords="191,304,262,331"/>
+<area shape="rect" title=" " alt="" coords="287,304,361,331"/>
+<area shape="rect" title=" " alt="" coords="492,304,556,331"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a50815790fa784a112dcb33795153f60f"><td class="memItemLeft" align="right" valign="top"><a id="a50815790fa784a112dcb33795153f60f"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>calculerScoreDuel</b> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, char *candidat, char *adversaire, FILE *log, bool debugMode)</td></tr>
+<tr class="separator:a50815790fa784a112dcb33795153f60f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa2787662b6ef101ab13df5506fa8d3d"><td class="memItemLeft" align="right" valign="top"><a id="aaa2787662b6ef101ab13df5506fa8d3d"></a>
+static <a class="el" href="structGraph.html">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>initGraphNodeFromDf</b> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, int *idxs_candidats, int nb_candidates, bool duel)</td></tr>
+<tr class="separator:aaa2787662b6ef101ab13df5506fa8d3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afed43718a7f69398bbaeb800f3d749cd"><td class="memItemLeft" align="right" valign="top"><a id="afed43718a7f69398bbaeb800f3d749cd"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>addEdge</b> (<a class="el" href="structGraph.html">Graph</a> *graph, int j, int *idxs_candidats, <a class="el" href="structDataFrame.html">DataFrame</a> *df, FILE *log, bool debugMode, int idx_candidat, char *candidat, bool duel)</td></tr>
+<tr class="separator:afed43718a7f69398bbaeb800f3d749cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa44d3392b82b09a6996e05aa564a311"><td class="memItemLeft" align="right" valign="top"><a id="aaa44d3392b82b09a6996e05aa564a311"></a>
+static <a class="el" href="structGraph.html">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>fillGraphFromDf</b> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, int *idxs_candidats, int nb_candidates, FILE *log, bool debugMode, bool duel)</td></tr>
+<tr class="separator:aaa44d3392b82b09a6996e05aa564a311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14c3aee83979b9a771e1b5fb7d54117b"><td class="memItemLeft" align="right" valign="top"><a id="a14c3aee83979b9a771e1b5fb7d54117b"></a>
+static char *&#160;</td><td class="memItemRight" valign="bottom"><b>trouverVainqueurCondorcet</b> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, int *idxs_candidats, int nb_candidates, FILE *log, bool debugMode, bool duel)</td></tr>
+<tr class="separator:a14c3aee83979b9a771e1b5fb7d54117b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69b0f598e279dd2022b223cd84b7bf02"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condorcet_8c.html#a69b0f598e279dd2022b223cd84b7bf02">updateWinner</a> (char **winner, int *winner_score, char *candidat, int candidat_score)</td></tr>
+<tr class="memdesc:a69b0f598e279dd2022b223cd84b7bf02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Met à jour le vainqueur.  <a href="condorcet_8c.html#a69b0f598e279dd2022b223cd84b7bf02">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a69b0f598e279dd2022b223cd84b7bf02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41716537cad47250bb4a50c023a99338"><td class="memItemLeft" align="right" valign="top"><a id="a41716537cad47250bb4a50c023a99338"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>affronter</b> (int j, int *idxs_candidats, <a class="el" href="structDataFrame.html">DataFrame</a> *df, FILE *log, bool debugMode, char *candidat, int *mini)</td></tr>
+<tr class="separator:a41716537cad47250bb4a50c023a99338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4f2ad13feabc8406aa43f41708bbe47"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condorcet_8c.html#ac4f2ad13feabc8406aa43f41708bbe47">trouverMiniMaxDuel</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, FILE *log, bool debugMode, int *score)</td></tr>
+<tr class="memdesc:ac4f2ad13feabc8406aa43f41708bbe47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trouve le vainqueur de la méthode MiniMax pour un duel.  <a href="condorcet_8c.html#ac4f2ad13feabc8406aa43f41708bbe47">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac4f2ad13feabc8406aa43f41708bbe47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3a3d18a281fea0dbdc8e771e23216e7"><td class="memItemLeft" align="right" valign="top"><a id="aa3a3d18a281fea0dbdc8e771e23216e7"></a>
+static char *&#160;</td><td class="memItemRight" valign="bottom"><b>trouverMiniMax</b> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, int *idxs_candidats, int nb_candidates, FILE *log, bool debugMode, int *score, bool duel)</td></tr>
+<tr class="separator:aa3a3d18a281fea0dbdc8e771e23216e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa6d6324ca58f645c57ce055a0ee1696"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structVoteResult.html">VoteResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condorcet_8c.html#aaa6d6324ca58f645c57ce055a0ee1696">voteCondorcetMinimax</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, bool duel, FILE *log, bool debugMode)</td></tr>
+<tr class="memdesc:aaa6d6324ca58f645c57ce055a0ee1696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vote Condorcet par la méthode MiniMax.  <a href="condorcet_8c.html#aaa6d6324ca58f645c57ce055a0ee1696">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaa6d6324ca58f645c57ce055a0ee1696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c6acfac6111ff3585043181c8ee4292"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structVoteResult.html">VoteResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condorcet_8c.html#a3c6acfac6111ff3585043181c8ee4292">voteCondorcetPaires</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, bool duel, FILE *log, bool debugMode)</td></tr>
+<tr class="memdesc:a3c6acfac6111ff3585043181c8ee4292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vote Condorcet par la méthode Des Paires.  <a href="condorcet_8c.html#a3c6acfac6111ff3585043181c8ee4292">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3c6acfac6111ff3585043181c8ee4292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3e9d0f56fc9482d0ad0d7eedb60969d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condorcet_8c.html#ac3e9d0f56fc9482d0ad0d7eedb60969d">calculerCheminsFort</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, int **chemins, int *idxs_candidats, int nb_candidates, FILE *log, bool debugMode)</td></tr>
+<tr class="memdesc:ac3e9d0f56fc9482d0ad0d7eedb60969d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule les chemins les plus forts entre chaque paire de candidats.  <a href="condorcet_8c.html#ac3e9d0f56fc9482d0ad0d7eedb60969d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac3e9d0f56fc9482d0ad0d7eedb60969d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a411a80412d9157ba62ac24afbfb780f2"><td class="memItemLeft" align="right" valign="top">static char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condorcet_8c.html#a411a80412d9157ba62ac24afbfb780f2">trouverVainqueurSchulze</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, int *idxs_candidats, int nb_candidates, int **chemins, FILE *log, bool debugMode)</td></tr>
+<tr class="memdesc:a411a80412d9157ba62ac24afbfb780f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trouve le vainqueur de la méthode Schulze.  <a href="condorcet_8c.html#a411a80412d9157ba62ac24afbfb780f2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a411a80412d9157ba62ac24afbfb780f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ff970fabbe5708743ef914846715dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structVoteResult.html">VoteResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condorcet_8c.html#a75ff970fabbe5708743ef914846715dd">voteCondorcetSchulze</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, bool duel, FILE *log, bool debugMode)</td></tr>
+<tr class="memdesc:a75ff970fabbe5708743ef914846715dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vote Condorcet par la méthode De Schulze.  <a href="condorcet_8c.html#a75ff970fabbe5708743ef914846715dd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a75ff970fabbe5708743ef914846715dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Méthodes de vote Condorcet. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Essengue Matis </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>16 décembre 2023</dd></dl>
+<p>Ce fichier contient les implémentations des méthodes de vote Condorcet. Les méthodes implémentées sont :</p><ul>
+<li>Minimax</li>
+<li>Des Paires</li>
+<li>Schulze </li>
+</ul>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ac3e9d0f56fc9482d0ad0d7eedb60969d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3e9d0f56fc9482d0ad0d7eedb60969d">&#9670;&nbsp;</a></span>calculerCheminsFort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void calculerCheminsFort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>chemins</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>idxs_candidats</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_candidates</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debugMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calcule les chemins les plus forts entre chaque paire de candidats. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> contenant les données de vote. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">chemins</td><td>Les chemins les plus forts. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">idxs_candidats</td><td>Les indices des candidats. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nb_candidates</td><td>Le nombre de candidats. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log</td><td>Le fichier de log. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">debugMode</td><td>Le mode debug. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac4f2ad13feabc8406aa43f41708bbe47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4f2ad13feabc8406aa43f41708bbe47">&#9670;&nbsp;</a></span>trouverMiniMaxDuel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * trouverMiniMaxDuel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debugMode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>score</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trouve le vainqueur de la méthode MiniMax pour un duel. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> contenant les données de vote. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log</td><td>Le fichier de log. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">debugMode</td><td>Le mode debug. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">score</td><td>Le score du vainqueur. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le nom du vainqueur. </dd></dl>
+
+</div>
+</div>
+<a id="a411a80412d9157ba62ac24afbfb780f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a411a80412d9157ba62ac24afbfb780f2">&#9670;&nbsp;</a></span>trouverVainqueurSchulze()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * trouverVainqueurSchulze </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>idxs_candidats</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_candidates</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>chemins</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debugMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trouve le vainqueur de la méthode Schulze. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> contenant les données de vote. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">idxs_candidats</td><td>Les indices des candidats. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nb_candidates</td><td>Le nombre de candidats. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">chemins</td><td>Les chemins les plus forts. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log</td><td>Le fichier de log. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">debugMode</td><td>Le mode debug. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le nom du vainqueur. </dd></dl>
+
+</div>
+</div>
+<a id="a69b0f598e279dd2022b223cd84b7bf02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69b0f598e279dd2022b223cd84b7bf02">&#9670;&nbsp;</a></span>updateWinner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateWinner </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>winner</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>winner_score</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>candidat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>candidat_score</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Met à jour le vainqueur. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">winner</td><td>Le vainqueur actuel. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">winner_score</td><td>Le score du vainqueur actuel. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">candidat</td><td>Le candidat à comparer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">candidat_score</td><td>Le score du candidat à comparer.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Si le score du candidat est supérieur au score du vainqueur, le vainqueur est mis à jour. </p>
+
+</div>
+</div>
+<a id="aaa6d6324ca58f645c57ce055a0ee1696"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa6d6324ca58f645c57ce055a0ee1696">&#9670;&nbsp;</a></span>voteCondorcetMinimax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structVoteResult.html">VoteResult</a> voteCondorcetMinimax </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>duel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debugMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vote Condorcet par la méthode MiniMax. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> contenant les données de vote. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">duel</td><td>Si vrai, le df est une matrice de duel. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log</td><td>Le fichier de log. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">debugMode</td><td>Le mode debug. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le résultat du vote. </dd></dl>
+
+</div>
+</div>
+<a id="a3c6acfac6111ff3585043181c8ee4292"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c6acfac6111ff3585043181c8ee4292">&#9670;&nbsp;</a></span>voteCondorcetPaires()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structVoteResult.html">VoteResult</a> voteCondorcetPaires </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>duel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debugMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vote Condorcet par la méthode Des Paires. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> contenant les données de vote. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">duel</td><td>Si vrai, le df est une matrice de duel. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log</td><td>Le fichier de log. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">debugMode</td><td>Le mode debug. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le résultat du vote. </dd></dl>
+
+</div>
+</div>
+<a id="a75ff970fabbe5708743ef914846715dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75ff970fabbe5708743ef914846715dd">&#9670;&nbsp;</a></span>voteCondorcetSchulze()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structVoteResult.html">VoteResult</a> voteCondorcetSchulze </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>duel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debugMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vote Condorcet par la méthode De Schulze. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> contenant les données de vote. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">duel</td><td>Si vrai, le df est une matrice de duel. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log</td><td>Le fichier de log. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">debugMode</td><td>Le mode debug. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

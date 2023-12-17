@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Election Burger Supreme: Référence du fichier src/condorcet.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Election Burger Supreme
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier condorcet.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d'égalité.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="lecture__csv_8h_source.html">lecture_csv.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="graph_8h_source.html">graph.h</a>&quot;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de condorcet.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="condorcet_8h__incl.png" border="0" usemap="#asrc_2condorcet_8h" alt=""/></div>
+<map name="asrc_2condorcet_8h" id="asrc_2condorcet_8h">
+<area shape="rect" title="Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d&#39;égalité." alt="" coords="219,5,341,32"/>
+<area shape="rect" href="lecture__csv_8h.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="272,155,379,181"/>
+<area shape="rect" title=" " alt="" coords="385,229,468,256"/>
+<area shape="rect" href="utils_8h.html" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="203,80,266,107"/>
+<area shape="rect" href="graph_8h.html" title="Définitionon des graphes adaptés pour la représentation des duels lors des votes Condorcet." alt="" coords="75,155,146,181"/>
+<area shape="rect" title=" " alt="" coords="97,229,167,256"/>
+<area shape="rect" title=" " alt="" coords="5,229,72,256"/>
+<area shape="rect" title=" " alt="" coords="191,229,262,256"/>
+<area shape="rect" title=" " alt="" coords="287,229,361,256"/>
+<area shape="rect" title=" " alt="" coords="492,229,556,256"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div class="dyncontent">
+<div class="center"><img src="condorcet_8h__dep__incl.png" border="0" usemap="#asrc_2condorcet_8hdep" alt=""/></div>
+<map name="asrc_2condorcet_8hdep" id="asrc_2condorcet_8hdep">
+<area shape="rect" title="Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d&#39;égalité." alt="" coords="69,5,190,32"/>
+<area shape="rect" href="condorcet_8c.html" title="Méthodes de vote Condorcet." alt="" coords="5,80,125,107"/>
+<area shape="rect" href="main_8c.html" title="Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties." alt="" coords="150,80,239,107"/>
+</map>
+</div>
+</div>
+<p><a href="condorcet_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:aaa6d6324ca58f645c57ce055a0ee1696"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structVoteResult.html">VoteResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condorcet_8h.html#aaa6d6324ca58f645c57ce055a0ee1696">voteCondorcetMinimax</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, bool duel, FILE *log, bool debugMode)</td></tr>
+<tr class="memdesc:aaa6d6324ca58f645c57ce055a0ee1696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vote Condorcet par la méthode MiniMax.  <a href="condorcet_8h.html#aaa6d6324ca58f645c57ce055a0ee1696">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aaa6d6324ca58f645c57ce055a0ee1696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ff970fabbe5708743ef914846715dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structVoteResult.html">VoteResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condorcet_8h.html#a75ff970fabbe5708743ef914846715dd">voteCondorcetSchulze</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, bool duel, FILE *log, bool debugMode)</td></tr>
+<tr class="memdesc:a75ff970fabbe5708743ef914846715dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vote Condorcet par la méthode De Schulze.  <a href="condorcet_8h.html#a75ff970fabbe5708743ef914846715dd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a75ff970fabbe5708743ef914846715dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c6acfac6111ff3585043181c8ee4292"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structVoteResult.html">VoteResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="condorcet_8h.html#a3c6acfac6111ff3585043181c8ee4292">voteCondorcetPaires</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df, bool duel, FILE *log, bool debugMode)</td></tr>
+<tr class="memdesc:a3c6acfac6111ff3585043181c8ee4292"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vote Condorcet par la méthode Des Paires.  <a href="condorcet_8h.html#a3c6acfac6111ff3585043181c8ee4292">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3c6acfac6111ff3585043181c8ee4292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d'égalité. </p>
+<dl class="section author"><dt>Auteur</dt><dd>Bibyk Bogdan </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>30 novembre 2023</dd></dl>
+<p>Ce fichier d'en-tête définit les fonctions pour effectuer des votes Condorcet. </p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aaa6d6324ca58f645c57ce055a0ee1696"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa6d6324ca58f645c57ce055a0ee1696">&#9670;&nbsp;</a></span>voteCondorcetMinimax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structVoteResult.html">VoteResult</a> voteCondorcetMinimax </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>duel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debugMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vote Condorcet par la méthode MiniMax. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> contenant les données de vote. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">duel</td><td>Si vrai, le df est une matrice de duel. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log</td><td>Le fichier de log. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">debugMode</td><td>Le mode debug. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le résultat du vote. </dd></dl>
+
+</div>
+</div>
+<a id="a3c6acfac6111ff3585043181c8ee4292"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c6acfac6111ff3585043181c8ee4292">&#9670;&nbsp;</a></span>voteCondorcetPaires()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structVoteResult.html">VoteResult</a> voteCondorcetPaires </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>duel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debugMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vote Condorcet par la méthode Des Paires. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> contenant les données de vote. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">duel</td><td>Si vrai, le df est une matrice de duel. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log</td><td>Le fichier de log. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">debugMode</td><td>Le mode debug. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Le résultat du vote. </dd></dl>
+
+</div>
+</div>
+<a id="a75ff970fabbe5708743ef914846715dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75ff970fabbe5708743ef914846715dd">&#9670;&nbsp;</a></span>voteCondorcetSchulze()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structVoteResult.html">VoteResult</a> voteCondorcetSchulze </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structDataFrame.html">DataFrame</a> *&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>duel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>debugMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vote Condorcet par la méthode De Schulze. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">df</td><td>Le <a class="el" href="structDataFrame.html" title="Structure de données d&#39;un DataFrame.">DataFrame</a> contenant les données de vote. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">duel</td><td>Si vrai, le df est une matrice de duel. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log</td><td>Le fichier de log. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">debugMode</td><td>Le mode debug. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

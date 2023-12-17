@@ -1,6 +1,14 @@
-<map id="lecture_csv.h" name="lecture_csv.h">
-<area shape="rect" id="node1" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="113,5,220,32"/>
-<area shape="rect" id="node2" href="$lecture__csv_8c.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV." alt="" coords="5,80,112,107"/>
-<area shape="rect" id="node3" href="$utils_8c.html" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="136,80,197,107"/>
-<area shape="rect" id="node4" href="$verify__my__vote_8c.html" title="Vérification de la présence et du résultat d&#39;un vote dans un fichier CSV pour un nom et un code donné..." alt="" coords="222,80,357,107"/>
+<map id="src/lecture_csv.h" name="src/lecture_csv.h">
+<area shape="rect" id="node1" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="310,5,441,32"/>
+<area shape="rect" id="node2" href="$condorcet_8h.html" title="Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d&#39;égalité." alt="" coords="5,169,127,196"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties." alt="" coords="171,244,260,271"/>
+<area shape="rect" id="node5" href="$jugement__majoritaire_8h.html" title="Gestion de la méthode de jugement majoritaire." alt="" coords="361,169,560,196"/>
+<area shape="rect" id="node7" href="$lecture__csv_8c.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV." alt="" coords="464,87,593,114"/>
+<area shape="rect" id="node8" href="$uninominales_8h.html" title="Gestion des méthodes de vote uninominales à un et deux tours." alt="" coords="584,169,729,196"/>
+<area shape="rect" id="node10" href="$utils_8h.html" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="253,87,338,114"/>
+<area shape="rect" id="node12" href="$verify__my__vote_8c.html" title="Vérification de la présence et du résultat d&#39;un vote dans un fichier CSV pour un nom et un code donné..." alt="" coords="618,80,765,121"/>
+<area shape="rect" id="node3" href="$condorcet_8c.html" title="Méthodes de vote Condorcet." alt="" coords="6,244,126,271"/>
+<area shape="rect" id="node6" href="$jugement__majoritaire_8c.html" title="Implémentation de la méthode de vote par jugement majoritaire, avec stockage des résultats dans une s..." alt="" coords="362,244,559,271"/>
+<area shape="rect" id="node9" href="$uninominales_8c.html" title="Implémentation des méthodes de vote uninominales à un et deux tours, avec stockage des résultats dans..." alt="" coords="585,244,729,271"/>
+<area shape="rect" id="node11" href="$utils_8c.html" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="253,169,337,196"/>
 </map>

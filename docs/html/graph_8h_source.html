@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Election Burger Supreme:  Fichier source de src/graph.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Election Burger Supreme
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">graph.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="graph_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef GRAPH_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define GRAPH_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define MAXCHAR 1024</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define MAXNODES 10 </span><span class="comment">// Eviter d&#39;allet au-delà de 26 pour l&#39;alphabet qui sert à l&#39;affichage</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define ALPHABET &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structGraph.html">   24</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structGraph.html">Graph</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">int</span> matrix[MAXNODES][MAXNODES];</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">char</span> nodes[MAXNODES][MAXCHAR];</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> nb_nodes;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;} <a class="code" href="structGraph.html">Graph</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structMatrixValue.html">   31</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> value;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> row;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> col;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <a class="code" href="structMatrixValue.html">MatrixValue</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="structGraph.html">Graph</a> *<a class="code" href="graph_8h.html#ae0d20497e886cccb8e9a76f658ca35cb">createGraph</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">int</span> <a class="code" href="graph_8h.html#a84201ba87b68377365560134e65943c1">addNode</a>(<a class="code" href="structGraph.html">Graph</a> *graph, <span class="keywordtype">char</span> *node);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">int</span> <a class="code" href="graph_8h.html#a27da6d180e144793c900bd248b6317c9">getNodeIndex</a>(<a class="code" href="structGraph.html">Graph</a> *graph, <span class="keywordtype">char</span> *node);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graph_8h.html#afb9b5fa602c370d6e49b4ea407276398">setEdge</a>(<a class="code" href="structGraph.html">Graph</a> *graph, <span class="keywordtype">char</span> *from, <span class="keywordtype">char</span> *to, <span class="keywordtype">int</span> weight);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graph_8h.html#a76cadbb2105d1372f7c5e406d1ad3a8a">printGraph</a>(<a class="code" href="structGraph.html">Graph</a> *graph, FILE *file);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graph_8h.html#ab2b36616d21e8aaeb040e23153249bec">removeEdge</a>(<a class="code" href="structGraph.html">Graph</a> *graph, <span class="keywordtype">char</span> *from, <span class="keywordtype">char</span> *to);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="graph_8h.html#a68b849a2dedfd2a071b79bc530146cb3">isDominant</a>(<a class="code" href="structGraph.html">Graph</a> *graph, <span class="keywordtype">char</span> *node);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="graph_8h.html#a5dc84387c80c15e952d309beffef2d12">isIsolated</a>(<a class="code" href="structGraph.html">Graph</a> *graph, <span class="keywordtype">char</span> *node);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordtype">int</span> <a class="code" href="graph_8h.html#aeaea4f29e97d2420e090a03d639b7f72">removeNode</a>(<a class="code" href="structGraph.html">Graph</a> *graph, <span class="keywordtype">char</span> *node);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">void</span> copyGraph(<a class="code" href="structGraph.html">Graph</a> *dest, <a class="code" href="structGraph.html">Graph</a> *src);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keywordtype">bool</span> isCycled(<a class="code" href="structGraph.html">Graph</a> *graph);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graph_8h.html#afbc14e3ed676d822d4d6acb0dba38ba1">deleteGraph</a>(<a class="code" href="structGraph.html">Graph</a> *graph);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graph_8h.html#a08fb5a6adb1e1741ce900bbb2feca45b">sortedMatrixValues</a>(<a class="code" href="structGraph.html">Graph</a> *graph, <span class="keywordtype">int</span> **sortedValues, <span class="keywordtype">int</span> **coordinates);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="agraph_8h_html_a08fb5a6adb1e1741ce900bbb2feca45b"><div class="ttname"><a href="graph_8h.html#a08fb5a6adb1e1741ce900bbb2feca45b">sortedMatrixValues</a></div><div class="ttdeci">void sortedMatrixValues(Graph *graph, int **sortedValues, int **coordinates)</div><div class="ttdoc">Tri des valeurs de la matrice du graphe.</div><div class="ttdef"><b>Definition:</b> graph.c:195</div></div>
+<div class="ttc" id="agraph_8h_html_a27da6d180e144793c900bd248b6317c9"><div class="ttname"><a href="graph_8h.html#a27da6d180e144793c900bd248b6317c9">getNodeIndex</a></div><div class="ttdeci">int getNodeIndex(Graph *graph, char *node)</div><div class="ttdoc">Retourne l'indice d'un noeud dans le graphe.</div><div class="ttdef"><b>Definition:</b> graph.c:31</div></div>
+<div class="ttc" id="agraph_8h_html_a5dc84387c80c15e952d309beffef2d12"><div class="ttname"><a href="graph_8h.html#a5dc84387c80c15e952d309beffef2d12">isIsolated</a></div><div class="ttdeci">bool isIsolated(Graph *graph, char *node)</div><div class="ttdoc">Indique si un noeud est isole.</div><div class="ttdef"><b>Definition:</b> graph.c:83</div></div>
+<div class="ttc" id="agraph_8h_html_a68b849a2dedfd2a071b79bc530146cb3"><div class="ttname"><a href="graph_8h.html#a68b849a2dedfd2a071b79bc530146cb3">isDominant</a></div><div class="ttdeci">bool isDominant(Graph *graph, char *node)</div><div class="ttdoc">Indique si un noeud est dominant.</div><div class="ttdef"><b>Definition:</b> graph.c:73</div></div>
+<div class="ttc" id="agraph_8h_html_a76cadbb2105d1372f7c5e406d1ad3a8a"><div class="ttname"><a href="graph_8h.html#a76cadbb2105d1372f7c5e406d1ad3a8a">printGraph</a></div><div class="ttdeci">void printGraph(Graph *graph, FILE *file)</div><div class="ttdoc">Affichage du graphe.</div><div class="ttdef"><b>Definition:</b> graph.c:48</div></div>
+<div class="ttc" id="agraph_8h_html_a84201ba87b68377365560134e65943c1"><div class="ttname"><a href="graph_8h.html#a84201ba87b68377365560134e65943c1">addNode</a></div><div class="ttdeci">int addNode(Graph *graph, char *node)</div><div class="ttdoc">Ajout d'un noe dans le graphe.</div><div class="ttdef"><b>Definition:</b> graph.c:23</div></div>
+<div class="ttc" id="agraph_8h_html_ab2b36616d21e8aaeb040e23153249bec"><div class="ttname"><a href="graph_8h.html#ab2b36616d21e8aaeb040e23153249bec">removeEdge</a></div><div class="ttdeci">void removeEdge(Graph *graph, char *from, char *to)</div><div class="ttdoc">Suppression d'un lien entre deux noeuds.</div><div class="ttdef"><b>Definition:</b> graph.c:67</div></div>
+<div class="ttc" id="agraph_8h_html_ae0d20497e886cccb8e9a76f658ca35cb"><div class="ttname"><a href="graph_8h.html#ae0d20497e886cccb8e9a76f658ca35cb">createGraph</a></div><div class="ttdeci">Graph * createGraph()</div><div class="ttdoc">Fonction d'initialisation d'un graphe.</div><div class="ttdef"><b>Definition:</b> graph.c:17</div></div>
+<div class="ttc" id="agraph_8h_html_aeaea4f29e97d2420e090a03d639b7f72"><div class="ttname"><a href="graph_8h.html#aeaea4f29e97d2420e090a03d639b7f72">removeNode</a></div><div class="ttdeci">int removeNode(Graph *graph, char *node)</div><div class="ttdoc">Suppression d'un noeud.</div><div class="ttdef"><b>Definition:</b> graph.c:93</div></div>
+<div class="ttc" id="agraph_8h_html_afb9b5fa602c370d6e49b4ea407276398"><div class="ttname"><a href="graph_8h.html#afb9b5fa602c370d6e49b4ea407276398">setEdge</a></div><div class="ttdeci">void setEdge(Graph *graph, char *from, char *to, int weight)</div><div class="ttdoc">Ajout d'un lien entre deux noeuds.</div><div class="ttdef"><b>Definition:</b> graph.c:40</div></div>
+<div class="ttc" id="agraph_8h_html_afbc14e3ed676d822d4d6acb0dba38ba1"><div class="ttname"><a href="graph_8h.html#afbc14e3ed676d822d4d6acb0dba38ba1">deleteGraph</a></div><div class="ttdeci">void deleteGraph(Graph *graph)</div><div class="ttdoc">Suppression du graphe.</div><div class="ttdef"><b>Definition:</b> graph.c:255</div></div>
+<div class="ttc" id="astructGraph_html"><div class="ttname"><a href="structGraph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> graph.h:25</div></div>
+<div class="ttc" id="astructMatrixValue_html"><div class="ttname"><a href="structMatrixValue.html">MatrixValue</a></div><div class="ttdef"><b>Definition:</b> graph.h:32</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

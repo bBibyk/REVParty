@@ -1,0 +1,16 @@
+<map id="src/main.c" name="src/main.c">
+<area shape="rect" id="node1" title="Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties." alt="" coords="291,5,380,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="429,304,495,331"/>
+<area shape="rect" id="node3" title=" " alt="" coords="233,304,304,331"/>
+<area shape="rect" id="node4" title=" " alt="" coords="55,80,131,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="708,304,779,331"/>
+<area shape="rect" id="node6" title=" " alt="" coords="90,304,173,331"/>
+<area shape="rect" id="node7" href="$lecture__csv_8h.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="550,229,657,256"/>
+<area shape="rect" id="node10" href="$condorcet_8h.html" title="Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d&#39;égalité." alt="" coords="206,80,305,107"/>
+<area shape="rect" id="node11" href="$utils_8h.html" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="524,155,587,181"/>
+<area shape="rect" id="node13" href="$jugement__majoritaire_8h.html" title="Gestion de la méthode de jugement majoritaire." alt="" coords="329,80,504,107"/>
+<area shape="rect" id="node14" href="$uninominales_8h.html" title="Gestion des méthodes de vote uninominales à un et deux tours." alt="" coords="579,80,702,107"/>
+<area shape="rect" id="node8" title=" " alt="" coords="609,304,683,331"/>
+<area shape="rect" id="node9" title=" " alt="" coords="521,304,585,331"/>
+<area shape="rect" id="node12" href="$graph_8h.html" title="Définitionon des graphes adaptés pour la représentation des duels lors des votes Condorcet." alt="" coords="201,229,272,256"/>
+</map>

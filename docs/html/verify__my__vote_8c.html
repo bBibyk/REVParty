@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Election Burger Supreme: Référence du fichier verify_my_vote.c</title>
+<title>Election Burger Supreme: Référence du fichier src/verify_my_vote/verify_my_vote.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -59,6 +59,10 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_26a86cd93be71eab6d993a8bf0388c49.html">verify_my_vote</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -74,22 +78,23 @@ $(function() {
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;ctype.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="lecture__csv_8h_source.html">lecture_csv.h</a>&quot;</code><br />
-<code>#include &quot;../Sha256/sha256_utils.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="lecture__csv_8h_source.html">../lecture_csv.h</a>&quot;</code><br />
+<code>#include &quot;../../Sha256/sha256_utils.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Graphe des dépendances par inclusion de verify_my_vote.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="verify__my__vote_8c__incl.png" border="0" usemap="#averify__my__vote_8c" alt=""/></div>
-<map name="averify__my__vote_8c" id="averify__my__vote_8c">
-<area shape="rect" title="Vérification de la présence et du résultat d&#39;un vote dans un fichier CSV pour un nom et un code donné..." alt="" coords="167,5,301,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,76,107"/>
-<area shape="rect" title=" " alt="" coords="171,155,238,181"/>
-<area shape="rect" title=" " alt="" coords="152,80,223,107"/>
-<area shape="rect" title=" " alt="" coords="247,80,317,107"/>
-<area shape="rect" href="lecture__csv_8h.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="342,80,449,107"/>
-<area shape="rect" title=" " alt="" coords="473,80,653,107"/>
-<area shape="rect" title=" " alt="" coords="305,155,387,181"/>
-<area shape="rect" title=" " alt="" coords="411,155,475,181"/>
+<div class="center"><img src="verify__my__vote_8c__incl.png" border="0" usemap="#asrc_2verify__my__vote_2verify__my__vote_8c" alt=""/></div>
+<map name="asrc_2verify__my__vote_2verify__my__vote_8c" id="asrc_2verify__my__vote_2verify__my__vote_8c">
+<area shape="rect" title="Vérification de la présence et du résultat d&#39;un vote dans un fichier CSV pour un nom et un code donné..." alt="" coords="159,5,306,47"/>
+<area shape="rect" title=" " alt="" coords="5,184,76,211"/>
+<area shape="rect" title=" " alt="" coords="101,184,167,211"/>
+<area shape="rect" title=" " alt="" coords="192,184,263,211"/>
+<area shape="rect" title=" " alt="" coords="365,102,436,129"/>
+<area shape="rect" href="lecture__csv_8h.html" title="Gestion et création des structures de données DataFrame à partir de fichiers CSV (en&#45;tête)." alt="" coords="223,102,341,129"/>
+<area shape="rect" title=" " alt="" coords="460,95,605,136"/>
+<area shape="rect" title=" " alt="" coords="287,184,362,211"/>
+<area shape="rect" title=" " alt="" coords="386,184,469,211"/>
+<area shape="rect" title=" " alt="" coords="493,184,557,211"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -104,8 +109,8 @@ Fonctions</h2></td></tr>
 <tr class="memitem:af9fda5f84d6ee91f48b88e93e0bb8731"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="verify__my__vote_8c.html#af9fda5f84d6ee91f48b88e93e0bb8731">getHash</a> (<a class="el" href="structDataFrame.html">DataFrame</a> *df_codes, char *num_etu, char *nom, char *prenom, char hash_res[SHA256_BLOCK_SIZE *2+1])</td></tr>
 <tr class="memdesc:af9fda5f84d6ee91f48b88e93e0bb8731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction de récupération du hash d'un vote à partir d'un nom, d'un prénom et d'un numéro d'étudiant.  <a href="verify__my__vote_8c.html#af9fda5f84d6ee91f48b88e93e0bb8731">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af9fda5f84d6ee91f48b88e93e0bb8731"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="verify__my__vote_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
-<tr class="memdesc:a0ddf1224851353fc92bfbff6f499fa97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction principale.  <a href="verify__my__vote_8c.html#a0ddf1224851353fc92bfbff6f499fa97">Plus de détails...</a><br /></td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top"><a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -169,45 +174,6 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 <p>Une fonction qui récupère le code personnel de l'électeur à partir de son numéro d'étudiant, puis qui crée le nom complet de l'électeur et le hash. </p>
-
-</div>
-</div>
-<a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int main </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fonction principale. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">argc</td><td>Nombre d'arguments. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">argv</td><td>Arguments. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>0 si tout s'est bien passé, 1 si le nombre d'arguments est incorrect, 2 si le numéro d'étudiant n'est pas un nombre.</dd></dl>
-<p>Une fonction qui récupère le nom, le prénom et le numéro d'étudiant, puis elle récupère le hash du vote correspondant. Enfin, elle vérifie si le hash est présent dans le fichier des résultats des votes. Si c'est le cas, elle affiche les détails du vote, sinon elle affiche un message d'erreur. </p>
 
 </div>
 </div>

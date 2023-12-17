@@ -1,0 +1,56 @@
+\hypertarget{uninominales_8c}{}\doxysection{Référence du fichier src/uninominales.c}
+\label{uninominales_8c}\index{src/uninominales.c@{src/uninominales.c}}
+
+
+Implémentation des méthodes de vote uninominales à un et deux tours, avec stockage des résultats dans une structure \mbox{\hyperlink{structVoteResult}{Vote\+Result}}.  
+
+
+{\ttfamily \#include \char`\"{}uninominales.\+h\char`\"{}}\newline
+Graphe des dépendances par inclusion de uninominales.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{uninominales_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{uninominales_8c_a43069f060c8ee1edf1afa107541030e2}{gagnant\+Uninominal\+Un\+Tour}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, int $\ast$nb\+Votes, char $\ast$column\+To\+Skip)
+\item 
+\mbox{\Hypertarget{uninominales_8c_a6d53e45e640c64e7a1707cb824938305}\label{uninominales_8c_a6d53e45e640c64e7a1707cb824938305}} 
+\mbox{\hyperlink{structVoteResult}{Vote\+Result}} {\bfseries vote\+Uninominal\+Un\+Tour} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, FILE $\ast$log, bool debug\+Mode, char $\ast$column\+To\+Skip)
+\item 
+char $\ast$ \mbox{\hyperlink{uninominales_8c_a1be06178d22005c1475c11227245fae6}{preference\+Candidat}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$first\+Candidate, char $\ast$second\+Candidate, int $\ast$nb\+Votes)
+\item 
+\mbox{\Hypertarget{uninominales_8c_a5e9821a82e2a8727d9ac431833864d7a}\label{uninominales_8c_a5e9821a82e2a8727d9ac431833864d7a}} 
+void {\bfseries vote\+Uninominal\+Deux\+Tours} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, FILE $\ast$log, bool debug\+Mode, \mbox{\hyperlink{structVoteResult}{Vote\+Result}} $\ast$first\+Tour\+First\+Candidate, \mbox{\hyperlink{structVoteResult}{Vote\+Result}} $\ast$first\+Tour\+Second\+Candidate, \mbox{\hyperlink{structVoteResult}{Vote\+Result}} $\ast$second\+Tour, bool $\ast$majorite)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implémentation des méthodes de vote uninominales à un et deux tours, avec stockage des résultats dans une structure \mbox{\hyperlink{structVoteResult}{Vote\+Result}}. 
+
+\begin{DoxyAuthor}{Auteur}
+Pigani Emanuele 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+31 octobre 2023
+\end{DoxyDate}
+Ce fichier contient l\textquotesingle{}implémentation des méthodes de vote uninominales à un et deux tours. Les résultats du vote sont stockés dans une structure \mbox{\hyperlink{structVoteResult}{Vote\+Result}}. 
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{uninominales_8c_a43069f060c8ee1edf1afa107541030e2}\label{uninominales_8c_a43069f060c8ee1edf1afa107541030e2}} 
+\index{uninominales.c@{uninominales.c}!gagnantUninominalUnTour@{gagnantUninominalUnTour}}
+\index{gagnantUninominalUnTour@{gagnantUninominalUnTour}!uninominales.c@{uninominales.c}}
+\doxysubsubsection{\texorpdfstring{gagnantUninominalUnTour()}{gagnantUninominalUnTour()}}
+{\footnotesize\ttfamily char$\ast$ gagnant\+Uninominal\+Un\+Tour (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{int $\ast$}]{nb\+Votes,  }\item[{char $\ast$}]{column\+To\+Skip }\end{DoxyParamCaption})}
+
+==================================================================================== \hypertarget{uninominales_8c_autotoc_md0}{}\doxysubsection{UNINOMINAL 1 TOUR}\label{uninominales_8c_autotoc_md0}
+\mbox{\Hypertarget{uninominales_8c_a1be06178d22005c1475c11227245fae6}\label{uninominales_8c_a1be06178d22005c1475c11227245fae6}} 
+\index{uninominales.c@{uninominales.c}!preferenceCandidat@{preferenceCandidat}}
+\index{preferenceCandidat@{preferenceCandidat}!uninominales.c@{uninominales.c}}
+\doxysubsubsection{\texorpdfstring{preferenceCandidat()}{preferenceCandidat()}}
+{\footnotesize\ttfamily char$\ast$ preference\+Candidat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{char $\ast$}]{first\+Candidate,  }\item[{char $\ast$}]{second\+Candidate,  }\item[{int $\ast$}]{nb\+Votes }\end{DoxyParamCaption})}
+
+==================================================================================== \hypertarget{uninominales_8c_autotoc_md1}{}\doxysubsection{UNINOMINAL 2 TOUR}\label{uninominales_8c_autotoc_md1}

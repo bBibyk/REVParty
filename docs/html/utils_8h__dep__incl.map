@@ -1,0 +1,11 @@
+<map id="src/utils.h" name="src/utils.h">
+<area shape="rect" id="node1" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="288,5,373,32"/>
+<area shape="rect" id="node2" href="$condorcet_8h.html" title="Gestion de méthodes de vote Condorcet selon plusieurs façons de résolution du cas d&#39;égalité." alt="" coords="35,80,157,107"/>
+<area shape="rect" id="node4" href="$main_8c.html" title="Analyse de la ligne de commande et appel de la fonction appropriée, gestion des sorties." alt="" coords="150,155,239,181"/>
+<area shape="rect" id="node5" href="$jugement__majoritaire_8h.html" title="Gestion de la méthode de jugement majoritaire." alt="" coords="231,80,430,107"/>
+<area shape="rect" id="node7" href="$uninominales_8h.html" title="Gestion des méthodes de vote uninominales à un et deux tours." alt="" coords="454,80,599,107"/>
+<area shape="rect" id="node9" href="$utils_8c.html" title="Fonctions et structures utiles pour les différents systèmes de votes." alt="" coords="623,80,707,107"/>
+<area shape="rect" id="node3" href="$condorcet_8c.html" title="Méthodes de vote Condorcet." alt="" coords="5,155,125,181"/>
+<area shape="rect" id="node6" href="$jugement__majoritaire_8c.html" title="Implémentation de la méthode de vote par jugement majoritaire, avec stockage des résultats dans une s..." alt="" coords="264,155,461,181"/>
+<area shape="rect" id="node8" href="$uninominales_8c.html" title="Implémentation des méthodes de vote uninominales à un et deux tours, avec stockage des résultats dans..." alt="" coords="485,155,629,181"/>
+</map>

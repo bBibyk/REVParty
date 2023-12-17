@@ -1,16 +1,10 @@
-\hypertarget{lecture__csv_8c}{}\doxysection{Référence du fichier lecture\+\_\+csv.\+c}
-\label{lecture__csv_8c}\index{lecture\_csv.c@{lecture\_csv.c}}
+\hypertarget{lecture__csv_8c}{}\doxysection{Référence du fichier src/lecture\+\_\+csv.c}
+\label{lecture__csv_8c}\index{src/lecture\_csv.c@{src/lecture\_csv.c}}
 
 
 Gestion et création des structures de données \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir de fichiers CSV.  
 
 
-{\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include $<$stdio.\+h$>$}\newline
-{\ttfamily \#include $<$string.\+h$>$}\newline
-{\ttfamily \#include $<$unistd.\+h$>$}\newline
-{\ttfamily \#include $<$stdbool.\+h$>$}\newline
-{\ttfamily \#include $<$time.\+h$>$}\newline
 {\ttfamily \#include \char`\"{}lecture\+\_\+csv.\+h\char`\"{}}\newline
 Graphe des dépendances par inclusion de lecture\+\_\+csv.\+c\+:\nopagebreak
 \begin{figure}[H]
@@ -56,6 +50,9 @@ static void \mbox{\hyperlink{lecture__csv_8c_a923a5228a40d07a22215cb344b46a34d}{
 \begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}allocation mémoire des colonnes d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir de ses métadonnées. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{lecture__csv_8c_ada9f638f478dc98dfdb38b7ed4859808}{next\+Row}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, FILE $\ast$fp, char delimiter, char $\ast$row, char $\ast$$\ast$data)
 \begin{DoxyCompactList}\small\item\em Fonction de mise à jour d\textquotesingle{}une ligne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{lecture__csv_8c_a9d11f776574f70af52d01b8acaabad9a}\label{lecture__csv_8c_a9d11f776574f70af52d01b8acaabad9a}} 
+static char $\ast$ {\bfseries substr} (char $\ast$str, int start, int end)
+\item 
 static void \mbox{\hyperlink{lecture__csv_8c_a7ffb6146ac38d306c9b168bed767443f}{add\+Columns\+Name}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$$\ast$data)
 \begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}ajout des noms des colonnes d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir d\textquotesingle{}un tableau de chaînes de caractères. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{lecture__csv_8c_affd64469810c5745cec3becddd5265e5}{alloc\+Data\+Mem}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$$\ast$data)
@@ -70,11 +67,12 @@ int \mbox{\hyperlink{lecture__csv_8c_acae7124de991d2f9694150acb9003e8d}{find\+Co
 \begin{DoxyCompactList}\small\item\em Fonction de recherche d\textquotesingle{}une colonne dans un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir de son nom. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{lecture__csv_8c_a20c82d207eb5a0d3d7a712d711d7a6fb}{is\+In}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$column\+\_\+name, char $\ast$value)
 \begin{DoxyCompactList}\small\item\em Fonction de recherche d\textquotesingle{}une valeur dans une colonne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir de son nom et de sa valeur (int, double ou string uniquement) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{lecture__csv_8c_a681ee19bad660ee70199f72b1a4e49c8}{get\+Columns\+Names}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$columns\+\_\+names\mbox{[}df-\/$>$num\+\_\+columns\mbox{]})
-\begin{DoxyCompactList}\small\item\em Fonction de récupération des noms des colonnes d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{lecture__csv_8c_aa2a7d57522f56f02c93b4a91259a2166}\label{lecture__csv_8c_aa2a7d57522f56f02c93b4a91259a2166}} 
+void {\bfseries get\+Columns\+Names} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$columns\+\_\+names\mbox{[}$\,$\mbox{]})
+\item 
 \mbox{\hyperlink{structColumn}{Column}} \mbox{\hyperlink{lecture__csv_8c_a9093ad128fd8fdf5a9954498a60fcb1b}{df\+Select}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$column\+\_\+name)
 \begin{DoxyCompactList}\small\item\em Fonction qui retourne une colonne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir de son nom. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structSeries}{Series}} \mbox{\hyperlink{lecture__csv_8c_ab3d287f43e7bcf8595803a2f10387837}{get\+Row}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$column\+\_\+name, char $\ast$value)
+\mbox{\hyperlink{structSeries}{Series}} \mbox{\hyperlink{lecture__csv_8c_a87b02fb2e32a6dd414b42ff5f9340ec9}{get\+Row}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$column\+\_\+name, char $\ast$value)
 \begin{DoxyCompactList}\small\item\em Fonction qui retourne une ligne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir d\textquotesingle{}une des valeurs de la ligne. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{lecture__csv_8c_a4aea6d3f0104c4f9e8f9ae5d152f23d7}{print\+Series}} (\mbox{\hyperlink{structSeries}{Series}} series)
 \begin{DoxyCompactList}\small\item\em Fonction d\textquotesingle{}affichage d\textquotesingle{}une \mbox{\hyperlink{structSeries}{Series}}. \end{DoxyCompactList}\item 
@@ -85,7 +83,9 @@ double \mbox{\hyperlink{lecture__csv_8c_a85c7d7e264e60501f1a3324f53ff2730}{selec
 time\+\_\+t \mbox{\hyperlink{lecture__csv_8c_a4732bbd81b92f058e8175b9f8246b540}{select\+Timestamp\+From\+Series}} (\mbox{\hyperlink{structSeries}{Series}} series, char $\ast$label)
 \begin{DoxyCompactList}\small\item\em Fonction de récupération d\textquotesingle{}une valeur TIMESTAMP d\textquotesingle{}une \mbox{\hyperlink{structSeries}{Series}} à partir de son label. \end{DoxyCompactList}\item 
 char $\ast$ \mbox{\hyperlink{lecture__csv_8c_ae9481d361c4a66f4b3b1c1d60b766731}{select\+String\+From\+Series}} (\mbox{\hyperlink{structSeries}{Series}} series, char $\ast$label)
-\begin{DoxyCompactList}\small\item\em Fonction de récupération d\textquotesingle{}une valeur STRING d\textquotesingle{}une \mbox{\hyperlink{structSeries}{Series}} à partir de son label. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Fonction de récupération d\textquotesingle{}une valeur STRING d\textquotesingle{}une \mbox{\hyperlink{structSeries}{Series}} à partir de son label. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lecture__csv_8c_ab74807c2c640626db18da2cc4cffd806}{delete\+Column}} (\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$df, char $\ast$column\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Fonction de suppression d\textquotesingle{}une colonne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir de son nom. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -221,7 +221,24 @@ Data\+Frame$\ast$
 \begin{DoxyReturn}{Renvoie}
 Pointeur vers le \mbox{\hyperlink{structDataFrame}{Data\+Frame}} créé.
 \end{DoxyReturn}
-Cette fonction crée un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir d\textquotesingle{}un fichier CSV situé au chemin spécifié. Elle alloue la mémoire nécessaire, lit les données depuis le fichier CSV et remplit le \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. En cas d\textquotesingle{}erreur, elle renvoie NULL. \mbox{\Hypertarget{lecture__csv_8c_a9093ad128fd8fdf5a9954498a60fcb1b}\label{lecture__csv_8c_a9093ad128fd8fdf5a9954498a60fcb1b}} 
+Cette fonction crée un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir d\textquotesingle{}un fichier CSV situé au chemin spécifié. Elle alloue la mémoire nécessaire, lit les données depuis le fichier CSV et remplit le \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. En cas d\textquotesingle{}erreur, elle renvoie NULL. \mbox{\Hypertarget{lecture__csv_8c_ab74807c2c640626db18da2cc4cffd806}\label{lecture__csv_8c_ab74807c2c640626db18da2cc4cffd806}} 
+\index{lecture\_csv.c@{lecture\_csv.c}!deleteColumn@{deleteColumn}}
+\index{deleteColumn@{deleteColumn}!lecture\_csv.c@{lecture\_csv.c}}
+\doxysubsubsection{\texorpdfstring{deleteColumn()}{deleteColumn()}}
+{\footnotesize\ttfamily void delete\+Column (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{char $\ast$}]{column\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Fonction de suppression d\textquotesingle{}une colonne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} à partir de son nom. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in,out}}  & {\em df} & \\
+\hline
+\mbox{\texttt{ in}}  & {\em column\+\_\+name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lecture__csv_8c_a9093ad128fd8fdf5a9954498a60fcb1b}\label{lecture__csv_8c_a9093ad128fd8fdf5a9954498a60fcb1b}} 
 \index{lecture\_csv.c@{lecture\_csv.c}!dfSelect@{dfSelect}}
 \index{dfSelect@{dfSelect}!lecture\_csv.c@{lecture\_csv.c}}
 \doxysubsubsection{\texorpdfstring{dfSelect()}{dfSelect()}}
@@ -341,28 +358,7 @@ Fonction de récupération de l\textquotesingle{}index d\textquotesingle{}une co
 \begin{DoxyReturn}{Renvoie}
 Index de la colonne
 \end{DoxyReturn}
-Cette fonction permet de récupérer l\textquotesingle{}index d\textquotesingle{}une colonne à partir de son nom. Si la colonne n\textquotesingle{}existe pas, la fonction retourne -\/1. \mbox{\Hypertarget{lecture__csv_8c_a681ee19bad660ee70199f72b1a4e49c8}\label{lecture__csv_8c_a681ee19bad660ee70199f72b1a4e49c8}} 
-\index{lecture\_csv.c@{lecture\_csv.c}!getColumnsNames@{getColumnsNames}}
-\index{getColumnsNames@{getColumnsNames}!lecture\_csv.c@{lecture\_csv.c}}
-\doxysubsubsection{\texorpdfstring{getColumnsNames()}{getColumnsNames()}}
-{\footnotesize\ttfamily void get\+Columns\+Names (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{char $\ast$}]{columns\+\_\+names\mbox{[}df-\/$>$num\+\_\+columns\mbox{]} }\end{DoxyParamCaption})}
-
-
-
-Fonction de récupération des noms des colonnes d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}}. 
-
-
-\begin{DoxyParams}[1]{Paramètres}
-\mbox{\texttt{ in}}  & {\em df} & src \\
-\hline
-\mbox{\texttt{ out}}  & {\em columns\+\_\+names} & dest\\
-\hline
-\mbox{\texttt{ in}}  & {\em df} & Pointeur vers le \mbox{\hyperlink{structDataFrame}{Data\+Frame}} dont on veut récupérer les noms de colonnes. \\
-\hline
-\mbox{\texttt{ out}}  & {\em columns\+\_\+names} & Tableau de chaînes de caractères dans lequel stocker les noms de colonnes.\\
-\hline
-\end{DoxyParams}
-Cette fonction récupère les noms des colonnes d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} et les stocke dans un tableau de chaînes de caractères. \mbox{\Hypertarget{lecture__csv_8c_afeb8939a4598f77bc78ebe46a071f9a9}\label{lecture__csv_8c_afeb8939a4598f77bc78ebe46a071f9a9}} 
+Cette fonction permet de récupérer l\textquotesingle{}index d\textquotesingle{}une colonne à partir de son nom. Si la colonne n\textquotesingle{}existe pas, la fonction retourne -\/1. \mbox{\Hypertarget{lecture__csv_8c_afeb8939a4598f77bc78ebe46a071f9a9}\label{lecture__csv_8c_afeb8939a4598f77bc78ebe46a071f9a9}} 
 \index{lecture\_csv.c@{lecture\_csv.c}!getColumnsType@{getColumnsType}}
 \index{getColumnsType@{getColumnsType}!lecture\_csv.c@{lecture\_csv.c}}
 \doxysubsubsection{\texorpdfstring{getColumnsType()}{getColumnsType()}}
@@ -458,11 +454,11 @@ Fonction de comptage du nombre de lignes d\textquotesingle{}un fichier CSV.
 \begin{DoxyReturn}{Renvoie}
 Nombre de lignes du fichier 
 \end{DoxyReturn}
-\mbox{\Hypertarget{lecture__csv_8c_ab3d287f43e7bcf8595803a2f10387837}\label{lecture__csv_8c_ab3d287f43e7bcf8595803a2f10387837}} 
+\mbox{\Hypertarget{lecture__csv_8c_a87b02fb2e32a6dd414b42ff5f9340ec9}\label{lecture__csv_8c_a87b02fb2e32a6dd414b42ff5f9340ec9}} 
 \index{lecture\_csv.c@{lecture\_csv.c}!getRow@{getRow}}
 \index{getRow@{getRow}!lecture\_csv.c@{lecture\_csv.c}}
 \doxysubsubsection{\texorpdfstring{getRow()}{getRow()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structDataFrame}{Data\+Frame}} get\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{char $\ast$}]{column\+\_\+name,  }\item[{char $\ast$}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSeries}{Series}} get\+Row (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structDataFrame}{Data\+Frame}} $\ast$}]{df,  }\item[{char $\ast$}]{column\+\_\+name,  }\item[{char $\ast$}]{value }\end{DoxyParamCaption})}
 
 
 
@@ -492,7 +488,7 @@ Fonction de récupération d\textquotesingle{}une ligne dans un \mbox{\hyperlink
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-\mbox{\hyperlink{structDataFrame}{Data\+Frame}} contenant la ligne trouvée.
+\mbox{\hyperlink{structSeries}{Series}} contenant la ligne trouvée.
 \end{DoxyReturn}
 Cette fonction recherche une valeur donnée dans une colonne d\textquotesingle{}un \mbox{\hyperlink{structDataFrame}{Data\+Frame}} et renvoie la ligne correspondante sous la forme d\textquotesingle{}une \mbox{\hyperlink{structSeries}{Series}}. \mbox{\Hypertarget{lecture__csv_8c_a89ca53475041097ad14436eae09ab496}\label{lecture__csv_8c_a89ca53475041097ad14436eae09ab496}} 
 \index{lecture\_csv.c@{lecture\_csv.c}!getRowElem@{getRowElem}}
